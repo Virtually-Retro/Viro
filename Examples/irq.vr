@@ -26,7 +26,7 @@ mainloop:
 	time.reset const_timer2
 	timer2NotExpired:
 	
-	in key.input_buffer
+	in key.code
 	jsrnz checkKeys
 				
 	jp mainloop
@@ -38,11 +38,11 @@ exit:
 checkKeys:
 	push a
 	
-	in key.input_buffer
+	in key.code
 	cmp #32
 	jsrz killirq
 	
-	in key.input_buffer
+	in key.code
 	cmp const_KeyHome
 	jsrz startirq
 	
@@ -100,10 +100,10 @@ _irq_subroutine:
 	pop a
 	rti</source>
 <mem>1024</mem>
-<row>26</row>
+<row>44</row>
 <col>1</col>
 <hash></hash>
-<scroll>11</scroll>
+<scroll>27</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>
