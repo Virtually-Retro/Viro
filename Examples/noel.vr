@@ -1,17 +1,48 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCHACAPCJACAPCKMONACA
-PCvuOOON\_	vuvuO _Qvu
-Q_
-vuN_vuu3
-_vu_vuu
-vuIK\_vuuN_vu3_vu_vvuE3vuN_vuvuOOON\_vuuN_vuO\_vuu_
-vuE3
-uuO <_QvuuvuON\_vuuQ_
-vuJ\_vuvuQvuvuE u>_)__S+_,_3_-_1DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Noels Retro Lab Speed Test, in Viro Assembly
+_start:
+	
+	sys.ignorelocal
+	
+	lda #5
+	out sys.performance
+
+	lda #10
+	stc
+
+	time.reset Const_timer0
+
+outerLoop:
+	push c
+
+	lda #0
+	sta r1
+
+	lda #1000
+	stc
+	lda r1
+	innerLoop:
+		add c
+	lp innerLoop
+	sta r1
+
+	lda #46
+	out
+
+	pop c
+	lp outerLoop
+
+	lda r1
+	out text.number
+	time.get const_timer0
+	
+	div #1000
+	</source>
+<mem>1024</mem>
+<row>7</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

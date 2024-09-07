@@ -1,32 +1,91 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCMACAPCACAPCMNACAPCGMACAPCKMONACA
-PCM_vuE
-1uuLNSNNSHSJSLSM_vuE
-uuvuO <_QvuEuu3_vuu_vuOON\_vuu
-1_vuvu
-1_vuE/uu
-vuML\_vu
-Q_
-vu
-1_vuEuvu3_vuu/_vu_vu
-1_vuu_vuN\_vu_vuE3uuvuvu
-1_vuu_vuLN\_vu
-_vuu_vuNN\_vu
-_vuu_vuH\_vu
-_vuu_vuJ\_vu
-_vuu_vuL\_vu
-_vuu_vuM\_vu
-_vuE
-:uu_vu
-_Qvu
-\_vuu
-:_vuLN\_vu
-_vuE3uvvvvvuO _QvuvvuQ_
-vuJ\_vuvuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+	
+	lda #5
+	out sys.performance
+		
+	time.reset const_timer0
+					
+mainLoop:
+	lda maxnumber
+	cmp #13
+	jl skipExcludes
+
+	lda #excludes
+	mb.has maxnumber
+	jz prime
+
+skipExcludes:
+	lda maxnumber
+	mod #2
+	jz notprime
+
+	lda maxnumber
+	mod #3
+	jz notprime
+
+	lda maxnumber
+	mod #5
+	jz notprime
+
+	lda maxnumber
+	mod #7
+	jz notprime
+
+	lda maxnumber
+	mod #11
+	jz notprime
+
+	lda maxnumber
+	mod #13
+	jz notprime
+
+	lda maxNumber
+	dec
+	stc
+
+calcLoop:
+	lda c
+	cmp #1
+	jz prime
+
+	lda maxNumber
+	mod c
+	jz notPrime
+
+	lp calcLoop
+	
+prime:
+	lda maxNumber
+	out text.number
+	lda #32
+	out
+
+notPrime:
+	lda maxNumber
+	inc
+	sta maxNumber
+
+	cmp #100
+	jlz exit
+
+	jp mainLoop
+
+exit:
+	time.get Const_timer0
+	brk
+
+excludes:
+	data 2,3,5,7,11,13
+
+maxNumber:
+	data 2</source>
+<mem>1024</mem>
+<row>28</row>
+<col>12</col>
+<hash></hash>
+<scroll>2</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
