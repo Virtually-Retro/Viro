@@ -1,15 +1,23 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCNACAPCMNACAPCKMONACA
-PCvuOSOSONSFSGSHSISJSKSLSMSN_vuE
-uuvuvvu
-Q_
-vuvu
-Qvu
-\_vuuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+
+	lda #sumdata
+	mb.sum
+	
+	out text.number
+				
+	brk
+
+sumdata:
+	data 1,2,3,4,5,6,7,8,9,10,0,0
+	
+	</source>
+<mem>1024</mem>
+<row>7</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

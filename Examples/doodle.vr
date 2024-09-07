@@ -1,55 +1,111 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCFJACAPCACAPCOACAPCOHACAPCKMONACA
-PCuuvu_vuvuQvu
-Q_
-vu= _vuvvuQ_
-vu  _vuvvvu_
-vuE
-uuvu_vuQ_
-vu _vuQ_
-vuQ
-_vuQ_
-vuQ
-_vu_
-vuE
-uuvu_vu 
-Q
-_
-vuO\_vu_
-__<DvuuQ_
-vu- _vu__Dvu_
-vuE
-
-uuvu_vu
-Q_
-vuvuLI\_vu_
-vuE uuuQvuEuuu_vuvuE
-/vuuvuvu
-/_vuN\_vu 
-Q
-_vuu
-/_vuN\_vu 
-Q
-_vuvu_
-vuE
-uuvuEuu_uu_vu _vuvuu _vuFF\_vu
- 
-Q_vuu_vuML\_vu
- 
-Q_vuu
-_vuuEvuvu
-
-_vu
-_vuN\_vu 
-Q
-_vuu_vuN\_vu 
-Q
-_vuEu_u
-_vuE u_DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;doodle program
+_start:
+	jsr setup
+ 
+mainloop:
+	in mouse.button_clicked
+	cmp #1
+	jnz skipdraw
+
+	in mouse.button_down
+	cmp #1
+	jsrz mousedown
+	jsrnz mouseup
+	
+	skipdraw:
+
+	jsr pause
+
+	in key.code
+	cmp #32
+	jsrz clearscreen
+
+	in key.code
+	cmp #99
+	jsrz change_color
+
+	in
+	cmp const_keyend
+	jz exit
+
+jp mainloop
+
+exit:
+	brk
+
+pause:
+	push a
+	
+	in mouse.button_clicked
+	cmp #1
+	jz skipPause
+
+	in mouse.button_down
+	cmp #1
+	jz skipPause
+	
+	hlt
+
+	skipPause:
+	
+	pop a
+rts
+
+clearscreen:
+	screen.clear
+rts
+
+change_color:
+	push a
+	lda #63
+	rnd
+	out color.foreground
+	pop a
+	rts
+
+mouseup:
+	push a
+	;finalise the lineto
+	lda const_glinetoReset
+	out graphics.draw
+
+	;Clear the mouse click
+	lda #0
+	out mouse.button_clicked
+	pop a
+	rts
+
+mousedown:
+	push a
+	in mouse.x
+	out graphics.data
+	in mouse.y
+	out graphics.data
+	lda const_glineto
+	out graphics.draw
+	pop a
+	rts
+
+setup:
+	push a
+			
+	lda const_highres_mode
+	out screen.mode
+		
+	lda const_cBlack
+	out color.background
+	screen.clear
+	
+	pop a
+	rts
+
+</source>
+<mem>1024</mem>
+<row>22</row>
+<col>12</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

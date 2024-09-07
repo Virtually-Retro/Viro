@@ -1,21 +1,54 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCHACAPCLACAPCKMONACA
-PCvu_vu
-vuML\_vuvuKF\_vu_
-vuEuvuvu_vu
-vuML\_vu_
-vuEuuvuuv_vu_vu_vuvuN\_vuvu
-Q_
-vuvuLI\_vuvvuEuuvuOOMN\_vuvvu 
-Q_
-vu_vuuQvu
-Q_
-vu= _vuvuQ_
-vuJ\_vuvuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+	
+	lda #5
+	out sys.performance
+	
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda false
+	out text.auto_scroll
+		
+	lda #1200
+	stc
+
+loop:
+		
+	lda #63
+	rnd
+	out color.foreground
+	
+	lda #1
+	rnd
+	jsrnz space
+	jsrz chars
+	lp loop	
+
+	brk
+
+space:
+	push a
+	lda #32
+	out
+	pop a
+	rts
+	
+chars:
+	push a
+	lda #94
+	rnd
+	add #32
+	out
+	pop a
+	rts</source>
+<mem>1024</mem>
+<row>3</row>
+<col>7</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

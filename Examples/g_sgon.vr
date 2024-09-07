@@ -1,21 +1,53 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCNMACAPCKNACAPCKMONACA
-PCONSONRSONSONSONRSONSONRSONR_vuEuuvuu_vuuQ_
-vu _vuuQ_
-vuvuK\_vuuQ_
-vuvuOIL\_vuuQ_
-vu\_vuuQ_
-vuvuOGK\_vuvuQ_
-vuvuOKI\_vuu
-Q_
-vuvuLI\_vuEuuvuOON\_vuuQvu
-Q_
-vu= _vuuQ_
-vu  _vuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_highres_mode
+	out screen.mode
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #100
+	stc
+
+loop:
+	lda #63
+	rnd
+	out color.foreground
+
+	lda #640
+	rnd
+	out graphics.data
+	
+	lda #480
+	rnd
+	out graphics.data
+
+	lda #ngondata
+	out graphics.data
+
+	lda #360
+	rnd
+	out graphics.data
+
+	lda #4
+	rnd
+	out graphics.data
+
+	lda const_gsgon
+	out graphics.draw
+
+	lp loop
+
+	brk
+
+ngondata:
+	data -10,-10,10,-10,10,10,-10,10</source>
+<mem>1024</mem>
+<row>14</row>
+<col>21</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

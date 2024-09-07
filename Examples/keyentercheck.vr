@@ -1,34 +1,87 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCLACAPCKNACAPCKMONACA
-PCONSLLSLLSNONSJNNSNNNSGONSMLSHNNSNNNSFGSON_vuEuONSLLSLLSKONSFFSINNSHFSHHSMLSNMNSNONSKONSKGSON_vuEuJ_vuE
-)
-uNNNSGONSGONSNONSKON_vuE
-)uu	Duuvuvuvu_vuQ_
-vu\_vu_
-vuEuvuvu_vuQ_
-vu\_vu_
-vuEuvuvuvu_vuu
-_____+D_vu
-vuON\_vuvvuQQvuQvu
-)
-\_vuu_vu_vuuO_vu
-)
-\_Qvu
-)\_vuuQvu
-)
-\_vuvu_
-vuE)uvuvuvuEuuvu_vuuvuEuvvu
-vu
-)
-\_Qvu_vuvuvvu_vu:4 _vu
- 
-Q_vuu	_vu:4 _vu
- 
-Q_vuEuuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+
+mainloop:
+	in key.code
+	cmp const_KeyEnter
+	jsrz checkvals
+
+	in key.code
+	cmp const_KeyEnd
+	jz exit
+		
+	in
+	jz skip
+	mb.write #inputValue
+	out
+		
+skip:
+	hlt
+
+	jp mainloop
+	
+
+exit:
+	brk
+	
+	
+checkVals:
+	push a
+	
+	lda #inputValue
+	mb.lowercase
+
+	lda #checkValue
+	mb.compare #inputValue
+	sta r0
+
+	jsrz match
+	jsrnz nomatch
+
+	lda #inputValue
+	mb.clear
+	mb.reset.pointer
+		
+	lda #10
+	out
+	in ;To clear the key board buffer
+
+	pop a
+	rts
+	
+	
+match:
+	push a
+	lda #win
+	out text.string
+	pop a
+	rts
+	
+nomatch:
+	push a
+	lda #lose
+	out text.string
+	pop a
+	rts
+	
+	brk
+
+;variables
+
+checkValue:
+	data 104,101,108,108,111
+inputValue:
+	mb 5
+win:
+	data 10,84,104,101,121,32,77,97,116,99,104,33,33,10
+lose:
+	data 10,89,111,117,32,108,111,115,101,33,33,10</source>
+<mem>1024</mem>
+<row>8</row>
+<col>12</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

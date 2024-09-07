@@ -1,27 +1,80 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCNNACAPCACAPCLMACAPCHNACAPCKMONACA
-PCO_vuE	uNOQO_vuE	uN_vuE	uO_vuEuvuvuvu_uvuvu	_vuNOOQO\_
-vu	_vuvu
-_vu_vuvu	_vuvu	_vuvuQ_
-vu* _vuvu_vuu;Q_
-vu+3 _vu;Q_
-vu_vu;Q_
-vu_vuvu_vuOKM\_vu	_
-vuvu	_vu_
-vu	_
-vuQ_
-vuM\_vuEuvuOKI\_vuuQvuvu;Q_
-vu-+3 _vuvu_
-vuE
-uvuOON\_vuu
- 
-Q_
-vu_vuvu	_vuO\_vuuEuuQ_
-vu  _vuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_highres_mode
+	out screen.mode
+
+loopstart:
+
+	lda #0
+	sta av
+	
+	lda false
+	out screen.auto_update
+
+	lda #100
+	stc
+outerloop:
+	push c
+	
+	lda const_gLineToReset
+	out graphics.Draw
+	
+	screen.clear
+
+	lda #640
+	stc
+loop:
+	lda #2
+	mul maths.pi
+	mul fv
+	mul c
+	add bv
+	sin
+	mul av
+	add #240
+	sta y
+	
+	lda c
+	out graphics.Data
+	lda y
+	out graphics.Data
+	lda const_gLineTo
+	out graphics.Draw
+
+	lp loop
+	
+	lda const_gUpdate
+	out graphics.draw
+	
+	lda av
+	inc
+	sta av
+	
+	pop c
+	lp outerloop
+	
+	lda fv
+	sub #0.001
+	sta fv
+	
+	
+jp loopstart
+	
+	brk
+	
+y:
+	data 0
+av:
+	data 1
+fv:
+	data 0.01
+bv:
+	data 0</source>
+<mem>1024</mem>
+<row>17</row>
+<col>23</col>
+<hash></hash>
+<scroll>11</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

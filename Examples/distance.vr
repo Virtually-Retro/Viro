@@ -1,62 +1,129 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCFMACAPCACAPCJACAPCFKACAPCKMONACA
-PCuvuvuOSMLSOONSHFSNONSGI_vuEuvuvuvuvuvvu
-Q_
-vuO_vuvuQ_
-vu< _vuQ_
-vuJ\_vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuuQ_
-vu3 _vuQ_
-vuOMN\_vuQ_
-vuOHN\_vuQ_
-vuOMN\_vuQ_
-vuOJN\_vuvuQ_
-vu3 _vuQ_
-vuOLN\_vuQ_
-vuOIN\_vuQ_
-vuONN\_vuQ_
-vuOIN\_vuvvu
-Q_
-vu( _vuvuvuQ_
-vu3 _vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuQ_
-vuOMN\_vuQ_
-vuOIN\_vuvu
-Q_
-vu _vuvuE,uvuvuvu3_vuvuQvuvu
-20( _vuvvuEuvvvvvu,_vuvu 
-Q
-_
-vuO\_vuvvvuEuvuvvuQ_
-vu\_vuvu_vuvuQ_
-vu  _vuQ_
-vu%_;D_ON\_vuQ_
-vuOQOMN\_vuQ_
-vuOQOIN\_vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuvvvuO_vuv
-vuQ_
-vu  _vuQ_
-vuOQOMN\_vuQ_
-vuOQOIN\_vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuu_vu 
-Q
-_vuE3uvuQvuvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	
+	sys.ignorelocal
+	
+mainLoop:
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out maths.data
+	in mouse.y
+	out maths.data
+	lda #160.0
+	out maths.data
+	lda #120.0
+	out maths.data
+	lda const_maths_distanceto
+	out maths.calc
+	round	
+	sta r0
+			
+	in mouse.x
+	out maths.data
+	in mouse.y
+	out maths.data
+	lda #160.0
+	out maths.data
+	lda #120.0
+	out maths.data
+	lda #10 ;Death Zone
+	out maths.data
+	lda const_maths_distancecollider
+	out maths.calc
+	
+	jnz skipdc
+	
+	lda #message
+	out text.string
+		
+	
+skipdc:
+			
+	lda #0
+	out mouse.button_clicked
+	
+	jsr drawScreen
+					
+skip:
+		
+	hlt const_WakeOnMouse
+	
+	screen.clear
+	
+	jp mainLoop
+	
+	
+	
+drawScreen:
+	
+	lda const_clightgray
+	out color.foreground
+	
+	lda #160
+	out graphics.data
+	lda #120
+	out graphics.data
+	in mouse.x
+	out graphics.data
+	in mouse.y
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+	
+	
+	lda const_cWhite
+	out color.foreground
+		
+	lda #160
+	out graphics.data
+	lda #110
+	out graphics.data
+	lda #160
+	out graphics.data
+	lda #130
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+	
+	lda #150
+	out graphics.data
+	lda #120
+	out graphics.data
+	lda #170
+	out graphics.data
+	lda #120
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+
+	in mouse.x
+	out graphics.data
+	in mouse.y
+	out graphics.data
+	lda #5
+	out graphics.data
+	lda const_gCircle
+	out graphics.draw
+	
+	lda r0
+	out text.number
+		
+	rts
+	
+	brk
+	
+message:
+	data 68,101,97,100,32,0
+	
+	
+</source>
+<mem>1024</mem>
+<row>49</row>
+<col>5</col>
+<hash></hash>
+<scroll>29</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

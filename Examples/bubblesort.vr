@@ -1,28 +1,112 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCNLACAPCACAPCGACAPCFKACAPCKMONACA
-PCOISOFSONSOMSOGSOLSOKSOHSOJSOON_vuEuO_vuE	
-uO_vuE	uO_vuEu)DuuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuuvu_vuvu
-vu
-vuON\_vuvu3_vu
-vuML\_vu	_vuvu	_vu
-Q_
-vu"	$_vuE3uvuON\_vuvu	_vu\_vuvu_
-vuE;uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuvuu,_vu_vuu3_vuvu	
-_vuvu	
-_vu	_vuvu	_vuE9uvu_vu
-_vuvu"	
-$_vuO_vu"	$_vu"	
-$_vuO_vu"	$_vuvu9_vu"	
-$_vu"	$_vuE3uvuF\_vuu	
-_vuvu	_vu;\_vuu_vu_vuE,uvu
-vuE,
-uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuEuuO _Qvuu;_vu,
-_vu;_vuuQvuE u_
-=DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Bubblesort test
+_start:
+	sys.ignorelocal
+
+	jsr printData
+	jsr bubbleSort
+	jsr printData
+
+	time.get const_timer0
+
+exit:
+	brk
+
+
+;------------------------
+
+bubbleSort:
+	pusha
+	
+sortStart:
+	lda false
+	sta flip
+
+	lda #sortData
+	sta lvp
+	inc
+	sta uvp
+
+	lda #9
+	stc
+sortLoop:
+	lda [lvp]
+	cmp [uvp]
+	jgz skipFlip
+	
+	lda [lvp]
+	sta r0
+	lda [uvp]
+	sta [lvp]
+	lda r0
+	sta [uvp]
+	
+	lda true
+	sta flip
+	
+skipFlip:
+	lda lvp
+	inc
+	sta lvp
+	lda uvp
+	inc
+	sta uvp
+	
+	lp sortLoop
+
+	lda flip
+	jnz sortStart
+
+	popa
+	rts
+
+
+;------------------------
+
+printData:
+	push a
+	
+	lda #sortdata
+	sta lvp
+	
+	lda #10
+	stc
+printLoop:
+	lda [lvp]
+	out text.number
+	lda lvp
+	inc
+	sta lvp
+	lda #32
+	out
+	lp printLoop
+	
+	lda #10
+	out
+	out
+	
+	pop a
+	rts
+
+	brk
+
+
+;------------------------
+
+;Variables
+flip:
+	data 0
+lvp:
+	data 0
+uvp:
+	data 0
+sortdata:
+	data 100,50,70,40,30,80,20,10,90,60</source>
+<mem>1024</mem>
+<row>49</row>
+<col>8</col>
+<hash></hash>
+<scroll>31</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,12 +1,30 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCIACAPCOMACAPCKMONACA
-PC
-vuO_	vuOOOOOON\_vuO_vuvuOOON\_	vuO _Qvuvu_vuuEuvvuO _QvuvvuvuOOOOOON\_vuvuQ_
-vuOON\_vuuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+
+	lda #100
+	out sys.performance
+	
+	lda #1000000
+	stc
+		
+	time.reset const_timer0
+		
+loop:
+
+	lp loop
+	
+	time.get const_timer0
+	div #1000
+	
+	sta r0
+	lda #1000000
+	div r0
+	round</source>
+<mem>1024</mem>
+<row>20</row>
+<col>6</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,18 +1,32 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCNACAPCMMACAPCKMONACA
-PCvu
- 	Q_
-vuK\_vuvuQvuvuQ_
-vu
-=< _vuQ_
-vuK\_vuvu_vu
-vuvuN\_vuEuuvuOOMN\_vuvu 
-Q_
-vu_vuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	lda false
+	out text.auto_scroll
+	
+	lda #1200
+	stc
+
+loop:
+	lda #1
+	rnd
+	out
+	lp loop
+	
+	lda #4
+	out graphics.data
+	lda const_gCopyBuffer
+	out graphics.draw
+	
+	screen.clear
+	
+	lda #4
+	out screen.active_buffer
+	</source>
+<mem>1024</mem>
+<row>22</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

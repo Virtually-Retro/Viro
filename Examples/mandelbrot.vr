@@ -1,38 +1,170 @@
-A
-PCA
-CAPC
-ACA
-
-PCA
-
-CAPCNMNACAPCACAPCKACAPCJLNACAPCKMONACA
-PCO_vuEuO_vuEuLI_vuEuO_vuEuO_vuEuO_vuEuO_vuE uO_vuE uO_vuE uOGK_vuEuOKI_vuEu)DuuvuvvuvuO_vuOOON\_	vuO _Qvuu _u_vuvvu;Q_
-vu* _vuvvvu_vuvu_vu_Dvuvu_vuO\_vuvu _vuvvu_vvuvvu_vvu_DvvuvvvuE/vvuvu;Q_
-vvu/ _vvu;Q_
-vvu_vvu;Q_
-vvu_vvuE/vvuvvuN_vvu
-Q_
-vvu_vvu____,Dvvuvvu/_vvu_vvuN_vvuvvv_____<DvvuvvvuEvvuvu
-_vvuvvu/_vvvu_vvvu_vvvuvvvu_vvvuK\_vvvuvvvu_vvvu_
-vvvu_vvvuvvvu_vvvu_
-vvvu_vvvuvu_vvvuvvvu_vvvuvvvu_vvvu _vvvuvvvu_vvvu _vvvu_
-vvvu_
-vvvuM\_vvvuvvvu _vvvu _vvvu_
-vvvu_
-vvvu_vvvu_vvvu_
-vvvu_vvvuvvuE3
-vvuvu_vvu_vvu_vvuO\_vvuvvvu _vvu_	vvuOQK\_
-vvu_
-vvuOQM\_	vvu_vvuvvu _vvu_	vvuOQK\_
-vvu_
-vvuOQM\_	vvu_vvuvvvvuE vuvu_vuvvu_
-vuE uvuvu_vuvuO _QvuvuQvuvvu
- 
-Q_
-vu_vuvu
-Q_
-vu= _vuvuQ_
-vu  _vuvuQ_
-vuOON\_vuuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+
+	lda #100
+	out sys.performance
+	
+	lda const_highres_mode
+	out screen.mode
+	
+	lda const_cBlack
+	out color.background
+	
+	lda false
+	out screen.auto_update
+		
+	screen.clear
+	
+	time.reset const_timer0
+	
+	lda height
+	stc
+	
+y_loop:
+	push c
+		
+	lda width
+	stc
+	x_loop:
+				
+		lda width
+		div #2.0
+		sub col
+		mul #4.0
+		div width
+		sta c_re
+		
+		lda height
+		div #2.0
+		sub row
+		mul #4.0
+		div width
+		sta c_im
+			
+		lda #0
+		sta x
+		sta y
+		sta iteration
+	
+		computeLoop:
+		
+			lda y
+			mul y
+			sta b
+			lda x
+			mul x
+			sub b
+			add c_re
+			sta x_new
+			
+			lda #2
+			mul x
+			mul y
+			add c_im
+			sta y
+			
+			lda x_new
+			sta x
+			
+			lda iteration
+			inc
+			sta iteration
+	
+			lda x
+			mul x
+			sta b
+			
+			lda y
+			mul y
+			add b
+			
+			cmp #4
+			jl plot
+			
+			lda max
+			cmp iteration
+			jgz skipPlot
+		
+		jp computeloop
+	
+		plot:
+			
+		;Check for same color already set			
+		lda r1
+		cmp iteration
+		jz plotPixel
+		
+		;Set and store changed color
+		lda iteration
+		out color.foreground
+		sta r1
+		
+		plotPixel:
+		lda col
+		out graphics.Data
+		lda row
+		out graphics.Data
+		lda const_gPixel
+		out graphics.Draw
+	
+		skipPlot:
+			
+		;increment col
+		lda col
+		inc
+		sta col
+		
+	lp x_loop
+	
+	lda #0
+	sta col
+	
+	;increment row
+	lda row
+	inc
+	sta row
+			
+	lda const_gUpdate
+	out graphics.Draw
+		
+	pop c
+lp y_loop
+
+	time.get const_timer0
+	div #1000
+	sta r0
+	
+	hlt	
+	brk
+
+;Variables
+width:
+	data 640
+height:
+	data 480
+x_new:
+	data 0
+c_re:
+	data 0
+c_im:
+	data 0
+x:
+	data 0
+y:
+	data 0
+iteration:
+	data 0
+max:
+	data 63
+row:
+	data 0
+col:
+	data 0</source>
+<mem>1024</mem>
+<row>135</row>
+<col>4</col>
+<hash></hash>
+<scroll>121</scroll>
+<autorun>false</autorun>
+<exmode>true</exmode>
+<fullscreen>false</fullscreen>

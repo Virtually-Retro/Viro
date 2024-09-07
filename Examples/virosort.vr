@@ -1,23 +1,93 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCFACAPCACAPCLACAPCIMACAPCKMONACA
-PCOON_vuEuu)DuuRRRRRRRRRRRRRRRRRRRRRRRRDuuvu_vuu3_vuu;\_QvuvuOON\_vuuEuvuOON\_vuu_
-vuE
-=uuRRRRRRRRRRRRRRRRRRRRRRRRDuuvuuvu_vuvu
-vu
-vuON\_vuvu3_vuvu
-vuML\_vu
-Q_
-vu\_QvuvuE3uvuOON\_vuvuQQvu\_vuvu_
-vuE;uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvu_vuu> _Qvu;\_vuvu_
-vuE,
-uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuEuu;_vuvuO _Qvu,
-_vuO _Qvuvu;_vu
-_vuuQ_
-vuJ\_vuuQvuE u_,_)DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Viro Sort test
+_start:
+	sys.ignorelocal
+
+	lda #5
+	out sys.performance
+
+	jsr fillbuffer
+	jsr printData
+	
+	time.reset const_timer0
+	jsr bubbleSort
+	time.get const_timer0
+	
+	jsr printData
+
+exit:
+	brk
+
+
+;------------------------
+
+bubbleSort:
+	push a
+	
+	lda #sortData
+	mb.sort const_sortAscending
+
+	pop a
+	rts
+
+
+;------------------------
+
+printData:
+	push a
+	
+	lda #sortdata
+	mb.reset.pointer
+	
+	lda #100
+	stc
+printLoop:
+	
+	mb.read #sortdata
+	out text.number
+	lda #32
+	out
+	
+	lp printLoop
+	
+	lda #10
+	out
+	out
+	
+	pop a
+	rts
+
+	brk
+
+;------------------------
+
+fillBuffer:
+	push a
+
+	lda #100
+	stc
+fillloop:
+
+	lda #100
+	rnd
+	mb.write #sortData
+
+	lp fillLoop
+
+	pop a
+	rts
+
+;------------------------
+
+;Variables
+
+sortdata:
+	mb 100</source>
+<mem>1024</mem>
+<row>26</row>
+<col>3</col>
+<hash></hash>
+<scroll>9</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

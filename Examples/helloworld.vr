@@ -1,11 +1,29 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCJACAPCJNACAPCKMONACA
-PCOSLLSLLSGISIHSMGSFHSHGSMLSFHSIHSIHSFISMH_vuEuuvuEuu,_vu_vuvu_vu
-vu_vu"$_vuE,uu_vu\_vuuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+
+	lda #message
+	sta b
+
+loopStart:
+	lda [b]
+	jz exit
+	out
+	lda b
+	inc
+	sta b
+	jp loopStart
+
+exit:
+	brk
+
+message:
+	data 72,69,76,76,79,32,87,79,82,76,68,33,33,0</source>
+<mem>1024</mem>
+<row>15</row>
+<col>5</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

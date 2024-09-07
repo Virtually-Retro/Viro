@@ -1,22 +1,51 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCLNACAPCFACAPCKMONACA
-PCuvu_vuvvu
-Q_
-vuvuLI\_vuvu_
-vuE
-
-  uuvuvOOON\_	vuO _Qvuvu_vuu;Q_
-vu/ _vuu;Q_
-vuvuOKM\_vuu;Q_
-vuvuOML\_vuEuuvuOOOOON\_vuuQvu
-Q_
-vu= _vuuQ_
-vuJ\_vuuQ_
-vu  _vuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_lowres_mode
+	out screen.mode
+
+	lda #5
+	out sys.performance
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #100000
+	stc
+
+loop:
+	lda #320
+	rnd
+	out graphics.Data
+
+	lda #240
+	rnd
+	out graphics.Data
+
+	lda const_gPixel
+	out graphics.Draw
+
+	lp loop
+	
+	time.get const_timer0
+	div #1000	
+	brk
+
+_irq_subroutine:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+		
+	pop a
+	rti
+</source>
+<mem>1024</mem>
+<row>9</row>
+<col>13</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

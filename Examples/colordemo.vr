@@ -1,44 +1,123 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCMGACAPCACAPCLIACAPCLNNACAPCKMONACA
-PCOSLLSNNNSFONSNONSGISMLSJNNSKNNSNNNSGONSNNNSHISMLSIISNHSMG_vuE2uuvuvvvuvuvu
-_vuuQ_
-vu3 _vuQ_
-vuOMM\_vuQ_
-vuML\_vu_vuQ_
-vuOHN\_vuQ_
-vuML\_vu_vuvuQ_
-vu< _vuQ_
-vu_vuQ_
-vuQ_
-vuO\_vuE
-uvuvuJJM\_vuE
-uvuvuvu_vuuQ_
-vu3 _vuQ_
-vuOIN\_vuQ_
-vuML\_vu_vuQ_
-vuONN\_vuQ_
-vuML\_vu_vuvuQ_
-vu< _vuQ_
-vuO\_vuQ_
-vu_vuQ_
-vuO\_vuEuvuvuJJM\_vuEuuvuu_vuuQ_
-vu3 _vuQ_
-vuOON\_vuQ_
-vuML\_vu_vuQ_
-vuOJ\_vuQ_
-vuML\_vu_vuvuQ_
-vu< _vuQ_
-vuQ_
-vuO\_vuQ_
-vu_vuEuvuvuJJM\_vuEuvuuvuu
-_vu_vu_vuuQ_
-vu2\_vuuQvu
-Q_
-vu= _vuuQvuuE u_<_=8-DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;RGB Colors demo
+_start:
+
+	sys.ignorelocal
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #titleMsg
+	out text.string
+
+	jsr red
+	jsr green
+	jsr blue
+
+	brk
+
+	
+red:
+	lda #255
+	stc
+	
+loopred:
+	lda c
+	out graphics.data
+	lda #0
+	out graphics.data
+	out graphics.data
+	lda const_gColor
+	out graphics.draw
+	
+	lda c
+	add #32
+	out graphics.data
+	lda #50
+	out graphics.data
+	lda c
+	add #32
+	out graphics.data
+	lda #100
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+
+	lp loopred
+
+	rts
+
+green:
+	lda #255
+	stc
+	
+loopgreen:
+	lda #0
+	out graphics.data
+	lda c
+	out graphics.data
+	lda #0
+	out graphics.data
+	lda const_gColor
+	out graphics.draw
+	
+	lda c
+	add #32
+	out graphics.data
+	lda #110
+	out graphics.data
+	lda c
+	add #32
+	out graphics.data
+	lda #160
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+
+	lp loopgreen
+	
+	rts
+	
+blue:
+	lda #255
+	stc
+	
+loopblue:
+	lda #0
+	out graphics.data
+	out graphics.data
+	lda c
+	out graphics.data
+	lda const_gColor
+	out graphics.draw
+	
+	lda c
+	add #32
+	out graphics.data
+	lda #170
+	out graphics.data
+	lda c
+	add #32
+	out graphics.data
+	lda #220
+	out graphics.data
+	lda const_gLine
+	out graphics.draw
+
+	lp loopblue
+	
+	rts
+			
+	brk
+
+titleMsg:
+	data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
+<mem>1024</mem>
+<row>113</row>
+<col>63</col>
+<hash></hash>
+<scroll>82</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

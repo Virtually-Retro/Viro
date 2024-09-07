@@ -1,12 +1,32 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCMMACAPCJACAPCKMONACA
-PCOSONSLLSOONSNONSKNNSJONSMNNSOMNSFISMLSKNNSNONSFONSJONSKG_vuEuuvvu_vuQ_
-vu\_vu_
-vuE:uu_vuuE:vuO _Qvu:_vu:_vuOOJ\_vuO _QvuEuuQvuuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+
+	sys.ignorelocal
+
+mainloop:
+	time.get const_timer0
+	cmp #500
+	jg notExpired
+	jsr timerExpired
+	time.reset const_timer0
+	notExpired:
+
+	jp mainloop
+
+timerExpired:
+	push a
+	lda #message
+	out text.string
+	pop a
+	rts	
+
+message:
+	data 84,105,109,101,114,32,69,120,112,105,114,101,100,33,10,0</source>
+<mem>1024</mem>
+<row>5</row>
+<col>22</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

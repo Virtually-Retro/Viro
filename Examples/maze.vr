@@ -1,63 +1,239 @@
-A
-PCA
-CAPC
-ACA
-
-PCA
-
-CAPCOACAPCACAPCOMACAPCIACAPCGKOMACA
-PCOOMN_vuE uuO_vuE 
-uuO_vuEuO_vuEu)Duuvuuu_vu_vuvu
-Q_
-vu
- _vuvuQ_
-vu  _vuvu];_2_KI<]_vuvuQ_
-vuJ\_vuvu_
-vuE
-u-_>__2Duuu_vuQ_
-vu _vuQ_
-vuH\_vu_vuQ_
-vuH\_vu_vuQ_
-vu_vuQ_
-vu_vu_
-vuEu_>__2Duuu_vuQ_
-vu _vuQ_
-vuH\_vu_vuQ_
-vu_vuQ_
-vu_vuQ_
-vuH\_vu_vu_
-vuEu_>__2Duuuu_vuu _vu_vvuu_vvuG\_vvu_vvu_vvuO\_vvuu _vvu_vvvuG\_vvvu_vvvu'_6Dvvvuvvvvvvu_vvvu_vvvu \_QvvvuvvvuN\_vvvuE vvuvvuOK\_vvuvu_
-vvuvE vuvu_OL\_vu_
-,Dvuu_vu__vu_O\_vu	_,DvuvvuQvu_,Dvuu
-Q_
-vu _vu_
-_Dvuu_
-vuEu_______;Duuuu_vuQ_
-vu _vuQ_
-vuG\_vuQ_
-vuG\_vuQ_
-vu_vuQ_
-vu_vu_
-vuEu_>__Du______<Duuu_vuvu _vu_vvuu_vvuG\_vvu_vvu_vvuO\_vvuu _vvu_vvvuG\_vvvu_vvvu'_6Dvvvuvvvu 
-_vvvuvvvvu 
-_vvvu__DvvvuvvvuEvvvuvvvvu_vvvu_vvvu_vvvu
-__D_" 
-$_vvvu___D__vvvu__*Dvvvuvvvu_vvvu" 
-$_vvvu___Dvvvuu_vvvuvvvuN\_vvvuE vvuvvuOK\_vvuvu_
-vvuvE vuvu_OL\_vu_
-,Dvuvu 
-_vu \_vu_
-__,Dvuvvu_vu__vu_O\_vu	_,Dvuu
-Q_
-vu _vu_
-_Dvuvu_
-vuEuv_
-__
-___-DuuvuvEuuv3_uvu_vu _vuvu_:Dvuvu_vuJON\_vu
- 
-Q_vu_Dvuvu_vu___<D_ML\_vu
- 
-Q_vu_Dvuu40( _vuE3u__*Duu
-_vuE uQQQ/_;_2DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Maze Demo Program...
+_start:
+	jsr setup
+
+;User interaction loop
+keyLoop:
+	hlt const_WakeOnKey
+
+	;space key
+	in key.code
+	cmp #32 ;Check for space key
+	jsrz refreshmaze
+	
+	;i key
+	in key.code
+	cmp #105
+	jsrz drawinitialmaze
+	
+	;End key
+	in
+	cmp const_keyend
+	jz exit
+	
+jp keyLoop	
+
+exit:	
+	brk
+
+;Redraw the maze but only updated elements	
+refreshmaze:
+	push a
+	
+	;set forground color
+	lda const_clightgray
+	out color.foreground
+
+	;Set variables
+	lda #0 
+	sta x 
+	sta y
+		
+	;Set the buffer address
+	lda #maze_data
+	sta buffer_addr
+	
+	;Setup loops
+	lda #30 
+	stc
+	y_loop:	
+		push c
+	
+		lda #40
+		stc
+		x_loop:
+			lda #1
+			rnd
+			sta b
+
+			;check against stored address
+			cmp [buffer_addr]
+			jz skipdraw
+			
+			;Update the tile
+			lda b ;restore the random tile
+			sta [buffer_addr] ;store the update
+			jsr clear
+			jsrz drawright
+			jsrnz drawleft
+				
+			skipdraw:
+			
+			;increment the pointer
+			lda buffer_addr
+			inc	
+			sta buffer_addr
+			
+			;Increment X
+			lda x
+			add #8
+			sta x
+		lp x_loop
+
+		lda #0
+		sta x
+		lda y
+		add #8
+		sta y
+
+		pop c
+	lp y_loop
+	
+	pop a
+rts
+
+;Clears the area of the single element
+;modifies the A register
+clear:
+	push a
+	lda x
+	out graphics.data
+	lda y
+	out graphics.data
+	lda #8
+	out graphics.data
+	lda #8
+	out graphics.data
+	lda const_gclearrect
+	out graphics.draw
+	pop a
+rts
+
+
+;Draws the initial maze and stores the data
+drawinitialmaze:
+	push a
+
+	;set forground color
+	lda const_cwhite
+	out color.foreground
+
+	;Screen reset
+	screen.clear
+		
+	;Set variables
+	lda #0 
+	sta x 
+	sta y
+
+	;Setup loops
+	lda #30 
+	stc
+	y_loopi:	
+		push c
+	
+		lda #40
+		stc
+		x_loopi:
+			lda #1
+			rnd
+			mb.write #maze_data
+			jsrz drawright
+			jsrnz drawleft
+						
+			;Increment X
+			lda x
+			add #8
+			sta x
+		lp x_loopi
+
+		lda #0
+		sta x
+		lda y
+		add #8
+		sta y
+
+		pop c
+	lp y_loopi
+
+	pop a
+rts
+
+
+;Modifies the A register
+drawright:
+	push a
+	lda x
+	add #7
+	out graphics.data
+	lda y
+	out graphics.data
+	lda x
+	out graphics.data
+	lda y
+	add #7
+	out graphics.data
+	lda const_gline
+	out graphics.draw
+	pop a
+rts
+
+;Modifies the A register
+drawleft:
+	push a
+	lda x
+	out graphics.data
+	lda y
+	out graphics.data
+	lda x
+	add #7
+	out graphics.data
+	lda y
+	add #7
+	out graphics.data
+	lda const_gline
+	out graphics.draw
+	pop a
+rts
+
+;Modifies the A Register
+setup:
+	push a
+	
+	lda #5
+	out sys.performance
+	
+	title "C64 Maze Demo"
+	
+	lda const_lowres_mode
+	out screen.mode
+	
+	lda const_clightblue
+	out color.background
+	
+	jsr drawinitialmaze
+	pop a
+rts
+
+	brk
+
+;Variables
+x:
+	data 0
+y:
+	data 0
+
+buffer_addr:
+	data 0
+
+maze_data:
+	mb 1200</source>
+<mem>2048</mem>
+<row>16</row>
+<col>10</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>true</exmode>
+<fullscreen>false</fullscreen>

@@ -1,43 +1,118 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCFMACAPCACAPCJACAPCLKACAPCKMONACA
-PCO_vuE 	uK_vuE 	uK_vuE 	uuvuvvuvu _vu_vvuu 	_vvu_FM\_vvu_ 	_vvu 	_vvuK\_vvuu _vvuu 	_vvvuvvvu 	_vvvuvvvuQ_
-vvvu _vvvuvuQ_
-vvvuGM\_vvvuvQ_
-vvvuGL\_vvvuQ_
-vvvu 	_vvvuvvvvvvu 	_vvvu_FL\_vvvuQ_
-vvvu 	_vvvuvvvu
-Q_
-vvvu_ 	_vvvuE vvuvvuG\_vvuu_
-vvuE vuvu_G\_vuu 	_vuO\_vu 	_vu 	_vuK\_vuuQvu
-Q_
-vu _vuEuvuvvu3_vuu
-20( _vuEuu 
-Q
-_
-vuO\_vuvuvu
-Q_
-vu 	_vu
-Q_
-vuLI\_vuvvuQ
-Q_
-vuO\_vuvuQ_
-vu-< _vuQ_
-vuQ_
-vuOM\_vuQ_
-vuQ_
-vuO\_vuvvu 	_vuQ_
-vu/8 _vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuu_vu 
-Q
-_vuE3uvu_vuvvuQ_
-vu  _vuvuQvuE uQ+_<DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Colors Test.
+_start:
+	sys.ignorelocal
+		
+	lda const_lowres_mode
+	out screen.mode
+		
+	jsr drawcolors
+	
+mainLoop:
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out graphics.data
+	in mouse.y
+	out graphics.data
+	lda const_gGetPixel
+	out graphics.draw
+	sta var_c
+		
+	lda #0
+	out graphics.data
+	out graphics.data
+	lda #20
+	out graphics.data
+	out graphics.data
+	lda const_gClearRect
+	out graphics.draw
+	
+	lda #0
+	out text.cursor.x
+		
+	lda #63
+	out color.foreground
+	lda var_c
+	out text.number
+	
+	
+	lda #0
+	out mouse.button_clicked
+
+skip:
+	hlt const_WakeOnMouse
+
+	jp mainLoop
+		
+	
+drawcolors:
+	lda const_cblack
+	out color.background
+	screen.clear
+
+	lda #4
+	sta var_x
+	sta var_y
+	lda #0
+	sta var_c
+
+	lda #8 
+	stc
+	y_loop:
+		push c
+
+		lda #8
+		stc
+		x_loop:
+			lda var_c 
+			out color.foreground
+			
+			lda var_x
+			out graphics.data
+			add #39 
+			sta var_x
+						
+			lda var_y
+			out graphics.data
+			lda #38
+			out graphics.data	
+			lda #28
+			out graphics.data
+	
+			lda const_gfillrect
+			out graphics.draw
+			
+			lda var_c
+			inc
+			sta var_c
+
+		lp x_loop
+
+		lda #4
+		sta var_x
+		lda var_y 
+		add #29 
+		sta var_y
+
+		pop c
+	lp y_loop
+	rts
+		
+	brk
+
+var_x:
+	data 4
+var_y:
+	data 4
+var_c:
+	data 0</source>
+<mem>1024</mem>
+<row>3</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

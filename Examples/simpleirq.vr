@@ -1,14 +1,40 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCKACAPCHNACAPCKMONACA
-PCOSONSNGSMGSLH_vuEuvuvuvuvuvu_vuvuQ_
-vu\_vuvu_
-vuE
-
-  uvvuuvuEuvu3_vuuu_vu:4 _vuvuuEuuQvuuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+
+	sys.ignorelocal
+
+mainloop:
+
+	in
+	cmp const_KeyEnd
+	jz exit
+
+
+	jp mainLoop
+	
+exit:
+	brk
+
+		
+_irq_subroutine:
+	push a
+	
+	lda #message
+	out text.string
+	
+	pop a
+	rti
+	
+	
+	brk
+	
+message:
+	data 73,82,81,10,0</source>
+<mem>1024</mem>
+<row>17</row>
+<col>4</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

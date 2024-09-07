@@ -1,17 +1,46 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCJACAPCACAPCONACAPCJMACAPCKMONACA
-PCuvu_vuO_vu_vuO_vu_
-vuE
-uuvuu
-Q_
-vuO_vuu_vuuEvuu
-_vuO\_vuJ\_vu_vuu_vu
-_vuO\_vuL\_vu_vuuEuuvuFFF\_vuvuQvuE u___
-:DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Euler maths test program
+_start:
+	sys.ignorelocal
+	
+	lda #999
+	stc
+
+loop:
+
+	lda c
+	mod #3
+	cmp #0
+	jsrz addnumber
+	jz skip
+
+	lda c
+	mod #5
+	cmp #0
+	jsrz addnumber
+
+	skip:
+
+	lp loop
+
+	lda r0
+	out text.number
+
+	brk
+
+addnumber:
+	push a
+	lda r0
+	add c
+	sta r0
+	pop a
+	rts
+</source>
+<mem>1024</mem>
+<row>25</row>
+<col>10</col>
+<hash></hash>
+<scroll>5</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

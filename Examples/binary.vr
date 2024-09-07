@@ -1,16 +1,50 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCFACAPCACAPCLACAPCOKACAPCKMONACA
-PCG_vuEuuO_vuEuuNMM_vuE
-uuvuu3_vu
-Q_
-vu;\_QvuE3uvuG\_vuu_vuu
-_vuvu
-_vu_vuvu_vu"$_vuN\_vu
-_vuEuvuvuG\_vuu_vuH\_vu\_vuuQvuuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+
+	sys.ignorelocal
+
+	lda #bindata
+	add #7
+	sta mp
+
+	lda #8
+	stc
+	
+loop:
+	lda num
+	and #1
+	sta [mp]
+	lda mp
+	dec
+	sta mp
+	lda num
+	shr
+	sta num
+
+	lp loop
+
+	lda #8
+	stc
+drawLoop:
+	mb.read #binData
+	out text.number
+	lp drawLoop
+
+	brk
+
+num:
+	data 221
+
+mp:
+	data 0
+
+bindata:
+	mb 8</source>
+<mem>1024</mem>
+<row>40</row>
+<col>3</col>
+<hash></hash>
+<scroll>9</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,22 +1,49 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCONACAPCJMACAPCKMONACA
-PCOI_vuE
-uN_vuE	uO_vuE	u)Duuvuu_vuu
-vuML\_vu
-Q_
-vuu	_vuO_vu	_vu	_vuO_vu	_vu	_vuuQ
-Q_
-vuO\_vuQ
-Q_
-vu_
-vu
-_vuEuuvuOI\_vuvvuQ_
-vu - _vuvuQvuE u
-,_9DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Fibonacci Sequence
+_start:
+	sys.ignorelocal
+	
+	lda const_highRes_mode
+	out screen.mode
+		
+	lda #60
+	stc
+
+loop:
+	lda cu
+	sub c
+	out text.cursor.y
+	lda #0
+	out text.cursor.x
+
+	lda av
+	add bv
+	sta r0
+	lda bv
+	sta av
+	lda r0
+	sta bv
+
+	out text.number
+	lda #32
+	out
+
+	lp loop
+
+	brk
+
+;Variables
+av:
+	data 0
+bv:
+	data 1
+cu:
+	data 60</source>
+<mem>1024</mem>
+<row>25</row>
+<col>10</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,12 +1,19 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCOACAPCACAPCONACAPCNACAPCKMONACA
-PC3_vuvu
-vuvuN\_vuE3uvvuQ_
-vuLOQO\_vuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	lda #0.03
+	out sys.performance
+		
+mainLoop:
+	lda #1
+	rnd
+	out
+	
+	jp mainLoop</source>
+<mem>1024</mem>
+<row>1</row>
+<col>10</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

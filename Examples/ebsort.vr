@@ -1,42 +1,153 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCHKACAPCACAPCNACAPCFIACAPCKMONACA
-PCOON_vuEuO_vuE	
-uO_vuE	uO_vuEuFF_vuE
-u)DuuRRRRRRRRRRRRRRRRRRRRRRRRDuuvu_vuu3_vuu	_vuvu	_vu"	$_vuvuOON\_vuuEuvuOON\_vuu	_vu;\_vuu_
-vuE
-=uuRRRRRRRRRRRRRRRRRRRRRRRRDuuvuuvu_vuvu
-vu
-vuON\_vuvu3_vu
-vuML\_vu	_vuvu	_vu
-Q_
-vu"	$_vuE3uvuOON\_vuvu	_vu\_vuvu_
-vuE;uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuvuu,_vu_vuu
-_vuvu
-_vuu3_vuvu	
-_vuvu	_vu	
-_vuE9uvu_vuvu"	$_vu"	
-$_vu"	$_vuvu9_vu"	
-$_vu"	$_vuE3uvu
-_vuu	
-_vuvu	_vu;\_vuu_vu_vuE,uvu
-vuE,
-uuRRRRRRRRRRRRRRRRRRRRRRRRDuuuvuEuuvu
-Q_
-vuN_vu
-vu
-vuON\_vu
-Q_
-vu
-_vu
-vuON\_vuvu;_vuvuN_vuO _Qvu,
-_vuO _Qvuvu;_vu
-_vuuQ_
-vuJ\_vuuQvuE u
-=_:DA
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>;Enhanced Bubblesort
+_start:
+	sys.ignorelocal
+
+	lda #5
+	out sys.performance
+
+	jsr fillbuffer
+	jsr printData
+	
+	time.reset const_timer0
+	jsr bubbleSort
+	time.get const_timer0
+	sta r1
+	
+	jsr printData
+	
+	lda #10
+	out
+	lda count
+	out text.number
+	lda #10
+	out
+	out
+	lda r1
+	out text.number
+	
+
+exit:
+	brk
+
+
+;------------------------
+
+bubbleSort:
+	pusha
+	
+sortStart:
+	lda false
+	sta flip
+
+	lda #sortData
+	sta lvp
+	inc
+	sta uvp
+
+	lda count
+	stc
+sortLoop:
+	lda [lvp]
+	cmp [uvp]
+	jgz skipFlip
+	
+	lda [lvp]
+	xch [uvp]
+	sta [lvp]
+	
+	stb flip
+	
+skipFlip:
+	lda uvp
+	sta lvp
+	inc
+	sta uvp
+	
+	lp sortLoop
+
+	lda count
+	dec
+	sta count
+
+	lda flip
+	jnz sortStart
+
+	popa
+	rts
+
+
+;------------------------
+
+printData:
+	push a
+	
+	lda #sortdata
+	sta lvp
+	
+	lda #100
+	stc
+printLoop:
+	lda [lvp]
+	out text.number
+	lda lvp
+	inc
+	sta lvp
+	lda #32
+	out
+	lp printLoop
+	
+	lda #10
+	out
+	out
+	
+	pop a
+	rts
+
+	brk
+
+;------------------------
+
+fillBuffer:
+	push a
+
+	lda #sortData
+	sta lvp
+
+	lda #100
+	stc
+fillloop:
+
+	lda #100
+	rnd
+	sta [lvp]
+	lda lvp
+	inc
+	sta lvp
+
+	lp fillLoop
+
+	pop a
+	rts
+
+;------------------------
+
+;Variables
+count:
+	data 99
+flip:
+	data 0
+lvp:
+	data 0
+uvp:
+	data 0
+sortdata:
+	mb 100</source>
+<mem>1024</mem>
+<row>69</row>
+<col>1</col>
+<hash></hash>
+<scroll>47</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,35 +1,82 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCNLACAPCACAPCMMACAPCOKACAPCKMONACA
-PCvuvuvuMSONRSONSONSONRSONSMRSONR_vuEuuvuuvuu
-Q_
-vu
-vuO_vuuQ_
-vu _vuQ_
-vuK\_vuQ_
-vuO_vuQ_
-vu\_vuQ_
-vuOMN\_vuQ_
-vuOIN\_vuvuEuuvu3_vuvu
-20( _vuvvuEuvvvvvuvvvu 
-Q
-_
-vuO\_vuvvu_vuvuO_vuvvuQ_
-vu  _vuvuQ_
-vuOQOMN\_vuQ_
-vuOQOIN\_vuQ_
-vuQ
-_vuQ_
-vuQ
-_vuu_vu 
-Q
-_vuuQ_
-vu/ _vuQ_
-vuOMN\_vuQ_
-vuOIN\_vuuQvuuE3uvuQvuvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	
+	sys.ignorelocal
+	
+mainLoop:
+
+	screen.clear
+
+	lda #160
+	out graphics.data
+	lda #120
+	out graphics.data
+	lda const_gPixel
+	out graphics.draw
+
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out maths.data
+	in mouse.y
+	out maths.data
+	lda #160.0
+	out maths.data
+	lda #120.0
+	out maths.data
+	
+	lda const_maths_angleto
+	out maths.calc
+		
+	sta r0
+	
+	jsr drawpoly
+		
+	lda #0
+	out mouse.button_clicked
+			
+					
+skip:
+		
+	hlt const_WakeOnMouse
+	
+	jp mainLoop
+	
+
+drawpoly:
+	
+	lda #160
+	out graphics.data
+	lda #120
+	out graphics.data
+	lda #ngondata
+	out graphics.data
+	lda r0
+	out graphics.data
+	lda #4
+	out graphics.data
+	lda const_gsgon
+	out graphics.draw
+
+	lda r0
+	round
+	out text.number
+
+	rts
+
+	brk
+
+ngondata:
+	data -10,-2,10,-10,10,10,-10,2
+	
+	
+	</source>
+<mem>1024</mem>
+<row>40</row>
+<col>22</col>
+<hash></hash>
+<scroll>31</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
