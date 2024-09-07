@@ -1,5 +1,3 @@
 # Viro
 
-Viro - Virtually Retro - the virtual, homebrew, retro computer system written entirely in Godot.
-
-.gitattributes linguist-language=Viro Assembly
+Viro - Virtually Retro - the virtual, homebrew, programmable, retro computer system.
