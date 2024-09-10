@@ -14,4 +14,4 @@ The virtual, retro, homebrew, fully programmable computer system for all of us w
 	Metrics / Memory Viewer / Strings Editor
 	Modular extensible design
 
-## Download the [Viro System Manual](url) to learn more. 
+## Download the [Viro System Manual.pdf](url) to learn more. 
