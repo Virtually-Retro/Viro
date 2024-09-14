@@ -10,8 +10,8 @@ The virtual, retro, homebrew, fully programmable computer system for all of us w
 	Compiler
 	Native Runtime Engine
 	File System
-	Graphics and Font Support
+	New Graphics and Font System
 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor
 	
 
-### Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/eed37adc15911d745cd7357d75049cadde7af6a4/Viro%20System%20Manual.pdf) to learn more. 
+### Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more. 
