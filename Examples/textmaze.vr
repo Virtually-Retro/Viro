@@ -13,7 +13,7 @@ loop:
 	lp loop
 	
 	lda #4
-	out graphics.data
+	out sys.data
 	lda const_gCopyBuffer
 	out graphics.draw
 	
@@ -23,7 +23,7 @@ loop:
 	out screen.active_buffer
 	</source>
 <mem>1024</mem>
-<row>22</row>
+<row>21</row>
 <col>1</col>
 <hash></hash>
 <scroll>0</scroll>

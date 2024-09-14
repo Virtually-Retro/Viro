@@ -2,7 +2,7 @@
 <source>_start:
 	sys.ignorelocal
 		
-	lda #0.7
+	lda #0.5
 	out sys.performance
 			
 	lda const_cBlack
@@ -18,7 +18,7 @@ mainloop:
 	rnd
 	out color.foreground
 	
-	lda #1
+	lda #2
 	rnd
 	jsrnz space
 	jsrz chars
@@ -44,8 +44,8 @@ chars:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>0</row>
-<col>0</col>
+<row>3</row>
+<col>9</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

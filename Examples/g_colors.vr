@@ -13,19 +13,19 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	out graphics.data
+	out sys.data
 	in mouse.y
-	out graphics.data
+	out sys.data
 	lda const_gGetPixel
 	out graphics.draw
 	sta var_c
 		
 	lda #0
-	out graphics.data
-	out graphics.data
+	out sys.data
+	out sys.data
 	lda #20
-	out graphics.data
-	out graphics.data
+	out sys.data
+	out sys.data
 	lda const_gClearRect
 	out graphics.draw
 	
@@ -70,16 +70,16 @@ drawcolors:
 			out color.foreground
 			
 			lda var_x
-			out graphics.data
+			out sys.data
 			add #39 
 			sta var_x
 						
 			lda var_y
-			out graphics.data
+			out sys.data
 			lda #38
-			out graphics.data	
+			out sys.data	
 			lda #28
-			out graphics.data
+			out sys.data
 	
 			lda const_gfillrect
 			out graphics.draw

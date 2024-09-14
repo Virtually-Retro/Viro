@@ -25,9 +25,9 @@ drawpoint:
 	push a
 
 	in mouse.X
-	out graphics.data
+	out sys.data
 	in mouse.y
-	out graphics.data
+	out sys.data
 	
 	lda const_glineto
 	out graphics.draw
@@ -42,9 +42,9 @@ drawpointwithreset:
 	push a
 
 	in mouse.X
-	out graphics.data
+	out sys.data
 	in mouse.y
-	out graphics.data
+	out sys.data
 	lda const_gLineTo
 	out graphics.draw
 
@@ -60,7 +60,7 @@ drawpointwithreset:
 <row>46</row>
 <col>18</col>
 <hash></hash>
-<scroll>25</scroll>
+<scroll>15</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

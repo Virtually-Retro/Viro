@@ -19,15 +19,15 @@ drawPoly:
 	screen.clear
 	
 	lda x
-	out graphics.data
+	out sys.data
 	lda y
-	out graphics.data
+	out sys.data
 	lda #ngondata
-	out graphics.data
+	out sys.data
 	lda r
-	out graphics.data
+	out sys.data
 	lda s
-	out graphics.data
+	out sys.data
 	lda const_gsgon
 	out graphics.draw
 	lda const_gupdate
@@ -110,7 +110,7 @@ ngondata:
 <row>87</row>
 <col>20</col>
 <hash></hash>
-<scroll>66</scroll>
+<scroll>56</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

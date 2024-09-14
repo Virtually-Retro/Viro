@@ -98,13 +98,13 @@ rts
 clear:
 	push a
 	lda x
-	out graphics.data
+	out sys.data
 	lda y
-	out graphics.data
+	out sys.data
 	lda #8
-	out graphics.data
+	out sys.data
 	lda #8
-	out graphics.data
+	out sys.data
 	lda const_gclearrect
 	out graphics.draw
 	pop a
@@ -166,14 +166,14 @@ drawright:
 	push a
 	lda x
 	add #7
-	out graphics.data
+	out sys.data
 	lda y
-	out graphics.data
+	out sys.data
 	lda x
-	out graphics.data
+	out sys.data
 	lda y
 	add #7
-	out graphics.data
+	out sys.data
 	lda const_gline
 	out graphics.draw
 	pop a
@@ -183,15 +183,15 @@ rts
 drawleft:
 	push a
 	lda x
-	out graphics.data
+	out sys.data
 	lda y
-	out graphics.data
+	out sys.data
 	lda x
 	add #7
-	out graphics.data
+	out sys.data
 	lda y
 	add #7
-	out graphics.data
+	out sys.data
 	lda const_gline
 	out graphics.draw
 	pop a

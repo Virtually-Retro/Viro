@@ -9,10 +9,7 @@
 	
 	lda const_cBlack
 	out color.background
-	
-	lda false
-	out screen.auto_update
-		
+			
 	screen.clear
 	
 	time.reset const_timer0
@@ -101,9 +98,9 @@ y_loop:
 		
 		plotPixel:
 		lda col
-		out graphics.Data
+		out sys.data
 		lda row
-		out graphics.Data
+		out sys.data
 		lda const_gPixel
 		out graphics.Draw
 	
@@ -123,9 +120,6 @@ y_loop:
 	lda row
 	inc
 	sta row
-			
-	lda const_gUpdate
-	out graphics.Draw
 		
 	pop c
 lp y_loop
@@ -133,8 +127,7 @@ lp y_loop
 	time.get const_timer0
 	div #1000
 	sta r0
-	
-	hlt	
+			
 	brk
 
 ;Variables
@@ -161,10 +154,10 @@ row:
 col:
 	data 0</source>
 <mem>1024</mem>
-<row>135</row>
-<col>4</col>
+<row>121</row>
+<col>0</col>
 <hash></hash>
-<scroll>121</scroll>
+<scroll>90</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

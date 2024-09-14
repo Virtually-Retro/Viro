@@ -2,7 +2,7 @@
 <source>_start:
 
 	lda #polydata
-	out graphics.Data
+	out Data
 	
 	lda const_gPolygon
 	out graphics.Draw
@@ -14,7 +14,7 @@ polydata:
 </source>
 <mem>1024</mem>
 <row>3</row>
-<col>1</col>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

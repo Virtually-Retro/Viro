@@ -79,9 +79,9 @@ mouseup:
 mousedown:
 	push a
 	in mouse.x
-	out graphics.data
+	out sys.data
 	in mouse.y
-	out graphics.data
+	out sys.data
 	lda const_glineto
 	out graphics.draw
 	pop a

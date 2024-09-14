@@ -9,7 +9,7 @@ loopstart:
 	sta av
 	
 	lda false
-	out screen.auto_update
+	out screen.auto_refresh
 
 	lda #100
 	stc
@@ -35,9 +35,9 @@ loop:
 	sta y
 	
 	lda c
-	out graphics.Data
+	out sys.data
 	lda y
-	out graphics.Data
+	out sys.data
 	lda const_gLineTo
 	out graphics.Draw
 
@@ -71,10 +71,10 @@ fv:
 bv:
 	data 0</source>
 <mem>1024</mem>
-<row>17</row>
-<col>23</col>
+<row>10</row>
+<col>24</col>
 <hash></hash>
-<scroll>11</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

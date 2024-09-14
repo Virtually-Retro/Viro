@@ -20,8 +20,8 @@ exit:
 message:
 	data 72,69,76,76,79,32,87,79,82,76,68,33,33,0</source>
 <mem>1024</mem>
-<row>15</row>
-<col>5</col>
+<row>3</row>
+<col>4</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

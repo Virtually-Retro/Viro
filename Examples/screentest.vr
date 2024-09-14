@@ -1,36 +1,99 @@
-A
-PCA
-CAPCACA
-
-PCA
-
-CAPCKACAPCACAPCHACAPCMMACAPCKMONACA
-PCuL_vuEu)Duuvu_vuu
- 
-Q_
-vu
-_vuu3
-_vu_vvuu3_vvu
-Q_
-vvvuO_vvvuE3vvuvvuOOMN\_vvuuQvvu= _vvu
- 	Q_
-vvuvvuO_vvuvvu_vvuvu_
-vvuE3
-vuuvuJ\_vuu
- 
-Q_
-vu_vuu_
-vuEuuvu_vu_vuvuvu 
-Q_
-vu_vuvuQ_
-vu  _vu_
-vuE
-uuuvu_vuu
- 	Q_
-vu_vuvuEuu_vuO\_vuvu_vuK\_vuu_vuvu_vuu_
-vuE
-
-  uuvuEuu3_vuu_vu: _vuvuEuuu
-_vuQvuE A
-CA9R-
-)C
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+	jsr setup
+
+
+mainloop:
+	in
+	cmp const_keyEnd
+	jz exit
+
+	jp mainLoop
+
+exit:
+	brk
+
+_irq_subroutine:
+	push a
+
+	lda sn
+	inc
+	sta sn
+
+	cmp #4
+	jgz skip
+	
+	lda #0
+	sta sn
+
+skip:
+	
+	lda sn
+	out screen.active_buffer
+
+	pop a
+	rti
+
+
+setup:
+	push a
+	lda const_lowres_mode
+	out screen.mode
+	
+	lda false
+	out text.auto_scroll
+	
+	
+	jsr drawscreens
+	pop a
+	rts
+
+drawscreens:
+	push a
+
+	lda false
+	out screen.auto_refresh
+
+	lda #5
+	stc
+
+	outerLoop:
+		push c
+	
+		lda c
+		dec
+		sta r0
+		
+		out screen.active_buffer
+		lda const_cBlack
+		screen.clear
+
+		lda #1200
+		stc
+		innerLoop:
+			lda r0
+			out text.number
+		lp innerLoop
+
+		pop c
+	lp outerLoop
+
+	lda true
+	out screen.auto_refresh
+
+	pop a
+	rts
+
+;Vars
+sn:
+	data 3
+</source>
+<mem>1024</mem>
+<row>81</row>
+<col>24</col>
+<hash></hash>
+<scroll>58</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

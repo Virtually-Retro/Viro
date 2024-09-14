@@ -24,23 +24,23 @@ red:
 	
 loopred:
 	lda c
-	out graphics.data
+	out sys.data
 	lda #0
-	out graphics.data
-	out graphics.data
+	out sys.data
+	out sys.data
 	lda const_gColor
 	out graphics.draw
 	
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #50
-	out graphics.data
+	out sys.data
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #100
-	out graphics.data
+	out sys.data
 	lda const_gLine
 	out graphics.draw
 
@@ -54,24 +54,24 @@ green:
 	
 loopgreen:
 	lda #0
-	out graphics.data
+	out sys.data
 	lda c
-	out graphics.data
+	out sys.data
 	lda #0
-	out graphics.data
+	out sys.data
 	lda const_gColor
 	out graphics.draw
 	
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #110
-	out graphics.data
+	out sys.data
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #160
-	out graphics.data
+	out sys.data
 	lda const_gLine
 	out graphics.draw
 
@@ -85,23 +85,23 @@ blue:
 	
 loopblue:
 	lda #0
-	out graphics.data
-	out graphics.data
+	out sys.data
+	out sys.data
 	lda c
-	out graphics.data
+	out sys.data
 	lda const_gColor
 	out graphics.draw
 	
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #170
-	out graphics.data
+	out sys.data
 	lda c
 	add #32
-	out graphics.data
+	out sys.data
 	lda #220
-	out graphics.data
+	out sys.data
 	lda const_gLine
 	out graphics.draw
 

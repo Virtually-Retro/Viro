@@ -4,8 +4,8 @@ _start:
 	
 	sys.ignorelocal
 	
-	lda #5
-	out sys.performance
+	;lda #0.024
+	;out sys.performance
 
 	lda #10
 	stc
@@ -39,8 +39,8 @@ outerLoop:
 	div #1000
 	</source>
 <mem>1024</mem>
-<row>7</row>
-<col>0</col>
+<row>6</row>
+<col>2</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

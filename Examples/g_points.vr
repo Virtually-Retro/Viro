@@ -16,11 +16,11 @@
 loop:
 	lda #320
 	rnd
-	out graphics.Data
+	out sys.data
 
 	lda #240
 	rnd
-	out graphics.Data
+	out sys.data
 
 	lda const_gPixel
 	out graphics.Draw

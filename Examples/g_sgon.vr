@@ -17,22 +17,22 @@ loop:
 
 	lda #640
 	rnd
-	out graphics.data
+	out sys.data
 	
 	lda #480
 	rnd
-	out graphics.data
+	out sys.data
 
 	lda #ngondata
-	out graphics.data
+	out sys.data
 
 	lda #360
 	rnd
-	out graphics.data
+	out sys.data
 
 	lda #4
 	rnd
-	out graphics.data
+	out sys.data
 
 	lda const_gsgon
 	out graphics.draw
