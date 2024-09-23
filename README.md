@@ -5,13 +5,13 @@ The virtual, retro, homebrew, fully programmable computer system for all of us w
 ### Feature List:
 
 	Terminal
-	Integrated Code Editor
+	Integrated Code Editor, with code wrapping
 	Assembly Language instruction set
 	Compiler
 	Native Runtime Engine
-	File System
-	New Graphics and Font System
-	Metrics System / Memory Viewer / Ports Viewer / Strings Editor
+	File System with directory support
+	Optimised Graphics and Font System
+	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
 	
 
 ### Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more. 
