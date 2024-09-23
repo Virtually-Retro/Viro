@@ -1,0 +1,93 @@
+<VirtuallyRetro-File>
+<source>;Viro Sort test
+_start:
+	sys.ignorelocal
+
+	lda #5
+	out sys.performance
+
+	jsr fillbuffer
+	jsr printData
+	
+	time.reset const_timer0
+	jsr bubbleSort
+	time.get const_timer0
+	
+	jsr printData
+
+exit:
+	brk
+
+
+;------------------------
+
+bubbleSort:
+	push a
+	
+	lda #sortData
+	mb.sort const_sortAscending
+
+	pop a
+	rts
+
+
+;------------------------
+
+printData:
+	push a
+	
+	lda #sortdata
+	mb.reset.pointer
+	
+	lda #100
+	stc
+printLoop:
+	
+	mb.read #sortdata
+	out text.print
+	lda #32
+	out
+	
+	lp printLoop
+	
+	lda #10
+	out
+	out
+	
+	pop a
+	rts
+
+	brk
+
+;------------------------
+
+fillBuffer:
+	push a
+
+	lda #100
+	stc
+fillloop:
+
+	lda #100
+	rnd
+	mb.write #sortData
+
+	lp fillLoop
+
+	pop a
+	rts
+
+;------------------------
+
+;Variables
+
+sortdata:
+	mb 100</source>
+<mem>1024</mem>
+<row>45</row>
+<col>15</col>
+<hash></hash>
+<scroll>36</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

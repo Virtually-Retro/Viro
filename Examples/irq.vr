@@ -1,0 +1,109 @@
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+		
+mainloop:
+	
+	;Main program calls go here
+	time.get const_timer0
+	cmp #5000
+	jg timerNotExpired
+	jsr timer
+	time.reset const_timer0
+	timerNotExpired:
+		
+	time.get const_timer1
+	cmp #10000
+	jg timer1NotExpired
+	jsr timer1
+	time.reset const_timer1
+	timer1NotExpired:
+	
+	time.get const_timer2
+	cmp #15000
+	jg timer2NotExpired
+	jsr timer2
+	time.reset const_timer2
+	timer2NotExpired:
+	
+	in key.code
+	jsrnz checkKeys
+				
+	jp mainloop
+
+exit:
+
+	brk
+
+checkKeys:
+	push a
+	
+	in key.code
+	cmp #32
+	jsrz killirq
+	
+	in key.code
+	cmp const_KeyHome
+	jsrz startirq
+	
+	in
+	cmp const_KeyEnd
+	jz exit
+		
+	pop a
+	rts
+
+startirq:
+	push a
+	
+	lda #500
+	out irq.trigger_value
+	
+	pop a
+	rts
+
+killirq:
+	push a
+	
+	lda #0
+	out irq.trigger_value
+	
+	pop a
+	rts
+
+timer2:
+	push a
+	lda #50
+	out
+	pop a
+	rts
+
+
+timer1:
+	push a
+	lda #49
+	out
+	pop a
+	rts
+
+timer:
+	push a
+	lda #48
+	out
+	pop a
+	rts
+
+_irq_subroutine:
+	push a
+	lda #46
+	out
+	pop a
+	rti</source>
+<mem>1024</mem>
+<row>44</row>
+<col>1</col>
+<hash></hash>
+<scroll>27</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,0 +1,40 @@
+<VirtuallyRetro-File>
+<source>_start:
+	sys.ignorelocal
+	
+	lda #0.01
+	out sys.performance
+
+	lda "test.txt"
+	out file.io
+	
+mainloop:
+	lda #filebuffer
+	in file.io
+
+	mb.get.count #0 ;This checks there was no more file data
+	cmp #5
+	jz exit
+		
+	lda #filebuffer
+	out text.print
+	
+	jp mainloop
+	
+exit:
+	brk
+
+;variables
+filebuffer:
+	mb 5
+
+;Resources
+resource.link "test.txt"</source>
+<mem>1024</mem>
+<row>3</row>
+<col>9</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

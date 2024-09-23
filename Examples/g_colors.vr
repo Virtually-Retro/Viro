@@ -1,0 +1,118 @@
+<VirtuallyRetro-File>
+<source>;Colors Test.
+_start:
+	sys.ignorelocal
+		
+	lda const_lowres_mode
+	out screen.mode
+		
+	jsr drawcolors
+	
+mainLoop:
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda const_gGetPixel
+	out graphics.draw
+	sta var_c
+		
+	lda #0
+	out sys.data
+	out sys.data
+	lda #20
+	out sys.data
+	out sys.data
+	lda const_gClearRect
+	out graphics.draw
+	
+	lda #0
+	out text.cursor.x
+		
+	lda #63
+	out color.foreground
+	lda var_c
+	out text.print
+	
+	
+	lda #0
+	out mouse.button_clicked
+
+skip:
+	hlt const_WakeOnMouse
+
+	jp mainLoop
+		
+	
+drawcolors:
+	lda const_cblack
+	out color.background
+	screen.clear
+
+	lda #4
+	sta var_x
+	sta var_y
+	lda #0
+	sta var_c
+
+	lda #8 
+	stc
+	y_loop:
+		push c
+
+		lda #8
+		stc
+		x_loop:
+			lda var_c 
+			out color.foreground
+			
+			lda var_x
+			out sys.data
+			add #39 
+			sta var_x
+						
+			lda var_y
+			out sys.data
+			lda #38
+			out sys.data	
+			lda #28
+			out sys.data
+	
+			lda const_gfillrect
+			out graphics.draw
+			
+			lda var_c
+			inc
+			sta var_c
+
+		lp x_loop
+
+		lda #4
+		sta var_x
+		lda var_y 
+		add #29 
+		sta var_y
+
+		pop c
+	lp y_loop
+	rts
+		
+	brk
+
+var_x:
+	data 4
+var_y:
+	data 4
+var_c:
+	data 0</source>
+<mem>1024</mem>
+<row>35</row>
+<col>1</col>
+<hash></hash>
+<scroll>20</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

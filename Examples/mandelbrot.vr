@@ -1,0 +1,163 @@
+<VirtuallyRetro-File>
+<source>_start:
+
+	lda #100
+	out sys.performance
+	
+	lda const_highres_mode
+	out screen.mode
+	
+	lda const_cBlack
+	out color.background
+			
+	screen.clear
+	
+	time.reset const_timer0
+	
+	lda height
+	stc
+	
+y_loop:
+	push c
+		
+	lda width
+	stc
+	x_loop:
+				
+		lda width
+		div #2.0
+		sub col
+		mul #4.0
+		div width
+		sta c_re
+		
+		lda height
+		div #2.0
+		sub row
+		mul #4.0
+		div width
+		sta c_im
+			
+		lda #0
+		sta x
+		sta y
+		sta iteration
+	
+		computeLoop:
+		
+			lda y
+			mul y
+			sta b
+			lda x
+			mul x
+			sub b
+			add c_re
+			sta x_new
+			
+			lda #2
+			mul x
+			mul y
+			add c_im
+			sta y
+			
+			lda x_new
+			sta x
+			
+			lda iteration
+			inc
+			sta iteration
+	
+			lda x
+			mul x
+			sta b
+			
+			lda y
+			mul y
+			add b
+			
+			cmp #4
+			jl plot
+			
+			lda max
+			cmp iteration
+			jgz skipPlot
+		
+		jp computeloop
+	
+		plot:
+			
+		;Check for same color already set			
+		lda r1
+		cmp iteration
+		jz plotPixel
+		
+		;Set and store changed color
+		lda iteration
+		out color.foreground
+		sta r1
+		
+		plotPixel:
+		lda col
+		out sys.data
+		lda row
+		out sys.data
+		lda const_gPixel
+		out graphics.Draw
+	
+		skipPlot:
+			
+		;increment col
+		lda col
+		inc
+		sta col
+		
+	lp x_loop
+	
+	lda #0
+	sta col
+	
+	;increment row
+	lda row
+	inc
+	sta row
+		
+	pop c
+lp y_loop
+
+	time.get const_timer0
+	div #1000
+	sta r0
+			
+	brk
+
+;Variables
+width:
+	data 640
+height:
+	data 480
+x_new:
+	data 0
+c_re:
+	data 0
+c_im:
+	data 0
+x:
+	data 0
+y:
+	data 0
+iteration:
+	data 0
+max:
+	data 63
+row:
+	data 0
+col:
+	data 0</source>
+<mem>1024</mem>
+<row>121</row>
+<col>0</col>
+<hash></hash>
+<scroll>90</scroll>
+<autorun>false</autorun>
+<exmode>true</exmode>
+<fullscreen>false</fullscreen>

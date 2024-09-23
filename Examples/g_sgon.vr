@@ -1,0 +1,53 @@
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_highres_mode
+	out screen.mode
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #100
+	stc
+
+loop:
+	lda #63
+	rnd
+	out color.foreground
+
+	lda #640
+	rnd
+	out sys.data
+	
+	lda #480
+	rnd
+	out sys.data
+
+	lda #ngondata
+	out sys.data
+
+	lda #360
+	rnd
+	out sys.data
+
+	lda #4
+	rnd
+	out sys.data
+
+	lda const_gsgon
+	out graphics.draw
+
+	lp loop
+
+	brk
+
+ngondata:
+	data -10,-10,10,-10,10,10,-10,10</source>
+<mem>1024</mem>
+<row>14</row>
+<col>21</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
