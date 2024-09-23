@@ -2,15 +2,15 @@
 <source>_start:
 	sys.ignorelocal
 	
-	lda #5
+	lda #100
 	out sys.performance
-	
+		
 	lda const_cBlack
 	out color.background
 	screen.clear
 
 	lda false
-	out text.auto_scroll
+	out text.scroll
 		
 	lda #1200
 	stc
@@ -45,8 +45,8 @@ chars:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>3</row>
-<col>7</col>
+<row>5</row>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

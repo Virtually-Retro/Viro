@@ -54,14 +54,14 @@ checkVals:
 match:
 	push a
 	lda #win
-	out text.string
+	out text.print
 	pop a
 	rts
 	
 nomatch:
 	push a
 	lda #lose
-	out text.string
+	out text.print
 	pop a
 	rts
 	
@@ -78,10 +78,10 @@ win:
 lose:
 	data 10,89,111,117,32,108,111,115,101,33,33,10</source>
 <mem>1024</mem>
-<row>8</row>
-<col>12</col>
+<row>62</row>
+<col>15</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>36</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

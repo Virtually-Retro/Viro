@@ -30,9 +30,7 @@ drawPoly:
 	out sys.data
 	lda const_gsgon
 	out graphics.draw
-	lda const_gupdate
-	out graphics.draw
-
+	
 	lda r
 	inc
 	sta r
@@ -107,10 +105,10 @@ s:
 ngondata:
 	data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>87</row>
-<col>20</col>
+<row>10</row>
+<col>1</col>
 <hash></hash>
-<scroll>56</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

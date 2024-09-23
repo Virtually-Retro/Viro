@@ -42,7 +42,7 @@ setup:
 	out screen.mode
 	
 	lda false
-	out text.auto_scroll
+	out text.scroll
 	
 	
 	jsr drawscreens
@@ -73,7 +73,7 @@ drawscreens:
 		stc
 		innerLoop:
 			lda r0
-			out text.number
+			out text.print
 		lp innerLoop
 
 		pop c
@@ -90,10 +90,10 @@ sn:
 	data 3
 </source>
 <mem>1024</mem>
-<row>81</row>
-<col>24</col>
+<row>43</row>
+<col>10</col>
 <hash></hash>
-<scroll>58</scroll>
+<scroll>26</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -3,11 +3,19 @@
 		
 	sys.ignorelocal
 	
+	title "Engine Speed Test"
+	
 	lda const_highres_mode
 	out screen.mode
 
+	lda cy
+	out text.cursor.y
+	add #1
+	sta cy
+	lda #1
+	out text.cursor.x
 	lda #intro
-	out text.string
+	out text.print
 		
 testStart:
 	
@@ -18,13 +26,13 @@ testStart:
 	add #2
 	sta cy
 	out text.cursor.y
-	lda #0
+	lda #1
 	out text.cursor.x
 
 	lda #perfmessage
-	out text.string
+	out text.print
 	lda ps
-	out text.number
+	out text.print
 
 	lda #1000000
 	stc
@@ -45,9 +53,9 @@ loop:
 	sta b
 		
 	lda #postPerfMessage
-	out text.string
+	out text.print
 	lda b
-	out text.number
+	out text.print
 	
 	lda ln
 	cmp #0
@@ -62,11 +70,11 @@ skipFirstStore:
 	jz skip
 	
 	lda #mulp
-	out text.string
+	out text.print
 		
 	lda b
 	div ln
-	out text.number
+	out text.print
 	
 	lda b
 	sta ln
@@ -95,17 +103,17 @@ ps:
 cy:
 	data 1
 intro:
-	data 86,105,114,111,32,69,110,103,105,110,101,32,83,112,101,101,100,32,84,101,115,116,101,114,0
+	data 86,105,114,111,32,69,110,103,105,110,101,32,83,112,101,101,100,32,84,101,115,116,101,114
 perfmessage:
-	data 80,101,114,102,111,114,109,97,110,99,101,32,115,101,116,116,105,110,103,58,32,0
+	data 80,101,114,102,111,114,109,97,110,99,101,32,115,101,116,116,105,110,103,58,32
 postPerfMessage:
-	data 32,73,110,115,116,114,117,99,116,105,111,110,115,32,112,101,114,32,115,101,99,111,110,100,58,32,0
+	data 32,73,110,115,116,114,117,99,116,105,111,110,115,32,112,101,114,32,115,101,99,111,110,100,58,32
 	</source>
 <mem>1024</mem>
-<row>5</row>
-<col>16</col>
+<row>74</row>
+<col>7</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>62</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

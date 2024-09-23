@@ -3,7 +3,7 @@
 	sys.ignorelocal
 	
 	lda false
-	out text.auto_scroll
+	out text.scroll
 	
 	
 	lda #1200
@@ -11,7 +11,7 @@
 
 loop:
 	lda num
-	out text.number
+	out text.print
 	inc
 	sta num
 	cmp #9
@@ -28,7 +28,7 @@ num:
 	data 0</source>
 <mem>1024</mem>
 <row>4</row>
-<col>21</col>
+<col>10</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

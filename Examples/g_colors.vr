@@ -35,7 +35,7 @@ mainLoop:
 	lda #63
 	out color.foreground
 	lda var_c
-	out text.number
+	out text.print
 	
 	
 	lda #0
@@ -109,10 +109,10 @@ var_y:
 var_c:
 	data 0</source>
 <mem>1024</mem>
-<row>3</row>
+<row>35</row>
 <col>1</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>20</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -24,7 +24,7 @@ loop:
 	lda r0
 	sta bv
 
-	out text.number
+	out text.print
 	lda #32
 	out
 
@@ -41,7 +41,7 @@ cu:
 	data 60</source>
 <mem>1024</mem>
 <row>25</row>
-<col>10</col>
+<col>15</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

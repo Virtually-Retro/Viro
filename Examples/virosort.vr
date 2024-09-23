@@ -44,7 +44,7 @@ printData:
 printLoop:
 	
 	mb.read #sortdata
-	out text.number
+	out text.print
 	lda #32
 	out
 	
@@ -84,10 +84,10 @@ fillloop:
 sortdata:
 	mb 100</source>
 <mem>1024</mem>
-<row>26</row>
-<col>3</col>
+<row>45</row>
+<col>15</col>
 <hash></hash>
-<scroll>9</scroll>
+<scroll>36</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

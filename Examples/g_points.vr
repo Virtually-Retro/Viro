@@ -3,7 +3,7 @@
 	lda const_lowres_mode
 	out screen.mode
 
-	lda #5
+	lda #10
 	out sys.performance
 
 	lda const_cBlack
@@ -42,8 +42,8 @@ _irq_subroutine:
 	rti
 </source>
 <mem>1024</mem>
-<row>9</row>
-<col>13</col>
+<row>4</row>
+<col>8</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

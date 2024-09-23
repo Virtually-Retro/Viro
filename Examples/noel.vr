@@ -33,16 +33,16 @@ outerLoop:
 	lp outerLoop
 
 	lda r1
-	out text.number
+	out text.print
 	time.get const_timer0
 	
 	div #1000
 	</source>
 <mem>1024</mem>
-<row>6</row>
-<col>2</col>
+<row>34</row>
+<col>15</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>7</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

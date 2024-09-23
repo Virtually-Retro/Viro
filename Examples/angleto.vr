@@ -61,7 +61,7 @@ drawpoly:
 
 	lda r0
 	round
-	out text.number
+	out text.print
 
 	rts
 
@@ -73,10 +73,10 @@ ngondata:
 	
 	</source>
 <mem>1024</mem>
-<row>40</row>
-<col>22</col>
+<row>62</row>
+<col>15</col>
 <hash></hash>
-<scroll>9</scroll>
+<scroll>36</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

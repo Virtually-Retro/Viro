@@ -17,7 +17,7 @@ mainloop:
 	jz exit
 		
 	lda #filebuffer
-	out text.string
+	out text.print
 	
 	jp mainloop
 	
@@ -31,8 +31,8 @@ filebuffer:
 ;Resources
 resource.link "test.txt"</source>
 <mem>1024</mem>
-<row>13</row>
-<col>3</col>
+<row>3</row>
+<col>9</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

@@ -16,15 +16,15 @@ mainloop:
 timerExpired:
 	push a
 	lda #message
-	out text.string
+	out text.print
 	pop a
 	rts	
 
 message:
-	data 84,105,109,101,114,32,69,120,112,105,114,101,100,33,10,0</source>
+	data 84,105,109,101,114,32,69,120,112,105,114,101,100,33,10</source>
 <mem>1024</mem>
-<row>5</row>
-<col>22</col>
+<row>22</row>
+<col>60</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

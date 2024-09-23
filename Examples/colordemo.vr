@@ -9,7 +9,7 @@ _start:
 	screen.clear
 
 	lda #titleMsg
-	out text.string
+	out text.print
 
 	jsr red
 	jsr green
@@ -114,10 +114,10 @@ loopblue:
 titleMsg:
 	data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
 <mem>1024</mem>
-<row>113</row>
-<col>63</col>
+<row>10</row>
+<col>15</col>
 <hash></hash>
-<scroll>82</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

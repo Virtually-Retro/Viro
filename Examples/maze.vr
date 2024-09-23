@@ -230,10 +230,10 @@ buffer_addr:
 maze_data:
 	mb 1200</source>
 <mem>2048</mem>
-<row>16</row>
-<col>10</col>
+<row>20</row>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
-<fullscreen>false</fullscreen>
+<fullscreen>true</fullscreen>

@@ -24,7 +24,7 @@ loop:
 	lp loop
 
 	lda r0
-	out text.number
+	out text.print
 
 	brk
 
@@ -38,7 +38,7 @@ addnumber:
 </source>
 <mem>1024</mem>
 <row>25</row>
-<col>10</col>
+<col>15</col>
 <hash></hash>
 <scroll>5</scroll>
 <autorun>false</autorun>

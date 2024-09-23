@@ -36,7 +36,7 @@ mainLoop:
 	jnz skipdc
 	
 	lda #message
-	out text.string
+	out text.print
 		
 	
 skipdc:
@@ -108,7 +108,7 @@ drawScreen:
 	out graphics.draw
 	
 	lda r0
-	out text.number
+	out text.print
 		
 	rts
 	
@@ -120,10 +120,10 @@ message:
 	
 </source>
 <mem>1024</mem>
-<row>49</row>
-<col>5</col>
+<row>109</row>
+<col>15</col>
 <hash></hash>
-<scroll>18</scroll>
+<scroll>87</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

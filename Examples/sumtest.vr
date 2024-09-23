@@ -4,13 +4,13 @@
 
 	lda #sumdata
 	mb.sum
-	
-	out text.number
-				
+	fn
+	out text.print
+					
 	brk
 
 sumdata:
-	data 1,2,3,4,5,6,7,8,9,10,0,0
+	data 1,2,3,4,5,6,7,8,9,10
 	
 	</source>
 <mem>1024</mem>

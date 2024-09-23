@@ -73,7 +73,7 @@ printData:
 	stc
 printLoop:
 	lda [lvp]
-	out text.number
+	out text.print
 	lda lvp
 	inc
 	sta lvp
@@ -103,10 +103,10 @@ uvp:
 sortdata:
 	data 100,50,70,40,30,80,20,10,90,60</source>
 <mem>1024</mem>
-<row>49</row>
-<col>8</col>
+<row>74</row>
+<col>15</col>
 <hash></hash>
-<scroll>31</scroll>
+<scroll>58</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

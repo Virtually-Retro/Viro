@@ -1,7 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
 	lda false
-	out text.auto_scroll
+	out text.scroll
 	
 	lda #1200
 	stc
@@ -11,6 +11,7 @@ loop:
 	rnd
 	out
 	lp loop
+	
 	
 	lda #4
 	out sys.data
@@ -23,8 +24,8 @@ loop:
 	out screen.active_buffer
 	</source>
 <mem>1024</mem>
-<row>21</row>
-<col>1</col>
+<row>2</row>
+<col>10</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

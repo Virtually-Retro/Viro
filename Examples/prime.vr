@@ -58,7 +58,7 @@ calcLoop:
 	
 prime:
 	lda maxNumber
-	out text.number
+	out text.print
 	lda #32
 	out
 
@@ -82,10 +82,10 @@ excludes:
 maxNumber:
 	data 2</source>
 <mem>1024</mem>
-<row>28</row>
-<col>12</col>
+<row>59</row>
+<col>15</col>
 <hash></hash>
-<scroll>2</scroll>
+<scroll>50</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

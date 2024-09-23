@@ -19,14 +19,13 @@ _start:
 	lda #10
 	out
 	lda count
-	out text.number
+	out text.print
 	lda #10
 	out
 	out
 	lda r1
-	out text.number
+	out text.print
 	
-
 exit:
 	brk
 
@@ -89,7 +88,7 @@ printData:
 	stc
 printLoop:
 	lda [lvp]
-	out text.number
+	out text.print
 	lda lvp
 	inc
 	sta lvp
@@ -144,10 +143,10 @@ uvp:
 sortdata:
 	mb 100</source>
 <mem>1024</mem>
-<row>69</row>
+<row>26</row>
 <col>1</col>
 <hash></hash>
-<scroll>47</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

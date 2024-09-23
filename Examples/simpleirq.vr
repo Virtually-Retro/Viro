@@ -20,7 +20,7 @@ _irq_subroutine:
 	push a
 	
 	lda #message
-	out text.string
+	out text.print
 	
 	pop a
 	rti
@@ -31,8 +31,8 @@ _irq_subroutine:
 message:
 	data 73,82,81,10,0</source>
 <mem>1024</mem>
-<row>17</row>
-<col>4</col>
+<row>21</row>
+<col>15</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

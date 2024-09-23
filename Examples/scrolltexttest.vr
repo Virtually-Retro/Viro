@@ -18,7 +18,7 @@ mainloop:
 	rnd
 	out color.foreground
 	
-	lda #2
+	lda #1
 	rnd
 	jsrnz space
 	jsrz chars
@@ -44,8 +44,8 @@ chars:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>3</row>
-<col>9</col>
+<row>19</row>
+<col>7</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
