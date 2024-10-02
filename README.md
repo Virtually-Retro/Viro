@@ -18,4 +18,6 @@ The virtual, retro, homebrew, fully programmable computer system for all of us w
 
 <p align="center">
 <img width="640" alt="Screenshot 2024-09-30 at 6 39 25 AM" src="https://github.com/user-attachments/assets/9fb9a4bd-d500-4068-aa25-45a84adb482b">
+<br>
+<img width="640" alt="Screenshot 2024-10-02 at 3 56 20 PM" src="https://github.com/user-attachments/assets/13924f5c-be3a-4e58-b359-5b452eb7bddc">
 </p>
