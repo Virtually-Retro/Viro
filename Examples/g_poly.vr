@@ -1,0 +1,22 @@
+<VirtuallyRetro-File>
+<source>_start:
+
+	lda #polydata
+	out sys.data
+	
+	lda const_gPolygon
+	out graphics.Draw
+
+	brk
+
+polydata:
+	data 100,100,200,200,250,50,50,25
+</source>
+<mem>1024</mem>
+<row>3</row>
+<col>6</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

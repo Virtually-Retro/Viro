@@ -1,0 +1,80 @@
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_highres_mode
+	out screen.mode
+
+loopstart:
+
+	lda #0
+	sta av
+	
+	lda false
+	out screen.auto_refresh
+
+	lda #100
+	stc
+outerloop:
+	push c
+	
+	lda const_gLineToReset
+	out graphics.Draw
+	
+	screen.clear
+
+	lda #640
+	stc
+loop:
+	lda #2
+	mul maths.pi
+	mul fv
+	mul c
+	add bv
+	sin
+	mul av
+	add #240
+	sta y
+	
+	lda c
+	out sys.data
+	lda y
+	out sys.data
+	lda const_gLineTo
+	out graphics.Draw
+
+	lp loop
+	
+	lda const_gUpdate
+	out graphics.draw
+	
+	lda av
+	inc
+	sta av
+	
+	pop c
+	lp outerloop
+	
+	lda fv
+	sub #0.001
+	sta fv
+	
+	
+jp loopstart
+	
+	brk
+	
+y:
+	data 0
+av:
+	data 1
+fv:
+	data 0.01
+bv:
+	data 0</source>
+<mem>1024</mem>
+<row>10</row>
+<col>24</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

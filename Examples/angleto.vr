@@ -1,0 +1,82 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	sys.ignorelocal
+	
+mainLoop:
+
+	screen.clear
+
+	lda #160
+	out sys.data
+	lda #120
+	out sys.data
+	lda const_gPixel
+	out graphics.draw
+
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda #160.0
+	out sys.data
+	lda #120.0
+	out sys.data
+	
+	lda const_maths_angleto
+	out maths.calc
+		
+	sta r0
+	
+	jsr drawpoly
+		
+	lda #0
+	out mouse.button_clicked
+			
+					
+skip:
+		
+	hlt const_WakeOnMouse
+	
+	jp mainLoop
+	
+
+drawpoly:
+	
+	lda #160
+	out sys.data
+	lda #120
+	out sys.data
+	lda #ngondata
+	out sys.data
+	lda r0
+	out sys.data
+	lda #4
+	out sys.data
+	lda const_gsgon
+	out graphics.draw
+
+	lda r0
+	round
+	out text.print
+
+	rts
+
+	brk
+
+ngondata:
+	data -10,-2,10,-10,10,10,-10,2
+	
+	
+	</source>
+<mem>1024</mem>
+<row>62</row>
+<col>15</col>
+<hash></hash>
+<scroll>36</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

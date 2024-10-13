@@ -1,0 +1,51 @@
+<VirtuallyRetro-File>
+<source>_start:
+	lda const_lowres_mode
+	out screen.mode
+
+	lda #10
+	out sys.performance
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #100000
+	stc
+
+loop:
+	lda #320
+	rnd
+	out sys.data
+
+	lda #240
+	rnd
+	out sys.data
+
+	lda const_gPixel
+	out graphics.Draw
+
+	lp loop
+	
+	time.get const_timer0
+	div #1000	
+	brk
+
+_irq_subroutine:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+		
+	pop a
+	rti
+</source>
+<mem>1024</mem>
+<row>4</row>
+<col>8</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

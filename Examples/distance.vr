@@ -1,0 +1,129 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	sys.ignorelocal
+	
+mainLoop:
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda #160.0
+	out sys.data
+	lda #120.0
+	out sys.data
+	lda const_maths_distanceto
+	out maths.calc
+	round	
+	sta r0
+			
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda #160.0
+	out sys.data
+	lda #120.0
+	out sys.data
+	lda #10 ;Death Zone
+	out sys.data
+	lda const_maths_distancecollider
+	out maths.calc
+	
+	jnz skipdc
+	
+	lda #message
+	out text.print
+		
+	
+skipdc:
+			
+	lda #0
+	out mouse.button_clicked
+	
+	jsr drawScreen
+					
+skip:
+		
+	hlt const_WakeOnMouse
+	
+	screen.clear
+	
+	jp mainLoop
+	
+	
+	
+drawScreen:
+	
+	lda const_clightgray
+	out color.foreground
+	
+	lda #160
+	out sys.data
+	lda #120
+	out sys.data
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda const_gLine
+	out graphics.draw
+	
+	
+	lda const_cWhite
+	out color.foreground
+		
+	lda #160
+	out sys.data
+	lda #110
+	out sys.data
+	lda #160
+	out sys.data
+	lda #130
+	out sys.data
+	lda const_gLine
+	out graphics.draw
+	
+	lda #150
+	out sys.data
+	lda #120
+	out sys.data
+	lda #170
+	out sys.data
+	lda #120
+	out sys.data
+	lda const_gLine
+	out graphics.draw
+
+	in mouse.x
+	out sys.data
+	in mouse.y
+	out sys.data
+	lda #5
+	out sys.data
+	lda const_gCircle
+	out graphics.draw
+	
+	lda r0
+	out text.print
+		
+	rts
+	
+	brk
+	
+message:
+	data 68,101,97,100,32,0
+	
+	
+</source>
+<mem>1024</mem>
+<row>109</row>
+<col>15</col>
+<hash></hash>
+<scroll>87</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
