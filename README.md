@@ -13,6 +13,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Native Runtime Engine
 	File System with directory support
 	Optimised Graphics and Font System
+ 	Program Chaining and protected chain memory support.
 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
 	
 
