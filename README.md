@@ -18,7 +18,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	
 ### Coming Soon:
 
-	64 Bit Binary maths support
+	Binary maths support
 	Hex and Binary Constants
 	Audio Support
 	Additions to graphics system
