@@ -25,6 +25,25 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Colour picker
 	Improves LS command in file manager
 
+### Change in 1.0.16 Beta:
+
+	Single ‘SAVE’ command now supported in main terminal if file previously saved.
+	Blanking frame is auto set to the current background colour.
+	Implemented blanking frames to hide transition when chaining programs.
+	Added LDA and STA support for chain address memory.
+	Now perform a deep duplicate of complied code and resources into the runtime engine.
+	Added chain instruction for chaining to a seperate program.
+	Fixed Bug where main window would reset position when exiting windowed exclusive mode.
+	Added better resource checking system.
+	Added better directory checking to resource.link.
+	Fixed Bug in Engine Pause control.
+	Fixed Bug in FileExists method.
+	Fixed Bug in CPU performance read trigger port.
+	Reworked FileIO - FileBuffer system.
+	Stopped clearing runtime memory when leaving the editor.  So runtime memory and metrics remain until next compile.
+	Clamped 1% CPU at 300 Instructions before processor yield.
+	Adjusted IF conditions in runtime engine.
+
 ### Example Screenshots - Version 1.0.16 Beta:
 
 <p align="center">
