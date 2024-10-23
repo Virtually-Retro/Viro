@@ -5,60 +5,43 @@
 	
 mainLoop:
 
-	screen.clear
-
-	lda #160
-	out sys.data
-	lda #120
-	out sys.data
-	lda const_gPixel
-	out graphics.draw
-
-	in mouse.button_clicked
-	jz skip
-
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #160.0
-	out sys.data
-	lda #120.0
-	out sys.data
-	
-	lda const_maths_angleto
-	out maths.calc
+	ld a
+	ld #160.0
+	ld #120.0
+	mc const_maths_angleto
+	sta r1
 		
+	cmp r0
+	jz skip
+	
+	lda r1
 	sta r0
-	
-	jsr drawpoly
 		
-	lda #0
-	out mouse.button_clicked
-			
+	jsr drawpoly
 					
 skip:
-		
-	hlt const_WakeOnMouse
-	
+
 	jp mainLoop
 	
 
 drawpoly:
 	
-	lda #160
-	out sys.data
-	lda #120
-	out sys.data
-	lda #ngondata
-	out sys.data
-	lda r0
-	out sys.data
-	lda #4
-	out sys.data
-	lda const_gsgon
-	out graphics.draw
-
+	screen.clear
+		
+	ld #160
+	ld #120
+	gc const_gPixel
+			
+	ld #160
+	ld #120
+	ld #ngondata
+	ld r0
+	ld #4
+	gc const_gsgon
+	
 	lda r0
 	round
 	out text.print
@@ -73,10 +56,10 @@ ngondata:
 	
 	</source>
 <mem>1024</mem>
-<row>62</row>
-<col>15</col>
+<row>24</row>
+<col>0</col>
 <hash></hash>
-<scroll>36</scroll>
+<scroll>4</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

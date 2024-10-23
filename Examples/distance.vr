@@ -8,31 +8,24 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #160.0
-	out sys.data
-	lda #120.0
-	out sys.data
-	lda const_maths_distanceto
-	out maths.calc
+	ld a
+	ld #160.0
+	ld #120.0
+	mc const_maths_distanceto
 	round	
 	sta r0
 			
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #160.0
-	out sys.data
-	lda #120.0
-	out sys.data
-	lda #10 ;Death Zone
-	out sys.data
-	lda const_maths_distancecollider
-	out maths.calc
-	
+	ld a
+	ld #160.0
+	ld #120.0
+	ld #10 ;Death Zone
+	mc const_maths_distancecollider
+		
 	jnz skipdc
 	
 	lda #message
@@ -61,51 +54,35 @@ drawScreen:
 	lda const_clightgray
 	out color.foreground
 	
-	lda #160
-	out sys.data
-	lda #120
-	out sys.data
+	ld #160
+	ld #120
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda const_gLine
-	out graphics.draw
-	
-	
+	ld a
+	gc const_gLine
+		
 	lda const_cWhite
 	out color.foreground
 		
-	lda #160
-	out sys.data
-	lda #110
-	out sys.data
-	lda #160
-	out sys.data
-	lda #130
-	out sys.data
-	lda const_gLine
-	out graphics.draw
+	ld #160
+	ld #110
+	ld #160
+	ld #130
+	gc const_gLine
 	
-	lda #150
-	out sys.data
-	lda #120
-	out sys.data
-	lda #170
-	out sys.data
-	lda #120
-	out sys.data
-	lda const_gLine
-	out graphics.draw
-
+	ld #150
+	ld #120
+	ld #170
+	ld #120
+	gc const_gLine
+	
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #5
-	out sys.data
-	lda const_gCircle
-	out graphics.draw
+	ld a
+	ld #5
+	gc const_gCircle
 	
 	lda r0
 	out text.print
@@ -120,10 +97,10 @@ message:
 	
 </source>
 <mem>1024</mem>
-<row>109</row>
-<col>15</col>
+<row>84</row>
+<col>1</col>
 <hash></hash>
-<scroll>87</scroll>
+<scroll>61</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

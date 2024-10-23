@@ -18,19 +18,13 @@ exit:
 drawPoly:
 	screen.clear
 	
-	lda x
-	out sys.data
-	lda y
-	out sys.data
-	lda #ngondata
-	out sys.data
-	lda r
-	out sys.data
-	lda s
-	out sys.data
-	lda const_gsgon
-	out graphics.draw
-	
+	ld x
+	ld y
+	ld #ngondata
+	ld r
+	ld s
+	gc const_gsgon
+		
 	lda r
 	inc
 	sta r
@@ -105,10 +99,10 @@ s:
 ngondata:
 	data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>10</row>
+<row>25</row>
 <col>1</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>4</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

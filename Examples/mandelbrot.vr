@@ -13,7 +13,7 @@
 	screen.clear
 	
 	time.reset const_timer0
-	
+			
 	lda height
 	stc
 	
@@ -97,13 +97,10 @@ y_loop:
 		sta r1
 		
 		plotPixel:
-		lda col
-		out sys.data
-		lda row
-		out sys.data
-		lda const_gPixel
-		out graphics.Draw
-	
+		ld col
+		ld row
+		gc const_gPixel
+			
 		skipPlot:
 			
 		;increment col
@@ -154,10 +151,10 @@ row:
 col:
 	data 0</source>
 <mem>1024</mem>
-<row>2</row>
-<col>9</col>
+<row>101</row>
+<col>2</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>85</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

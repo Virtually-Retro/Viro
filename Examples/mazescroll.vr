@@ -1,6 +1,6 @@
 <VirtuallyRetro-File>
 <source>_start:
-	lda #0.03
+	lda #0.04
 	out sys.performance
 		
 mainLoop:

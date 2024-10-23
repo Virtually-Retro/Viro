@@ -13,22 +13,18 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda const_gGetPixel
-	out graphics.draw
+	ld a
+	gc const_gGetPixel
 	sta var_c
 		
-	lda #0
-	out sys.data
-	out sys.data
-	lda #20
-	out sys.data
-	out sys.data
-	lda const_gClearRect
-	out graphics.draw
-	
+	ld #0
+	ld #0
+	ld #20
+	ld #20
+	gc const_gClearRect
+		
 	lda #0
 	out text.cursor.x
 		
@@ -70,20 +66,15 @@ drawcolors:
 			out color.foreground
 			
 			lda var_x
-			out sys.data
+			ld a
 			add #39 
 			sta var_x
 						
-			lda var_y
-			out sys.data
-			lda #38
-			out sys.data	
-			lda #28
-			out sys.data
-	
-			lda const_gfillrect
-			out graphics.draw
-			
+			ld var_y
+			ld #38
+			ld #28
+			gc const_gfillrect
+						
 			lda var_c
 			inc
 			sta var_c
@@ -109,10 +100,10 @@ var_y:
 var_c:
 	data 0</source>
 <mem>1024</mem>
-<row>35</row>
-<col>1</col>
+<row>75</row>
+<col>3</col>
 <hash></hash>
-<scroll>20</scroll>
+<scroll>53</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

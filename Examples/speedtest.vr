@@ -81,7 +81,8 @@ skipFirstStore:
 		
 	
 skip:	
-	yld
+	
+	
 	lda ps
 	add #10
 	sta ps
@@ -109,10 +110,10 @@ perfmessage:
 postPerfMessage:
 	data 32,73,110,115,116,114,117,99,116,105,111,110,115,32,112,101,114,32,115,101,99,111,110,100,58,32</source>
 <mem>1024</mem>
-<row>108</row>
-<col>101</col>
+<row>82</row>
+<col>1</col>
 <hash></hash>
-<scroll>77</scroll>
+<scroll>71</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

@@ -25,13 +25,11 @@ drawpoint:
 	push a
 
 	in mouse.X
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
+	ld a
+	gc const_glineto
 	
-	lda const_glineto
-	out graphics.draw
-
 	lda #0
 	out mouse.button_clicked
 
@@ -42,15 +40,12 @@ drawpointwithreset:
 	push a
 
 	in mouse.X
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda const_gLineTo
-	out graphics.draw
-
-	lda const_gLineToReset
-	out graphics.draw
-
+	ld a
+	gc const_gLineTo
+	gc const_gLineToReset
+	
 	lda #0
 	out mouse.button_clicked
 
@@ -58,9 +53,9 @@ drawpointwithreset:
 	rts</source>
 <mem>1024</mem>
 <row>46</row>
-<col>18</col>
+<col>1</col>
 <hash></hash>
-<scroll>15</scroll>
+<scroll>20</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

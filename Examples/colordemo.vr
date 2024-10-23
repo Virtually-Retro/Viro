@@ -23,26 +23,20 @@ red:
 	stc
 	
 loopred:
-	lda c
-	out sys.data
-	lda #0
-	out sys.data
-	out sys.data
-	lda const_gColor
-	out graphics.draw
-	
+	ld c
+	ld #0
+	ld #0
+	gc const_gColor
+		
 	lda c
 	add #32
-	out sys.data
-	lda #50
-	out sys.data
+	ld a
+	ld #50
 	lda c
 	add #32
-	out sys.data
-	lda #100
-	out sys.data
-	lda const_gLine
-	out graphics.draw
+	ld a
+	ld #100
+	gc const_gLine
 
 	lp loopred
 
@@ -53,28 +47,21 @@ green:
 	stc
 	
 loopgreen:
-	lda #0
-	out sys.data
+	ld #0
+	ld c
+	ld #0
+	gc const_gColor
+		
 	lda c
-	out sys.data
-	lda #0
-	out sys.data
-	lda const_gColor
-	out graphics.draw
+	add #32
+	ld a
+	ld #110
+	lda c
+	add #32
+	ld a
+	ld #160
+	gc const_gLine
 	
-	lda c
-	add #32
-	out sys.data
-	lda #110
-	out sys.data
-	lda c
-	add #32
-	out sys.data
-	lda #160
-	out sys.data
-	lda const_gLine
-	out graphics.draw
-
 	lp loopgreen
 	
 	rts
@@ -84,27 +71,21 @@ blue:
 	stc
 	
 loopblue:
-	lda #0
-	out sys.data
-	out sys.data
-	lda c
-	out sys.data
-	lda const_gColor
-	out graphics.draw
+	ld #0
+	ld #0
+	ld c
+	gc const_gColor
 	
 	lda c
 	add #32
-	out sys.data
-	lda #170
-	out sys.data
+	ld a
+	ld #170
 	lda c
 	add #32
-	out sys.data
-	lda #220
-	out sys.data
-	lda const_gLine
-	out graphics.draw
-
+	ld a
+	ld #220
+	gc const_gLine
+	
 	lp loopblue
 	
 	rts
@@ -114,10 +95,10 @@ loopblue:
 titleMsg:
 	data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
 <mem>1024</mem>
-<row>10</row>
-<col>15</col>
+<row>74</row>
+<col>3</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>63</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

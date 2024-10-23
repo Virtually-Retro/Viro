@@ -4,7 +4,6 @@
 
 	lda #sumdata
 	mb.sum
-	fn
 	out text.print
 					
 	brk
@@ -14,7 +13,7 @@ sumdata:
 	
 	</source>
 <mem>1024</mem>
-<row>7</row>
+<row>5</row>
 <col>1</col>
 <hash></hash>
 <scroll>0</scroll>

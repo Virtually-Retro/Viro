@@ -17,26 +17,24 @@ loop:
 
 	lda #640
 	rnd
-	out sys.data
+	ld a
 	
 	lda #480
 	rnd
-	out sys.data
+	ld a
 
-	lda #ngondata
-	out sys.data
-
+	ld #ngondata
+	
 	lda #360
 	rnd
-	out sys.data
+	ld a
 
 	lda #4
 	rnd
-	out sys.data
+	ld a
 
-	lda const_gsgon
-	out graphics.draw
-
+	gc const_gsgon
+	
 	lp loop
 
 	brk
@@ -44,10 +42,10 @@ loop:
 ngondata:
 	data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>14</row>
-<col>21</col>
+<row>34</row>
+<col>1</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>10</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

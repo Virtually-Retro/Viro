@@ -1,50 +1,21 @@
 <VirtuallyRetro-File>
 <source>_start:
 
-	sys.ignorelocal
-
-	lda #bindata
-	add #7
-	sta mp
-
-	lda #8
-	stc
+	lda #32
+	out maths.binary_Resolution
 	
-loop:
-	lda num
-	and #1
-	sta [mp]
-	lda mp
-	dec
-	sta mp
-	lda num
-	shr
-	sta num
-
-	lp loop
-
-	lda #8
-	stc
-drawLoop:
-	mb.read #binData
-	out text.print
-	lp drawLoop
-
-	brk
-
-num:
-	data 221
-
-mp:
-	data 0
-
-bindata:
-	mb 8</source>
+	lda #128
+	
+	;rol
+	not
+	
+	not
+	;ror</source>
 <mem>1024</mem>
-<row>28</row>
-<col>15</col>
+<row>3</row>
+<col>18</col>
 <hash></hash>
-<scroll>6</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

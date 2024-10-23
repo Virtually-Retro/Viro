@@ -44,10 +44,10 @@ chars:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>28</row>
-<col>0</col>
+<row>14</row>
+<col>3</col>
 <hash></hash>
-<scroll>12</scroll>
+<scroll>6</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

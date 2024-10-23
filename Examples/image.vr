@@ -1,16 +1,16 @@
 <VirtuallyRetro-File>
 <source>_start:
-
-	ld #polydata
-	gc const_gPolygon
+	ld "testimage.png"
+	ld #4
+	gc const_gLoadImage
 	
-	brk
-
-polydata:
-	data 100,100,200,200,250,50,50,25
-</source>
+	ld #4
+	gc const_gCopyBuffer
+	
+brk
+	resource.link "testimage.png"</source>
 <mem>1024</mem>
-<row>5</row>
+<row>7</row>
 <col>1</col>
 <hash></hash>
 <scroll>0</scroll>

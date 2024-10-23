@@ -12,20 +12,15 @@ loop:
 	out
 	lp loop
 	
-	
-	lda #4
-	out sys.data
-	lda const_gCopyBuffer
-	out graphics.draw
-	
-	screen.clear
-	
+	;Changed to screen 4 and copy screen zero
 	lda #4
 	out screen.active_buffer
-	</source>
+			
+	ld #0
+	gc const_gCopyBuffer</source>
 <mem>1024</mem>
-<row>23</row>
-<col>1</col>
+<row>15</row>
+<col>21</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

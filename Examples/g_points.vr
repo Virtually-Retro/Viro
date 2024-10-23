@@ -16,15 +16,14 @@
 loop:
 	lda #320
 	rnd
-	out sys.data
+	ld a
 
 	lda #240
 	rnd
-	out sys.data
+	ld a
 
-	lda const_gPixel
-	out graphics.Draw
-
+	gc const_gPixel
+	
 	lp loop
 	
 	time.get const_timer0
@@ -42,10 +41,10 @@ _irq_subroutine:
 	rti
 </source>
 <mem>1024</mem>
-<row>4</row>
-<col>8</col>
+<row>24</row>
+<col>1</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>2</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

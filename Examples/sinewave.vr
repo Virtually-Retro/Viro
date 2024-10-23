@@ -16,8 +16,7 @@ loopstart:
 outerloop:
 	push c
 	
-	lda const_gLineToReset
-	out graphics.Draw
+	gc const_gLineToReset
 	
 	screen.clear
 
@@ -34,17 +33,13 @@ loop:
 	add #240
 	sta y
 	
-	lda c
-	out sys.data
-	lda y
-	out sys.data
-	lda const_gLineTo
-	out graphics.Draw
-
+	ld c
+	ld y
+	gc const_gLineTo
+	
 	lp loop
 	
-	lda const_gUpdate
-	out graphics.draw
+	screen.refresh
 	
 	lda av
 	inc
@@ -71,8 +66,8 @@ fv:
 bv:
 	data 0</source>
 <mem>1024</mem>
-<row>10</row>
-<col>24</col>
+<row>18</row>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

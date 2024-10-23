@@ -4,8 +4,7 @@
 	
 	lda false
 	out text.scroll
-	
-	
+		
 	lda #1200
 	stc
 
@@ -27,8 +26,8 @@ skip:
 num:
 	data 0</source>
 <mem>1024</mem>
-<row>4</row>
-<col>10</col>
+<row>5</row>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

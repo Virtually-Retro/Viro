@@ -67,9 +67,8 @@ change_color:
 mouseup:
 	push a
 	;finalise the lineto
-	lda const_glinetoReset
-	out graphics.draw
-
+	gc const_glinetoReset
+	
 	;Clear the mouse click
 	lda #0
 	out mouse.button_clicked
@@ -79,11 +78,10 @@ mouseup:
 mousedown:
 	push a
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda const_glineto
-	out graphics.draw
+	ld a
+	gc const_glineto
 	pop a
 	rts
 
@@ -102,10 +100,10 @@ setup:
 
 </source>
 <mem>1024</mem>
-<row>22</row>
-<col>12</col>
+<row>84</row>
+<col>1</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>67</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

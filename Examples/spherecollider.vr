@@ -9,21 +9,15 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #15
-	out sys.data
-		
-	lda #160.0
-	out sys.data
-	lda #120.0
-	out sys.data
-	lda #50
-	out sys.data
-			
-	lda const_maths_spherecollider
-	out maths.calc
+	ld a
+	ld #15
+	ld #160.0
+	ld #120.0
+	ld #50
+	mc const_maths_spherecollider
+	
 	jnz draw
 
 	lda const_cRed
@@ -46,23 +40,17 @@ drawCircle:
 	screen.clear
 	
 	in mouse.x
-	out sys.data
+	ld a
 	in mouse.y
-	out sys.data
-	lda #15
-	out sys.data
-	lda const_gCircle
-	out graphics.draw
-		
-	lda #160
-	out sys.data
-	lda #120
-	out sys.data
-	lda #50
-	out sys.data
-	lda const_gCircle
-	out graphics.draw
-
+	ld a
+	ld #15
+	gc const_gCircle
+			
+	ld #160
+	ld #120
+	ld #50
+	gc const_gCircle
+	
 	lda const_cWhite
 	out color.foreground
 
@@ -72,10 +60,10 @@ drawCircle:
 
 </source>
 <mem>1024</mem>
-<row>37</row>
-<col>22</col>
+<row>10</row>
+<col>5</col>
 <hash></hash>
-<scroll>6</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

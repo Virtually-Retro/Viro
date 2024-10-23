@@ -37,8 +37,8 @@ addnumber:
 	rts
 </source>
 <mem>1024</mem>
-<row>25</row>
-<col>15</col>
+<row>23</row>
+<col>0</col>
 <hash></hash>
 <scroll>5</scroll>
 <autorun>false</autorun>
