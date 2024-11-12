@@ -1,0 +1,31 @@
+<VirtuallyRetro-File>
+<source>_start:
+	mb 500
+
+	lda #abc
+	jp mp
+
+	mb.read #mp
+
+	
+	mb.compare #buf
+	
+	
+abc:
+
+	brk
+		
+mp:
+	data 0
+	
+buf:
+	mb 100
+</source>
+<mem>1024</mem>
+<row>6</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

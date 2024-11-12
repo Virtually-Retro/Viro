@@ -1,0 +1,109 @@
+<VirtuallyRetro-File>
+<source>;doodle program
+_start:
+	jsr setup
+ 
+mainloop:
+	in mouse.button_clicked
+	cmp #1
+	jnz skipdraw
+
+	in mouse.button_down
+	cmp #1
+	jsrz mousedown
+	jsrnz mouseup
+	
+	skipdraw:
+
+	jsr pause
+
+	in key.code
+	cmp #32
+	jsrz clearscreen
+
+	in key.code
+	cmp #99
+	jsrz change_color
+
+	in
+	cmp const_keyend
+	jz exit
+
+jp mainloop
+
+exit:
+	brk
+
+pause:
+	push a
+	
+	in mouse.button_clicked
+	cmp #1
+	jz skipPause
+
+	in mouse.button_down
+	cmp #1
+	jz skipPause
+	
+	hlt
+
+	skipPause:
+	
+	pop a
+rts
+
+clearscreen:
+	screen.clear
+rts
+
+change_color:
+	push a
+	lda #63
+	rnd
+	out color.foreground
+	pop a
+	rts
+
+mouseup:
+	push a
+	;finalise the lineto
+	gc const_glinetoReset
+	
+	;Clear the mouse click
+	lda #0
+	out mouse.button_clicked
+	pop a
+	rts
+
+mousedown:
+	push a
+	in mouse.x
+	ld a
+	in mouse.y
+	ld a
+	gc const_glineto
+	pop a
+	rts
+
+setup:
+	push a
+			
+	lda const_highres_mode
+	out screen.mode
+		
+	lda const_cBlack
+	out color.background
+	screen.clear
+	
+	pop a
+	rts
+
+</source>
+<mem>1024</mem>
+<row>84</row>
+<col>1</col>
+<hash></hash>
+<scroll>67</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

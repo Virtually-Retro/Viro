@@ -1,0 +1,152 @@
+<VirtuallyRetro-File>
+<source>;Enhanced Bubblesort
+_start:
+	sys.ignorelocal
+
+	lda #5
+	out sys.performance
+
+	jsr fillbuffer
+	jsr printData
+	
+	time.reset const_timer0
+	jsr bubbleSort
+	time.get const_timer0
+	sta r1
+	
+	jsr printData
+	
+	lda #10
+	out
+	lda count
+	out text.print
+	lda #10
+	out
+	out
+	lda r1
+	out text.print
+		
+exit:
+	brk
+
+
+;------------------------
+
+bubbleSort:
+	pusha
+	
+sortStart:
+	lda false
+	sta flip
+
+	lda #sortData
+	sta lvp
+	inc
+	sta uvp
+
+	lda count
+	stc
+sortLoop:
+	lda [lvp]
+	cmp [uvp]
+	jgz skipFlip
+	
+	lda [lvp]
+	xch [uvp]
+	sta [lvp]
+	
+	stb flip
+	
+skipFlip:
+	lda uvp
+	sta lvp
+	inc
+	sta uvp
+	
+	lp sortLoop
+
+	lda count
+	dec
+	sta count
+
+	lda flip
+	jnz sortStart
+
+	popa
+	rts
+
+
+;------------------------
+
+printData:
+	push a
+	
+	lda #sortdata
+	sta lvp
+	
+	lda #100
+	stc
+printLoop:
+	lda [lvp]
+	out text.print
+	lda lvp
+	inc
+	sta lvp
+	lda #32
+	out
+	lp printLoop
+	
+	lda #10
+	out
+	out
+	
+	pop a
+	rts
+
+	brk
+
+;------------------------
+
+fillBuffer:
+	push a
+
+	lda #sortData
+	sta lvp
+
+	lda #100
+	stc
+fillloop:
+
+	lda #100
+	rnd
+	sta [lvp]
+	lda lvp
+	inc
+	sta lvp
+
+	lp fillLoop
+
+	pop a
+	rts
+
+;------------------------
+
+;Variables
+count:
+	data 99
+flip:
+	data 0
+lvp:
+	data 0
+uvp:
+	data 0
+sortdata:
+	mb 100</source>
+<mem>1024</mem>
+<row>12</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

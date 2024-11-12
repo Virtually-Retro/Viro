@@ -1,0 +1,21 @@
+<VirtuallyRetro-File>
+<source>_start:
+	ld "testimage.png"
+	ld #4
+	gc const_gLoadImage
+	
+	ld #4
+	gc const_gCopyBuffer
+
+	brk
+	
+link "testimage.png"
+</source>
+<mem>1024</mem>
+<row>10</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

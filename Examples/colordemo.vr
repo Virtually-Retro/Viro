@@ -1,0 +1,104 @@
+<VirtuallyRetro-File>
+<source>;RGB Colors demo
+_start:
+
+	sys.ignorelocal
+
+	lda const_cBlack
+	out color.background
+	screen.clear
+
+	lda #titleMsg
+	out text.print
+
+	jsr red
+	jsr green
+	jsr blue
+
+	brk
+
+	
+red:
+	lda #255
+	stc
+	
+loopred:
+	ld c
+	ld #0
+	ld #0
+	gc const_gColor
+		
+	lda c
+	add #32
+	ld a
+	ld #50
+	lda c
+	add #32
+	ld a
+	ld #100
+	gc const_gLine
+
+	lp loopred
+
+	rts
+
+green:
+	lda #255
+	stc
+	
+loopgreen:
+	ld #0
+	ld c
+	ld #0
+	gc const_gColor
+		
+	lda c
+	add #32
+	ld a
+	ld #110
+	lda c
+	add #32
+	ld a
+	ld #160
+	gc const_gLine
+	
+	lp loopgreen
+	
+	rts
+	
+blue:
+	lda #255
+	stc
+	
+loopblue:
+	ld #0
+	ld #0
+	ld c
+	gc const_gColor
+	
+	lda c
+	add #32
+	ld a
+	ld #170
+	lda c
+	add #32
+	ld a
+	ld #220
+	gc const_gLine
+	
+	lp loopblue
+	
+	rts
+			
+	brk
+
+titleMsg:
+	data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
+<mem>1024</mem>
+<row>74</row>
+<col>3</col>
+<hash></hash>
+<scroll>63</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
