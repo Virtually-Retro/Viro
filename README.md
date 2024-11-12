@@ -13,50 +13,39 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Native Runtime Engine
 	File System with directory support
 	Optimised Graphics and Font System
+ 	Audio Support
  	Program Chaining and protected chain memory support.
 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
 	
 ### Coming Soon:
 
-	Audio Support
 	More additions to graphics system
  	Image manipulation
 	Colour picker
 
-### Change in 1.0.17 Beta:
+### Change in 1.0.18 Beta:
 
-	Add timezone UTC offset support for file display.
-	Improved LS -A command in main terminal.
-	Reworked graphics and maths system.  Remove Graphics.draw, Maths.calc and Sys.data ports.
-	Added LD instruction for loading values onto the system data stack.
-	Added GC and MC instructions for Graphics and Maths commands, both take a constant as a parameter.
-	Updated manual with changes.
-	Added a runtime file exists check when loading a linked resource.
-	Checked for active buffer destination when loading image, scheduled screen refresh if so.
-	Added sections to manual on loading images, updated constants table.
-	Added loading of image resources.
-	Added Screen.Refresh for instant update of screen
-	Removed the YLD (Yield) instruction as it is not longer required after graphics system update.
-	Added Binary and Hex constant support.
-	Added 8 and 16 bit binary maths support.
-	Added support for 8 and 16 bit binary constant support.
-	Added ‘CMD + S’ save support to the main terminal.
-	Added support to cycle and show or hide the debug pane even if engine stopped.
-	Debug pane now only updates when the engine is running, not when paused.
-	Added section to manual on chaining programs.
-	Added section to manual on the debug panes.
-	Clamped memory min and max to 1024 - 65536 Bytes.
-	Fixed bug in debug pane when entering pause state.
-	Improved cell padding in BSOD, metrics and memory viewers.
-	Improved binary library performance.
-	Changed gBuffer copy to always copy from source to active buffer.
-	All graphics and visual commands now all work on the active buffer.
-	Removed graphics const_gUpdate instruction.
+	Added playing of MP3 audio files.
+	Added adjusting of audio volume with audio.volume port.
+	Added random pitch shifting of audio with audio.pitch_shift port.
+	Added the ability to pause an audio stream.
+	Added the ability to resume a paused audio stream.
+	Added the ability to get the status of an audio stream with audio.get_status port.
+	Adjusted audio.get_status port to be a read only trigger.
+	Allowed Link instruction to be used as a shorter version of “resource.link.”
+	Adjusted memory snapshots to allow viewing of memory from failed executions.
+	Moved sound volume calculation to sound manager.
+	Adjusted sound manager to better check for null audio nodes.
+	Adjusted sound manager function names for clarity.  EG.  Load_MP3 -> load_mp3_audio_stream.
+	Adjusted debug pane naming and calling methods to be more clear.
+	Added -A, -L and -AL combinations to the LS commands.
+	Added further checking to the sound manager volume routines and added a default volume.
+	Reworked colour setting and getting routines.
 
-### Example Screenshots - Version 1.0.17 Beta:
+### Example Screenshots - Version 1.0.18 Beta:
 
 <p align="center">
-<img width="640" src="https://github.com/user-attachments/assets/8cc4ba87-80c4-46dd-9e00-112a1e428b89">
+<img width="640" alt="Screenshot 2024-11-12 at 1 39 43 PM" src="https://github.com/user-attachments/assets/40af17a4-401b-4268-bf9c-8cbbe6c463f2">
 <br>
 <img width="640" alt="Screenshot 2024-10-16 at 10 24 23 AM" src="https://github.com/user-attachments/assets/ec52d7f1-b00a-4640-8d00-9fde05767472">
 <br>
