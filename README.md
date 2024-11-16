@@ -14,13 +14,15 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	File System with directory support
 	Optimised Graphics and Font System
  	Audio Support
- 	Program Chaining and protected chain memory support.
+ 	Program Chaining and protected chain memory support
 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
+ 	In depth system manual
 	
 ### Coming Soon:
 
-	More additions to graphics system
- 	Image manipulation
+	Audio with polyphony support (Completed in 1.0.19 working build)
+ 	More additions to graphics system
+ 	Image manipulation, Const_gCopyRect (Completed in 1.0.19 working build)
 	Colour picker
 
 ### Change in 1.0.18 Beta:
