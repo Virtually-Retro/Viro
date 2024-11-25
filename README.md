@@ -14,40 +14,45 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	File System with directory support
 	Optimised Graphics and Font System
  	Audio Support
- 	Program Chaining and protected chain memory support
-	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
+ 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
  	In depth system manual
 	
-### Coming Soon:
+### Planned Additions:
 
-	Audio with polyphony support (Completed in 1.0.19 working build)
- 	More additions to graphics system
- 	Image manipulation, Const_gCopyRect (Completed in 1.0.19 working build)
-	Colour picker
+	Hardware Sprites
+ 	Get Mouse is in region
 
-### Change in 1.0.18 Beta:
+### Changes in 1.0 Stable Release Candidate (1):
 
-	Added playing of MP3 audio files.
-	Added adjusting of audio volume with audio.volume port.
-	Added random pitch shifting of audio with audio.pitch_shift port.
-	Added the ability to pause an audio stream.
-	Added the ability to resume a paused audio stream.
-	Added the ability to get the status of an audio stream with audio.get_status port.
-	Adjusted audio.get_status port to be a read only trigger.
-	Allowed Link instruction to be used as a shorter version of “resource.link.”
-	Adjusted memory snapshots to allow viewing of memory from failed executions.
-	Moved sound volume calculation to sound manager.
-	Adjusted sound manager to better check for null audio nodes.
-	Adjusted sound manager function names for clarity.  EG.  Load_MP3 -> load_mp3_audio_stream.
-	Adjusted debug pane naming and calling methods to be more clear.
-	Added -A, -L and -AL combinations to the LS commands.
-	Added further checking to the sound manager volume routines and added a default volume.
-	Reworked colour setting and getting routines.
+	Added Trace mode which pauses the program after each screen update.
+	Added CALL instruction for calling subsystems such as graphics and maths
+	Added ‘_’ underscore prefixed constants for some graphics commands
+	Added ability to advance file pointer.
+	Added YLD, CSP and POPD instructions.
+	Added IRQ instruction to fire a software IRQ.
+	Changed LD to PUSHD
+	Simplified FileIO to not use a memory block.
+	Simplified the entire system, removing all instructions and features not suited to the retro ideal.
+	Removed warnings flag.
+	Moved the labels section out of the compiler directives area of the manual.
+	Enforced that labels cannot start with an ‘_’ or ‘.’ character to avoid directive confusion.
+	Enforced all compiler directives to start with a ‘.’ period character for easy identification.
+	Added a centralised get_file_path function for both terminal and runtime modes.
+	Adjusted setting the SoundManager audio path in the compiler.
+	Added audio polyphony to the sound manager and audio.allow_polyphony port.
+	Added ability to change number of polyphony streams and audio.max_polyphony port.
+	Added ability to change auto pause in sound manager and added audio.auto_pause port.
+	Added const_gCopyRect to graphics system.
+	Add autoload flag, to auto load the last saved program when opening.
+	Add a flags command to the main terminal to show flag states.
+	Adjusted flag defaults.
+	Adjusted reset and clear options on Path, Flags, Timezone and Password.
+	Adjusted string formatting throughout the entire system.
 
-### Example Screenshots - Version 1.0.18 Beta:
+### Example Screenshots - Version 1.0 Stable Release Candidate (1):
 
 <p align="center">
-<img width="640" alt="Screenshot 2024-11-12 at 1 39 43 PM" src="https://github.com/user-attachments/assets/40af17a4-401b-4268-bf9c-8cbbe6c463f2">
+<img width="640" alt="Screenshot 2024-11-26 at 8 13 09 AM" src="https://github.com/user-attachments/assets/48c141ce-6036-40b1-962f-d71e1caca783">
 <br>
 <img width="640" alt="Screenshot 2024-10-16 at 10 24 23 AM" src="https://github.com/user-attachments/assets/ec52d7f1-b00a-4640-8d00-9fde05767472">
 <br>
