@@ -14,6 +14,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	File System with directory support
 	Optimised Graphics and Font System
  	Audio Support
+  	Timezone Support
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
  	In depth system manual
 	
