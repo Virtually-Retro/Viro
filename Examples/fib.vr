@@ -1,0 +1,49 @@
+<VirtuallyRetro-File>
+<source>;Fibonacci Sequence
+_start:
+	.ignorelocal
+	
+	lda const_highRes_mode
+	out screen.mode
+		
+	lda #60
+	stc
+
+loop:
+	lda cu
+	sub c
+	out text.cursor.y
+	lda #0
+	out text.cursor.x
+
+	lda av
+	add bv
+	sta r0
+	lda bv
+	sta av
+	lda r0
+	sta bv
+
+	out text.print
+	lda #32
+	out
+
+	lp loop
+
+	brk
+
+;Variables
+av:
+	.data 0
+bv:
+	.data 1
+cu:
+	.data 60</source>
+<mem>1024</mem>
+<row>2</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

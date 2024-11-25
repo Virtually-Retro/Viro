@@ -1,0 +1,29 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.ignorelocal
+
+	lda #message
+	sta b
+
+loopStart:
+	lda [b]
+	jz exit
+	out
+	lda b
+	inc
+	sta b
+	jp loopStart
+
+exit:
+	brk
+
+message:
+	.data 72,69,76,76,79,32,87,79,82,76,68,33,33,0</source>
+<mem>1024</mem>
+<row>6</row>
+<col>10</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

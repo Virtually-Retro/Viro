@@ -1,0 +1,19 @@
+<VirtuallyRetro-File>
+<source>_start:
+	lda #0.04
+	out sys.performance
+		
+mainLoop:
+	lda #1
+	rnd
+	out
+	
+	jp mainLoop</source>
+<mem>1024</mem>
+<row>3</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

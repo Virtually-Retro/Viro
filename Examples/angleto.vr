@@ -1,0 +1,65 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	.ignorelocal
+	
+mainLoop:
+
+	in mouse.x
+	pushd a
+	in mouse.y
+	pushd a
+	pushd #160.0
+	pushd #120.0
+	call const_maths, const_maths_angleto
+	sta r1
+		
+	cmp r0
+	jz skip
+	
+	lda r1
+	sta r0
+		
+	jsr drawpoly
+					
+skip:
+
+	jp mainLoop
+	
+
+drawpoly:
+	
+	_cls
+		
+	pushd #160
+	pushd #120
+	call const_graphics, const_gPixel
+			
+	pushd #160
+	pushd #120
+	pushd #ngondata
+	pushd r0
+	pushd #4
+	call const_graphics, const_gsgon
+	
+	lda r0
+	round
+	out text.print
+
+	rts
+
+	brk
+
+ngondata:
+	.data -10,-2,10,-10,10,10,-10,2
+	
+	
+	</source>
+<mem>1024</mem>
+<row>41</row>
+<col>21</col>
+<hash></hash>
+<scroll>22</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

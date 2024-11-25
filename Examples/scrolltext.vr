@@ -1,0 +1,54 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.ignorelocal
+			
+	lda #0.5
+	out sys.performance
+			
+	lda const_cBlack
+	out color.background
+	_cls
+			
+mainloop:
+	in
+	cmp const_keyEnd
+	jz exit
+		
+	lda #2
+	rnd
+	jsrnz space
+	jsrz chars
+	
+	jp mainloop
+
+exit:
+	brk
+
+space:
+	push a
+	lda #32
+	out
+	pop a
+	rts
+	
+chars:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+	
+	lda #94
+	rnd
+	add #32
+	out
+	pop a
+	rts</source>
+<mem>1024</mem>
+<row>9</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>true</exmode>
+<fullscreen>false</fullscreen>

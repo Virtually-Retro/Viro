@@ -1,0 +1,92 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	lda true
+	out audio.allow_polyphony
+	
+	lda #5
+	out audio.max_polyphony
+				
+	lda #50
+	out audio.volume
+		
+mainloop:
+
+	in key.code
+	jsrnz keyCommands
+	jsrz getStatus
+	
+	yld
+jp mainloop
+
+
+getStatus:
+	push a
+	lda "test.mp3"
+	in audio.get_status
+	sta r0
+	pop a
+	rts
+
+
+keyCommands:
+	push a
+
+	in key.code ;A key
+	cmp #97
+	jsrz playAudioNormal
+	jz skip
+	
+	in key.code ;B Key
+	cmp #98
+	jsrz playAudioShifted
+	jz skip
+			
+	in key.code
+	cmp const_KeyEnd
+	jz exit
+
+skip:
+
+	in ;Clear key.code buffer
+
+	pop a
+	rts
+
+	
+playAudioNormal:
+	push a
+
+	lda "test.mp3"
+	out audio.play
+	
+	pop a
+	rts	
+
+
+playAudioShifted:
+	push a
+
+	lda true
+	out audio.pitch_shift
+	
+	lda "click.mp3"
+	out audio.play
+	
+	pop a
+	rts	
+
+
+exit:
+	brk
+	
+	.link "test.mp3"
+	.link "click.mp3"</source>
+<mem>1024</mem>
+<row>17</row>
+<col>4</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,0 +1,19 @@
+<VirtuallyRetro-File>
+<source>_start:
+
+	pushd #polydata
+	call const_graphics, const_gPolygon
+	
+	brk
+
+polydata:
+	.data 100,100,200,200,250,50,50,25
+</source>
+<mem>1024</mem>
+<row>3</row>
+<col>21</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,0 +1,28 @@
+<VirtuallyRetro-File>
+<source>_start:
+	lda false
+	out text.scroll
+	
+	lda #1200
+	stc
+
+loop:
+	lda #1
+	rnd
+	out
+	lp loop
+	
+	;Changed to screen 4 and copy screen zero
+	lda #4
+	out screen.active_buffer
+			
+	pushd #0
+	call const_graphics, const_gCopyBuffer</source>
+<mem>1024</mem>
+<row>16</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

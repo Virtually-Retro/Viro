@@ -1,0 +1,45 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	lda const_cBlack
+	out color.background
+	_cls
+
+	lda #100000
+	stc
+
+loop:
+	lda #320
+	rnd
+	pushd a
+
+	lda #240
+	rnd
+	pushd a
+
+	call const_graphics,  const_gPixel
+	
+	lp loop
+	
+	gt const_timer0
+	div #1000	
+	brk
+
+_irq_subroutine:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+		
+	pop a
+	rti
+</source>
+<mem>1024</mem>
+<row>4</row>
+<col>2</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

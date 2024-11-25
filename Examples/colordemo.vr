@@ -1,0 +1,104 @@
+<VirtuallyRetro-File>
+<source>;RGB Colors demo
+_start:
+
+	.ignorelocal
+
+	lda const_cBlack
+	out color.background
+	_cls
+
+	lda #titleMsg
+	out text.print
+
+	jsr red
+	jsr green
+	jsr blue
+
+	brk
+
+	
+red:
+	lda #255
+	stc
+	
+loopred:
+	pushd c
+	pushd #0
+	pushd #0
+	call const_graphics, const_gColor
+		
+	lda c
+	add #32
+	pushd a
+	pushd #50
+	lda c
+	add #32
+	pushd a
+	pushd #100
+	call const_graphics, const_gLine
+
+	lp loopred
+
+	rts
+
+green:
+	lda #255
+	stc
+	
+loopgreen:
+	pushd #0
+	pushd c
+	pushd #0
+	call const_graphics,  const_gColor
+		
+	lda c
+	add #32
+	pushd a
+	pushd #110
+	lda c
+	add #32
+	pushd a
+	pushd #160
+	call const_graphics,  const_gLine
+	
+	lp loopgreen
+	
+	rts
+	
+blue:
+	lda #255
+	stc
+	
+loopblue:
+	pushd #0
+	pushd #0
+	pushd c
+	call const_graphics,  const_gColor
+	
+	lda c
+	add #32
+	pushd a
+	pushd #170
+	lda c
+	add #32
+	pushd a
+	pushd #220
+	call const_graphics,  const_gLine
+	
+	lp loopblue
+	
+	rts
+			
+	brk
+
+titleMsg:
+	.data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
+<mem>1024</mem>
+<row>85</row>
+<col>22</col>
+<hash></hash>
+<scroll>59</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

@@ -1,0 +1,31 @@
+<VirtuallyRetro-File>
+<source>_start:
+
+	.ignorelocal
+
+mainloop:
+
+	in key.code
+	jz skip
+	
+	in key.code
+	cmp const_KeyEnd
+	jz progEnd	
+
+	in
+	out
+
+skip:
+	hlt
+	jp mainloop
+
+progEnd:
+	brk</source>
+<mem>1024</mem>
+<row>17</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

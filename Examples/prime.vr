@@ -1,0 +1,86 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.ignorelocal
+	
+	lda #5
+	out sys.performance
+		
+	rt const_timer0
+	
+	lda #excludes
+	out text.print
+					
+mainLoop:
+	lda maxnumber
+	mod #2
+	jz notprime
+
+	lda maxnumber
+	mod #3
+	jz notprime
+
+	lda maxnumber
+	mod #5
+	jz notprime
+
+	lda maxnumber
+	mod #7
+	jz notprime
+
+	lda maxnumber
+	mod #11
+	jz notprime
+
+	lda maxnumber
+	mod #13
+	jz notprime
+
+	lda maxNumber
+	dec
+	stc
+
+calcLoop:
+	lda c
+	cmp #1
+	jz prime
+
+	lda maxNumber
+	mod c
+	jz notPrime
+
+	lp calcLoop
+	
+prime:
+	lda maxNumber
+	out text.print
+	lda #32
+	out
+
+notPrime:
+	lda maxNumber
+	inc
+	sta maxNumber
+
+	cmp #100
+	jlz exit
+
+	jp mainLoop
+
+exit:
+	gt Const_timer0
+	brk
+
+maxNumber:
+	.data 2
+	
+excludes:
+	.data 50,32,51,32,53,32,55,32,49,49,32,49,51,32,0
+	</source>
+<mem>1024</mem>
+<row>55</row>
+<col>4</col>
+<hash></hash>
+<scroll>45</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>

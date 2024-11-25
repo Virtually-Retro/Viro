@@ -1,0 +1,106 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	.ignorelocal
+	
+mainLoop:
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	pushd a
+	in mouse.y
+	pushd a
+	pushd #160.0
+	pushd #120.0
+	call const_maths, const_maths_distanceto
+	round	
+	sta r0
+			
+	in mouse.x
+	pushd a
+	in mouse.y
+	pushd a
+	pushd #160.0
+	pushd #120.0
+	pushd #10 ;Death Zone
+	call const_maths, const_maths_distancecollider
+		
+	jnz skipdc
+	
+	lda #message
+	out text.print
+		
+	
+skipdc:
+			
+	lda #0
+	out mouse.button_clicked
+	
+	jsr drawScreen
+					
+skip:
+		
+	hlt
+	
+	_cls
+	
+	jp mainLoop
+	
+	
+	
+drawScreen:
+	
+	lda const_clightgray
+	out color.foreground
+	
+	pushd #160
+	pushd #120
+	in mouse.x
+	pushd a
+	in mouse.y
+	pushd a
+	call const_graphics,  const_gLine
+		
+	lda const_cWhite
+	out color.foreground
+		
+	pushd #160
+	pushd #110
+	pushd #160
+	pushd #130
+	call const_graphics,  const_gLine
+	
+	pushd #150
+	pushd #120
+	pushd #170
+	pushd #120
+	call const_graphics,  const_gLine
+	
+	in mouse.x
+	pushd a
+	in mouse.y
+	pushd a
+	pushd #5
+	call const_graphics,  const_gCircle
+	
+	lda r0
+	out text.print
+		
+	rts
+	
+	brk
+	
+message:
+	.data 68,101,97,100,32,0
+	
+	
+</source>
+<mem>1024</mem>
+<row>25</row>
+<col>18</col>
+<hash></hash>
+<scroll>1</scroll>
+<autorun>false</autorun>
+<exmode>false</exmode>
+<fullscreen>false</fullscreen>
