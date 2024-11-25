@@ -22,7 +22,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Hardware Sprites
  	Get Mouse is in region
 
-### Changes in 1.0 Stable Release Candidate (1):
+### Changes in 1.0 Stable RC1:
 
 	Added Trace mode which pauses the program after each screen update.
 	Added CALL instruction for calling subsystems such as graphics and maths
@@ -49,7 +49,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Adjusted reset and clear options on Path, Flags, Timezone and Password.
 	Adjusted string formatting throughout the entire system.
 
-### Example Screenshots - Version 1.0 Stable Release Candidate (1):
+### Example Screenshots - Version 1.0 Stable RC1:
 
 <p align="center">
 <img width="640" alt="Screenshot 2024-11-26 at 8 13 09 AM" src="https://github.com/user-attachments/assets/48c141ce-6036-40b1-962f-d71e1caca783">
