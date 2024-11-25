@@ -32,7 +32,8 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Added IRQ instruction to fire a software IRQ.
 	Changed LD to PUSHD
 	Simplified FileIO to not use a memory block.
-	Simplified the entire system, removing all instructions and features not suited to the retro ideal.
+	Simplified the entire system, removing all instructions and features not suited to the
+ 	retro ideal.
 	Removed warnings flag.
 	Moved the labels section out of the compiler directives area of the manual.
 	Enforced that labels cannot start with an ‘_’ or ‘.’ character to avoid directive confusion.
