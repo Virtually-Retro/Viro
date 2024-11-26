@@ -1,6 +1,6 @@
 # Viro
 
-The virtual, retro, homebrew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
+The virtual, retro, home-brew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
 
 The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more.
 
@@ -15,13 +15,15 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Optimised Graphics and Font System
  	Audio Support
   	Timezone Support
+   	Debugging Tools
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
  	In depth system manual
 	
 ### Planned Additions:
 
-	Hardware Sprites
- 	Get Mouse is in region
+	Hardware Sprites - Possibly a subsystem
+ 	Get Mouse in region
+  	Memory Block subsystem - HAS, COUNT, SUM, SORT
 
 ### Changes in 1.0 Stable RC1:
 
