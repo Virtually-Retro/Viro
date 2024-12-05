@@ -9,8 +9,6 @@ mainloop:
 	cmp const_KeyEnd
 	jz exit
 
-	yld
-	
 	jp mainLoop
 	
 exit:
@@ -26,16 +24,14 @@ _irq_subroutine:
 	pop a
 	rti
 	
-	
 	brk
 	
 message:
 	.data 73,82,81,10,0</source>
 <mem>1024</mem>
-<row>10</row>
-<col>1</col>
+<row>9</row>
+<col>0</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -1,6 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
+	.debugMode
 	
 	lda #0.05
 	out sys.performance
@@ -14,17 +15,16 @@ mainloop:
 	out
 		
 	jp mainloop
-	
+
 exit:
 	brk
 
 ;Resources
 	.link "test.txt"</source>
 <mem>1024</mem>
-<row>9</row>
-<col>4</col>
+<row>17</row>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

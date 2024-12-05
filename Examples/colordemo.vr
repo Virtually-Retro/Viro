@@ -15,27 +15,27 @@ _start:
 	jsr green
 	jsr blue
 
+	hlt
 	brk
-
 	
 red:
 	lda #255
 	stc
 	
 loopred:
-	pushd c
-	pushd #0
-	pushd #0
+	pcd c
+	pcd #0
+	pcd #0
 	call const_graphics, const_gColor
 		
 	lda c
 	add #32
-	pushd a
-	pushd #50
+	pcd a
+	pcd #50
 	lda c
 	add #32
-	pushd a
-	pushd #100
+	pcd a
+	pcd #100
 	call const_graphics, const_gLine
 
 	lp loopred
@@ -47,19 +47,19 @@ green:
 	stc
 	
 loopgreen:
-	pushd #0
-	pushd c
-	pushd #0
+	pcd #0
+	pcd c
+	pcd #0
 	call const_graphics,  const_gColor
 		
 	lda c
 	add #32
-	pushd a
-	pushd #110
+	pcd a
+	pcd #110
 	lda c
 	add #32
-	pushd a
-	pushd #160
+	pcd a
+	pcd #160
 	call const_graphics,  const_gLine
 	
 	lp loopgreen
@@ -71,19 +71,19 @@ blue:
 	stc
 	
 loopblue:
-	pushd #0
-	pushd #0
-	pushd c
+	pcd #0
+	pcd #0
+	pcd c
 	call const_graphics,  const_gColor
 	
 	lda c
 	add #32
-	pushd a
-	pushd #170
+	pcd a
+	pcd #170
 	lda c
 	add #32
-	pushd a
-	pushd #220
+	pcd a
+	pcd #220
 	call const_graphics,  const_gLine
 	
 	lp loopblue
@@ -95,10 +95,9 @@ loopblue:
 titleMsg:
 	.data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
 <mem>1024</mem>
-<row>85</row>
-<col>22</col>
+<row>16</row>
+<col>4</col>
 <hash></hash>
-<scroll>59</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

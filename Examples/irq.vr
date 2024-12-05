@@ -1,6 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
+	.debugMode
 		
 mainloop:
 	
@@ -95,10 +96,9 @@ _irq_subroutine:
 	pop a
 	rti</source>
 <mem>1024</mem>
-<row>65</row>
-<col>1</col>
+<row>2</row>
+<col>11</col>
 <hash></hash>
-<scroll>50</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -1,6 +1,6 @@
 <VirtuallyRetro-File>
 <source>_start:
-
+	.debugMode
 	.ignorelocal
 
 mainloop:
@@ -22,10 +22,9 @@ skip:
 progEnd:
 	brk</source>
 <mem>1024</mem>
-<row>17</row>
-<col>1</col>
+<row>3</row>
+<col>0</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

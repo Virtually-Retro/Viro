@@ -78,9 +78,9 @@ mouseup:
 mousedown:
 	push a
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
+	pcd a
 	call const_graphics,  const_glineto
 	pop a
 	rts
@@ -103,7 +103,7 @@ setup:
 <row>68</row>
 <col>22</col>
 <hash></hash>
-<scroll>51</scroll>
+<scroll>37</scroll>
 <autorun>false</autorun>
 <exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -9,20 +9,26 @@ _start:
 	jsr drawcolors
 	
 mainLoop:
+	
+	in key.code
+	cmp const_keyEnd
+	jz exit
+	
+	
 	in mouse.button_clicked
 	jz skip
 
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
+	pcd a
 	call const_graphics,  const_gGetPixel
 	sta var_c
 		
-	pushd #0
-	pushd #0
-	pushd #20
-	pushd #20
+	pcd #0
+	pcd #0
+	pcd #20
+	pcd #20
 	call const_graphics,  const_gClearRect
 		
 	lda #0
@@ -41,6 +47,9 @@ skip:
 	hlt
 
 	jp mainLoop
+	
+exit:
+	brk
 		
 	
 drawcolors:
@@ -66,13 +75,13 @@ drawcolors:
 			out color.foreground
 			
 			lda var_x
-			pushd a
+			pcd a
 			add #39 
 			sta var_x
 						
-			pushd var_y
-			pushd #38
-			pushd #28
+			pcd var_y
+			pcd #38
+			pcd #28
 			call const_graphics,  const_gfillrect
 						
 			lda var_c
@@ -100,10 +109,9 @@ var_y:
 var_c:
 	.data 0</source>
 <mem>1024</mem>
-<row>47</row>
-<col>2</col>
+<row>50</row>
+<col>4</col>
 <hash></hash>
-<scroll>31</scroll>
+<scroll>24</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

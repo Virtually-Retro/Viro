@@ -1,19 +1,21 @@
 <VirtuallyRetro-File>
 <source>_start:
-	pushd "testimage.png"
-	pushd #4
+	.debugMode
+
+	pcd "testimage.png"
+	pcd #4
 	call const_graphics, const_gLoadImage
 		
-	pushd #4
+	pcd #4
 	call const_graphics, const_gCopyBuffer
 
-	pushd #4 ;Source buffer
-	pushd #100 	;X
-	pushd #100	;Y
-	pushd #200	;W
-	pushd #100	;H
-	pushd #10	;DX
-	pushd #10	;DY
+	pcd #4 ;Source buffer
+	pcd #100 	;X
+	pcd #100	;Y
+	pcd #200	;W
+	pcd #100	;H
+	pcd #10	;DX
+	pcd #10	;DY
 	call const_graphics, const_gCopyRect
 
 	brk
@@ -21,10 +23,9 @@
 	.link "testimage.png"
 </source>
 <mem>1024</mem>
-<row>13</row>
+<row>1</row>
 <col>11</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -2,6 +2,7 @@
 <source>;Enhanced Bubblesort
 _start:
 	.ignorelocal
+	.debugMode
 
 	lda #5
 	out sys.performance
@@ -143,10 +144,9 @@ uvp:
 sortdata:
 	.alloc 100</source>
 <mem>1024</mem>
-<row>142</row>
-<col>7</col>
+<row>3</row>
+<col>11</col>
 <hash></hash>
-<scroll>111</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

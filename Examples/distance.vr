@@ -4,26 +4,30 @@
 	.ignorelocal
 	
 mainLoop:
+	
+	in key.code
+	jsrnz keytest
+	
 	in mouse.button_clicked
 	jz skip
 
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #160.0
-	pushd #120.0
+	pcd a
+	pcd #160.0
+	pcd #120.0
 	call const_maths, const_maths_distanceto
 	round	
 	sta r0
 			
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #160.0
-	pushd #120.0
-	pushd #10 ;Death Zone
+	pcd a
+	pcd #160.0
+	pcd #120.0
+	pcd #10 ;Death Zone
 	call const_maths, const_maths_distancecollider
 		
 	jnz skipdc
@@ -46,7 +50,20 @@ skip:
 	_cls
 	
 	jp mainLoop
+
+exit:
+	brk
 	
+	
+keyTest:
+	push a
+	
+	in
+	cmp const_KeyEnd
+	jz exit
+	
+	pop a
+	rts
 	
 	
 drawScreen:
@@ -54,34 +71,34 @@ drawScreen:
 	lda const_clightgray
 	out color.foreground
 	
-	pushd #160
-	pushd #120
+	pcd #160
+	pcd #120
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
+	pcd a
 	call const_graphics,  const_gLine
 		
 	lda const_cWhite
 	out color.foreground
 		
-	pushd #160
-	pushd #110
-	pushd #160
-	pushd #130
+	pcd #160
+	pcd #110
+	pcd #160
+	pcd #130
 	call const_graphics,  const_gLine
 	
-	pushd #150
-	pushd #120
-	pushd #170
-	pushd #120
+	pcd #150
+	pcd #120
+	pcd #170
+	pcd #120
 	call const_graphics,  const_gLine
 	
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #5
+	pcd a
+	pcd #5
 	call const_graphics,  const_gCircle
 	
 	lda r0
@@ -97,10 +114,9 @@ message:
 	
 </source>
 <mem>1024</mem>
-<row>25</row>
-<col>18</col>
+<row>7</row>
+<col>14</col>
 <hash></hash>
-<scroll>1</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

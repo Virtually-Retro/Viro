@@ -1,0 +1,42 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.debugMode
+	.ignoreLocal
+
+	lda #100
+	stc
+fillLoop:
+	lda c
+	pcd #rndData
+	call const_memoryBlocks, const_mbWrite
+	lp fillLoop	
+	
+	pcd #rndData
+	call const_memoryBlocks, const_mbGetMin
+	sta r0
+	
+	pcd #rndData
+	call const_memoryBlocks, const_mbGetMax
+	sta r1
+		
+	lda #100
+	stc
+rndLoop:
+	pcd #rndData
+	call const_memoryBlocks, const_mbGetRandom
+	out text.print
+	lda #32
+	out
+	lp rndLoop
+		
+	brk
+
+rndData:
+	.alloc 100</source>
+<mem>1024</mem>
+<row>29</row>
+<col>1</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

@@ -5,12 +5,15 @@
 	
 mainLoop:
 
+	in key.code
+	jsrnz keyTest
+
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #160.0
-	pushd #120.0
+	pcd a
+	pcd #160.0
+	pcd #120.0
 	call const_maths, const_maths_angleto
 	sta r1
 		
@@ -26,20 +29,33 @@ skip:
 
 	jp mainLoop
 	
+exit:
+	brk
+	
+keyTest:
+	push a
+	
+	in
+	cmp const_KeyEnd
+	jz exit
+	
+	pop a
+	rts
+	
 
 drawpoly:
 	
 	_cls
 		
-	pushd #160
-	pushd #120
+	pcd #160
+	pcd #120
 	call const_graphics, const_gPixel
 			
-	pushd #160
-	pushd #120
-	pushd #ngondata
-	pushd r0
-	pushd #4
+	pcd #160
+	pcd #120
+	pcd #ngondata
+	pcd r0
+	pcd #4
 	call const_graphics, const_gsgon
 	
 	lda r0
@@ -56,10 +72,9 @@ ngondata:
 	
 	</source>
 <mem>1024</mem>
-<row>41</row>
-<col>21</col>
+<row>6</row>
+<col>8</col>
 <hash></hash>
-<scroll>22</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

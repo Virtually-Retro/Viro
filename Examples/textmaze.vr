@@ -1,5 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
+	.debugmode
+
 	lda false
 	out text.scroll
 	
@@ -16,13 +18,14 @@ loop:
 	lda #4
 	out screen.active_buffer
 			
-	pushd #0
-	call const_graphics, const_gCopyBuffer</source>
+	pcd #0
+	call const_graphics, const_gCopyBuffer
+	
+</source>
 <mem>1024</mem>
-<row>16</row>
-<col>1</col>
+<row>1</row>
+<col>11</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

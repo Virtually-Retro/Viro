@@ -1,0 +1,27 @@
+<VirtuallyRetro-File>
+<source>;Use the memory viewer to look at memory to
+;the copied data
+_start:
+	.debugMode
+	
+	lda #50
+	pcd #mb2
+	call const_memoryBlocks, const_mbFill
+	
+	lda #mb2
+	pcd #mb1
+	call const_memoryBlocks, const_mbCopy
+
+	brk
+	
+mb1:
+	.alloc 100
+mb2:
+	.alloc 100</source>
+<mem>1024</mem>
+<row>2</row>
+<col>7</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

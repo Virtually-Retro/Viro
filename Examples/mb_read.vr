@@ -1,0 +1,47 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.debugMode
+	.ignorelocal
+
+	lda #127
+	stc
+writeloopStart:
+	pcd #data
+	lda c
+	call const_memoryBlocks, const_mbWrite
+	lp writeloopStart
+
+	
+	lda #4
+	stc
+outerLoop:	
+	push c
+	
+	pcd #data
+	call const_memoryBlocks, const_mbResetPointer
+
+	lda	#127
+	stc
+readloopStart:
+	pcd #data
+	call const_memoryBlocks, const_mbRead
+	out
+	lp readloopStart
+
+	lda #10
+	out
+
+	pop c
+	lp outerLoop
+	
+	brk
+	
+data:
+	.alloc 127</source>
+<mem>1024</mem>
+<row>34</row>
+<col>0</col>
+<hash></hash>
+<scroll>7</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

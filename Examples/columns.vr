@@ -21,15 +21,15 @@ loop:
 skip:
 	lp loop
 
+	hlt
 	brk
 
 num:
 	.data 0</source>
 <mem>1024</mem>
-<row>10</row>
-<col>2</col>
+<row>22</row>
+<col>4</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

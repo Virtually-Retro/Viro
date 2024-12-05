@@ -1,16 +1,25 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
+	.debugmode
 	
 	lda #5
 	out sys.performance
 		
 	rt const_timer0
-	
-	lda #excludes
-	out text.print
-					
+						
 mainLoop:
+	lda maxNumber
+	cmp #13
+	jl skipExcludes
+	
+	lda maxNumber
+	pcd #excludes
+	call const_memoryBlocks, const_mbGetHas
+	jz prime
+	
+skipExcludes:
+	
 	lda maxnumber
 	mod #2
 	jz notprime
@@ -65,22 +74,21 @@ notPrime:
 	jlz exit
 
 	jp mainLoop
-
+	
 exit:
-	gt Const_timer0
+	gt const_timer0
 	brk
 
 maxNumber:
 	.data 2
 	
 excludes:
-	.data 50,32,51,32,53,32,55,32,49,49,32,49,51,32,0
+	.data 2,3,5,7,11,13
 	</source>
 <mem>1024</mem>
-<row>55</row>
-<col>4</col>
+<row>71</row>
+<col>7</col>
 <hash></hash>
-<scroll>45</scroll>
+<scroll>54</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

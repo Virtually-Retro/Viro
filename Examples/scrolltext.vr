@@ -1,7 +1,9 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
-			
+	
+	.title "Scroll Text Test"
+				
 	lda #0.5
 	out sys.performance
 			
@@ -10,11 +12,11 @@
 	_cls
 			
 mainloop:
-	in
-	cmp const_keyEnd
-	jz exit
-		
-	lda #2
+	
+	in key.code
+	jsrnz keyTest
+			
+	lda #4
 	rnd
 	jsrnz space
 	jsrz chars
@@ -24,29 +26,57 @@ mainloop:
 exit:
 	brk
 
+
+keyTest:
+	
+	in key.code
+	cmp const_keyEnd
+	jz exit ;Only time jumping out of a SUB is acceptable
+	
+	in key.code
+	cmp const_keyHome
+	jsrz homeKey
+	
+	in ;Will reset the key.code to 0
+	cmp #32
+	jsrz spacekey
+	
+	rts
+
+
+spacekey:
+	
+	_cls
+	
+	rts
+
+homekey:
+	
+	_resetCursor
+	
+	rts
+
 space:
-	push a
+	
 	lda #32
 	out
-	pop a
+	
 	rts
 	
 chars:
-	push a
 	
 	lda #63
 	rnd
 	out color.foreground
-	
 	lda #94
 	rnd
 	add #32
 	out
-	pop a
+	
 	rts</source>
 <mem>1024</mem>
-<row>9</row>
-<col>1</col>
+<row>8</row>
+<col>0</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>

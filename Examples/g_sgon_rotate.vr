@@ -27,11 +27,11 @@ softirq:
 drawPoly:
 	_cls
 	
-	pushd x
-	pushd y
-	pushd #ngondata
-	pushd r
-	pushd s
+	pcd x
+	pcd y
+	pcd #ngondata
+	pcd r
+	pcd s
 	call const_graphics, const_gsgon
 		
 	lda r
@@ -111,7 +111,7 @@ ngondata:
 <row>33</row>
 <col>21</col>
 <hash></hash>
-<scroll>18</scroll>
+<scroll>2</scroll>
 <autorun>false</autorun>
 <exmode>true</exmode>
 <fullscreen>false</fullscreen>

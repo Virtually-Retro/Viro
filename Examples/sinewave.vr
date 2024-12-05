@@ -5,6 +5,8 @@
 
 loopstart:
 
+	
+	
 	lda #0
 	sta av
 	
@@ -33,14 +35,18 @@ loop:
 	add #240
 	sta y
 	
-	pushd c
-	pushd y
+	pcd c
+	pcd y
 	call const_graphics, const_gLineTo
 	
 	lp loop
 	
-	_srf
+	_refresh
 	
+	in
+	cmp const_keyEnd
+	jz exit
+		
 	lda av
 	inc
 	sta av
@@ -55,6 +61,7 @@ loop:
 	
 jp loopstart
 	
+exit:	
 	brk
 	
 y:
@@ -66,10 +73,9 @@ fv:
 bv:
 	.data 0</source>
 <mem>1024</mem>
-<row>40</row>
-<col>5</col>
+<row>47</row>
+<col>1</col>
 <hash></hash>
-<scroll>24</scroll>
+<scroll>34</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

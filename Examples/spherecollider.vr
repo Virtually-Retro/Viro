@@ -5,17 +5,21 @@
 	
 mainLoop:
 
+	in
+	cmp const_KeyEnd
+	jz exit
+
 	in mouse.button_clicked
 	jz skip
 
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #15
-	pushd #160.0
-	pushd #120.0
-	pushd #50
+	pcd a
+	pcd #15
+	pcd #160.0
+	pcd #120.0
+	pcd #50
 	call const_maths, const_maths_spherecollider
 	
 	jnz draw
@@ -33,6 +37,9 @@ skip:
 	hlt
 	
 	jp mainLoop
+
+exit:
+	brk
 	
 
 drawCircle:
@@ -40,15 +47,15 @@ drawCircle:
 	_cls
 	
 	in mouse.x
-	pushd a
+	pcd a
 	in mouse.y
-	pushd a
-	pushd #15
+	pcd a
+	pcd #15
 	call const_graphics, const_gCircle
 			
-	pushd #160
-	pushd #120
-	pushd #50
+	pcd #160
+	pcd #120
+	pcd #50
 	call const_graphics, const_gCircle
 	
 	lda const_cWhite
@@ -60,10 +67,9 @@ drawCircle:
 
 </source>
 <mem>1024</mem>
-<row>14</row>
-<col>12</col>
+<row>8</row>
+<col>8</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

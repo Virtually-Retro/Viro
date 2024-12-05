@@ -2,6 +2,7 @@
 <source>;Euler maths test program
 _start:
 	.ignorelocal
+	.debugMode
 	
 	lda #999
 	stc
@@ -37,10 +38,9 @@ addnumber:
 	rts
 </source>
 <mem>1024</mem>
-<row>2</row>
-<col>2</col>
+<row>3</row>
+<col>11</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

@@ -1,5 +1,7 @@
 <VirtuallyRetro-File>
-<source>_start:
+<source>	.debugMode
+
+_start:
 	lda const_highres_mode
 	out screen.mode
 
@@ -17,21 +19,21 @@ loop:
 
 	lda #640
 	rnd
-	pushd a
+	pcd a
 	
 	lda #480
 	rnd
-	pushd a
+	pcd a
 
-	pushd #ngondata
+	pcd #ngondata
 	
 	lda #360
 	rnd
-	pushd a
+	pcd a
 
 	lda #4
 	rnd
-	pushd a
+	pcd a
 
 	call const_graphics,  const_gsgon
 	
@@ -42,10 +44,9 @@ loop:
 ngondata:
 	.data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>6</row>
-<col>2</col>
+<row>4</row>
+<col>16</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

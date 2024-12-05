@@ -1,6 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
+	.debugmode
 	
 	lda const_cBlack
 	out color.background
@@ -45,10 +46,9 @@ chars:
 	brk
 	</source>
 <mem>1024</mem>
-<row>3</row>
-<col>2</col>
+<row>6</row>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>true</exmode>
 <fullscreen>false</fullscreen>

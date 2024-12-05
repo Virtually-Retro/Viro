@@ -1,19 +1,25 @@
 <VirtuallyRetro-File>
 <source>_start:
-	lda #0.04
+	lda #0.09
 	out sys.performance
 		
 mainLoop:
+	
+	in
+	cmp const_keyEnd
+	jz exit
+	
 	lda #1
 	rnd
 	out
+	jp mainLoop
 	
-	jp mainLoop</source>
+exit:
+	brk</source>
 <mem>1024</mem>
-<row>3</row>
-<col>0</col>
+<row>1</row>
+<col>10</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

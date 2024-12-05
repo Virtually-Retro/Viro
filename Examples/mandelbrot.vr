@@ -1,6 +1,8 @@
 <VirtuallyRetro-File>
 <source>_start:
 
+	.ignoreLocal
+
 	lda #100
 	out sys.performance
 	
@@ -97,8 +99,8 @@ y_loop:
 		sta r1
 		
 		plotPixel:
-		pushd col
-		pushd row
+		pcd col
+		pcd row
 		call const_graphics, const_gPixel
 			
 		skipPlot:
@@ -118,6 +120,10 @@ y_loop:
 	inc
 	sta row
 	
+	in
+	cmp const_keyEnd
+	jz exit
+	
 			
 	pop c
 lp y_loop
@@ -125,7 +131,22 @@ lp y_loop
 	gt const_timer0
 	div #1000
 	sta r0
+	
+	lda #63
+	out color.foreground
+	
+	lda #59
+	out text.cursor.y
+	
+	lda r0
+	out text.print
+	
+	
+	lda #5
+	out sys.performance
 			
+	hlt
+exit:
 	brk
 
 ;Variables
@@ -152,10 +173,9 @@ row:
 col:
 	.data 0</source>
 <mem>1024</mem>
-<row>100</row>
-<col>23</col>
+<row>136</row>
+<col>8</col>
 <hash></hash>
-<scroll>86</scroll>
+<scroll>124</scroll>
 <autorun>false</autorun>
-<exmode>true</exmode>
 <fullscreen>false</fullscreen>
