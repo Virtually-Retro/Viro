@@ -1,6 +1,6 @@
 # Viro Release Candidate 2
 
-The virtual, retro, home-brew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
+The virtual, retro inspired, home-brew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
 
 The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more.
 
