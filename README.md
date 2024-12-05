@@ -1,4 +1,4 @@
-# Viro
+# Viro Release Candidate 2
 
 The virtual, retro, home-brew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
 
@@ -13,7 +13,8 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Native Runtime Engine
 	File System with directory support
 	Optimised Graphics and Font System
- 	Audio Support
+ 	Memory Block subsystem
+  	Audio Support
   	Timezone Support
    	Debugging Tools
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
@@ -21,42 +22,55 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	
 ### Planned Additions:
 
-	Hardware Sprites - Possibly a subsystem
+	Hardware Sprites
  	Get Mouse in region
-  	Memory Block subsystem - HAS, COUNT, SUM, SORT
+  	GUI type subsystem
+   	3D calulations in maths subsystem
+  	
 
-### Changes in 1.0 Stable RC1:
+### Changes in 1.0 Stable RC2:
 
-	Added Trace mode which pauses the program after each screen update.
-	Added CALL instruction for calling subsystems such as graphics and maths
-	Added ‘_’ underscore prefixed constants for some graphics commands
-	Added ability to advance file pointer.
-	Added YLD, CSP and POPD instructions.
-	Added IRQ instruction to fire a software IRQ.
-	Changed LD to PUSHD
-	Simplified FileIO to not use a memory block.
-	Simplified the entire system, removing all instructions and features not suited to the
- 	retro ideal.
-	Removed warnings flag.
-	Moved the labels section out of the compiler directives area of the manual.
-	Enforced that labels cannot start with an ‘_’ or ‘.’ character to avoid directive confusion.
-	Enforced all compiler directives to start with a ‘.’ period character for easy identification.
-	Added a centralised get_file_path function for both terminal and runtime modes.
-	Adjusted setting the SoundManager audio path in the compiler.
-	Added audio polyphony to the sound manager and audio.allow_polyphony port.
-	Added ability to change number of polyphony streams and audio.max_polyphony port.
-	Added ability to change auto pause in sound manager and added audio.auto_pause port.
-	Added const_gCopyRect to graphics system.
-	Add autoload flag, to auto load the last saved program when opening.
-	Add a flags command to the main terminal to show flag states.
-	Adjusted flag defaults.
-	Adjusted reset and clear options on Path, Flags, Timezone and Password.
-	Adjusted string formatting throughout the entire system.
+	Code Editor: Added additional key shortcuts for line spacing and memory viewer in code editor.
+	Compiler: Added additional checking for invalid use of single instance variable addresses.
+	Compiler: Added additional reserved word logic.
+	Compiler: Added an auto BRK instruction and end of program memory marker.
+	Compiler: Added checking for invalid use of register addresses.
+	Compiler: Added directive .debugMode to always force running in debug mode.
+	Compiler: Fixed bug not allowing .org instruction to accept numeric address.
+	Compiler: Improved the .title instruction so that each word in the title is capitalised.
+	Compiler: Improved the compiler constant replacement algorithm.
+	Compiler: Removed requirement for memory to be filled with 1 after auto break insertion.
+	Font Editor: Added ability to accept key press events and display key codes.
+	Global: Added a build date to the version information.
+	Global: Added a file changed / not saved indicator.
+	Global: Added hidden ports options and checking to compiler and ports viewer.
+	Main Terminal: Corrected the ‘New’ function to deallocate memory from prior program.
+	Main Terminal: Updated the main terminal intro text to be less verbose.
+	Metrics: Added a total to metric display, just for checking purposes.
+	Runtime: Added a memory bit-mask to trap variable and program space overruns.
+	Runtime: Added additional memory bounds checking.
+	Runtime: Added check for memory address out of bounds in runtime engine.
+	Runtime: Added check for pixel alignment when reading text cursor positions.
+	Runtime: Added check to make sure trace mode is disabled when the program terminates.
+	Runtime: Added enhanced memory block sub system.
+	Runtime: Added performance mode switching when pausing and unpausing a running program.
+	Runtime: Added rounding to the nearest pixel in either columns or pixel alignment modes.
+	Runtime: Adjusted the is_valid_string func to allow empty/non printable characters.
+	Runtime: Adjusted the memory bit-mask to use a packed byte array.
+	Runtime: Corrected a logic issue when clearing the screen and resetting of the text cursor.
+	Runtime: Fixed bug in memory block get random method.
+	Runtime: Fixed bug with read trigger on sys.performance port.
+	Runtime: Fixed bug with YLD instruction.
+	Runtime: Fixed logic bug when adjusting processor performance.
+	Runtime: Improved font drawing routines.
+	Runtime: Improved Trace Mode and the Trace Mode display.
+	Runtime: Redesigned runtime engine for increased performance and lower CPU usage.
+	Runtime: Removed exclusive mode.  Program run from the main terminal are now automatically run in non-debug mode.
 
-### Example Screenshots - Version 1.0 Stable RC1:
+### Example Screenshots - Version 1.0 Stable RC2:
 
 <p align="center">
-<img width="640" alt="Screenshot 2024-11-26 at 8 13 09 AM" src="https://github.com/user-attachments/assets/48c141ce-6036-40b1-962f-d71e1caca783">
+<img width="640" alt="Screenshot 2024-12-05 at 11 01 20 PM" src="https://github.com/user-attachments/assets/1afec00b-43b2-4445-af9a-c279e7d86620">
 <br>
 <img width="640" alt="Screenshot 2024-10-16 at 10 24 23 AM" src="https://github.com/user-attachments/assets/ec52d7f1-b00a-4640-8d00-9fde05767472">
 <br>
