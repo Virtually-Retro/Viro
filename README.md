@@ -1,8 +1,8 @@
-# Viro Release Candidate 2
+# Viro Version 1.0 Release Candidate 2
 
 The virtual, retro inspired, home-brew, fully programmable computer system for all of us who love retro systems but lack the space, resources or those essential skills required to build something physical.
 
-The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more.
+The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more.  You can also visit the [RynRetro Youtube Channel](https://www.youtube.com/playlist?list=PL4MKxiLRawdR4J-8cA9YkLqZWrhpQO6o0).
 
 ### Feature List:
 
@@ -28,7 +28,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
    	3D calulations in maths subsystem
   	
 
-### Changes in 1.0 Stable RC2:
+### Changes in Version 1.0 RC2:
 
 	Code Editor: Added additional key shortcuts for line spacing and memory viewer in code editor.
 	Compiler: Added additional checking for invalid use of single instance variable addresses.
@@ -67,7 +67,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Redesigned runtime engine for increased performance and lower CPU usage.
 	Runtime: Removed exclusive mode.  Program run from the main terminal are now automatically run in non-debug mode.
 
-### Example Screenshots - Version 1.0 Stable RC2:
+### Example Screenshots - Version 1.0 RC2:
 
 <p align="center">
 <img width="640" alt="Screenshot 2024-12-05 at 11 01 20 PM" src="https://github.com/user-attachments/assets/1afec00b-43b2-4445-af9a-c279e7d86620">
