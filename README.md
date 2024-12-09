@@ -20,12 +20,16 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
  	In depth system manual
 	
-### Planned Additions:
+### Planned Fixes and Updates:
 
-	Hardware Sprites
+	Improved Font Editor. Bug fixes and enhancements. (Completed in RC3)
+ 	Improvements to runtime engine and memory bitmask. (Completed in RC3)
+  	More detailed metrics. (Completed in RC3)
+ 	Hardware Sprites
  	Get Mouse in region
   	GUI type subsystem
    	3D calulations in maths subsystem
+    	General bug fixes and improvements. (Always on going)
   	
 
 ### Changes in Version 1.0 RC2:
