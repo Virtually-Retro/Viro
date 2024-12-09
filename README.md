@@ -22,14 +22,14 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	
 ### Planned Fixes and Updates:
 
-	Improved Font Editor. Bug fixes and enhancements. (Completed in RC3)
- 	Improvements to runtime engine and memory bitmask. (Completed in RC3)
-  	More detailed metrics. (Completed in RC3)
- 	Hardware Sprites
- 	Get Mouse in region
-  	GUI type subsystem
-   	3D calulations in maths subsystem
-    	General bug fixes and improvements. (Always on going)
+	Improved Font Editor, bug fixes and enhancements. (Completed in RC3)
+	Improvements to runtime engine and memory bitmask. (Completed in RC3)
+	More detailed metrics. (Completed in RC3)
+	Hardware Sprites.
+	Get Mouse in region.
+	GUI type subsystem.
+	3D calulations in maths subsystem.
+	General bug fixes and improvements.
   	
 
 ### Changes in Version 1.0 RC2:
