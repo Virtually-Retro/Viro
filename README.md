@@ -29,6 +29,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Get Mouse in region.
 	GUI type subsystem.
 	3D calulations in maths subsystem.
+ 	Add 16:9 resolution options.
 	General bug fixes and improvements.
   	
 
