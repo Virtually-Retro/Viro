@@ -20,21 +20,22 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
  	In depth system manual
 	
-### Planned Fixes and Updates:
-
-	Improved Font Editor, bug fixes and enhancements. (Completed in RC3)
-	Improvements to runtime engine and memory bitmask. (Completed in RC3)
-	More detailed metrics. (Completed in RC3)
-	Hardware Sprites.
+### Planned Additions, Fixes and Updates:
+#### Completed for next release:
+ 	Code Editor: Added display line numbers toggle. (Completed in RC3)
+	Code Editor: Added line number padding toggle. (Completed in RC3)
+	Code Editor: Added code line wrapping toggle. (Completed in RC3)
+  	Font Editor: Bug fixes and enhancements. (Completed in RC3)
+	Metrics System: More detailed metrics. (Completed in RC3)
+ 	Runtime: Improvements to runtime engine and memory bitmask. (Completed in RC3)
+#### Not Started:
+ 	Hardware Sprites.
 	Get Mouse in region.
 	GUI type subsystem.
 	3D calulations in maths subsystem.
  	Add 16:9 resolution options.
-	General bug fixes and improvements.
-  	
 
 ### Changes in Version 1.0 RC2:
-
 	Code Editor: Added additional key shortcuts for line spacing and memory viewer in code editor.
 	Compiler: Added additional checking for invalid use of single instance variable addresses.
 	Compiler: Added additional reserved word logic.
