@@ -28,6 +28,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
   	Font Editor: Bug fixes and enhancements. (Completed in RC3)
 	Metrics System: More detailed metrics. (Completed in RC3)
  	Runtime: Improvements to runtime engine and memory bitmask. (Completed in RC3)
+  	Runtime: Seperated the debug and performance engines. (Completed in RC3)
 #### Not Started:
  	Hardware Sprites.
 	Get Mouse in region.
