@@ -21,20 +21,6 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
  	In depth system manual
 	
 ### Planned Additions, Fixes and Updates:
-#### Completed for next release:
- 	Code Editor: Added display line numbers toggle. (Completed in RC3)
-	Code Editor: Added line number padding toggle. (Completed in RC3)
-	Code Editor: Added code line wrapping toggle. (Completed in RC3)
-  	Font Editor: Bug fixes and enhancements. (Completed in RC3)
-	Metrics System: More detailed metrics. (Completed in RC3)
- 	Runtime: Improvements to runtime engine and memory bitmask. (Completed in RC3)
-  	Runtime: Seperated the debug and performance engines. (Completed in RC3)
-#### Not Started:
- 	Hardware Sprites.
-	Get Mouse in region.
-	GUI type subsystem.
-	3D calulations in maths subsystem.
- 	Add 16:9 resolution options.
 
 ### Changes in Version 1.0 RC2:
 	Code Editor: Added additional key shortcuts for line spacing and memory viewer in code editor.
@@ -73,6 +59,36 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Improved Trace Mode and the Trace Mode display.
 	Runtime: Redesigned runtime engine for increased performance and lower CPU usage.
 	Runtime: Removed exclusive mode.  Program run from the main terminal are now automatically run in non-debug mode.
+
+#### Planned Additions:
+ 	Hardware Sprites.
+	Get Mouse in region.
+	GUI type subsystem.
+	3D calulations in maths subsystem.
+ 	Add 16:9 resolution options.
+
+#### Completed for next release:
+	Code Editor: Added display line numbers toggle as flag.
+	Code Editor: Added line number padding toggle as flag.
+	Code Editor: Added code line wrapping toggle as flag.
+	Code Editor: Added reduced line space as a flag.
+	Code Editor: Removed keyboard shortcuts for the above flags.
+	Compiler: Fixed bug in .ORG instruction logic.
+	Font Editor: Fixed a number of bugs and logic with the font editor.
+	Font Editor: Now save edited font database path with program if changed from default.
+	Main Terminal: Corrected logic issue with LS command.
+	Metrics Viewer: Added total engine calls.
+	Runtime: Added RTI trap when used when an IRQ is not active.
+	Runtime: Adjusted scheduler for increased performance.
+	Runtime: Adjusted memory bit-mask to default to code not variables.
+	Runtime: Adjusted performance engine tweak setting to better match CPU usage of Debug engine.
+	Runtime: Corrected logic for soft IRQ so it can’t be fired if an IRQ is already active.
+	Runtime: Disabled PC and Address checking since implementation of memory bit-mask.
+	Runtime: Separated debug and performance engine.
+	System: Now check work path and sub path exist on load.
+
+
+
 
 ### Example Screenshots - Version 1.0 RC2:
 
