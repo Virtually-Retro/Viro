@@ -60,12 +60,13 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Removed exclusive mode.  Program run from the main terminal are now automatically run in non-debug mode.
 
 #### Planned Additions (Not Started):
- 	Hardware Sprites.
-	Get Mouse in region.
+ 	16:9 resolution options.
+  	Get Mouse in region.
 	GUI type subsystem.
+ 	Hardware Sprites.
+  	Text Regions.
 	3D calulations in maths subsystem.
- 	Add 16:9 resolution options.
-
+ 	
 #### Completed for next release (1.0 RC3):
 	Code Editor: Added display line numbers toggle as flag.
 	Code Editor: Added line number padding toggle as flag.
