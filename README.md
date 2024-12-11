@@ -75,7 +75,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Code Editor: Removed keyboard shortcuts for the above flags.
 	Compiler: Fixed bug in .ORG instruction logic.
 	Font Editor: Fixed a number of bugs and logic with the font editor.
-	Font Editor: Now save edited font database path with program if changed from default.
+	Font Editor: Now saves the edited font database path with the program if changed from default.
 	Main Terminal: Corrected logic issue with LS command.
 	Metrics Viewer: Added total engine calls.
 	Runtime: Added RTI trap when used when an IRQ is not active.
