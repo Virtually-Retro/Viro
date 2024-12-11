@@ -17,7 +17,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
   	Timezone Support
    	Debugging Tools
  	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
- 	In depth system manual
+ 	Detailed systems manual
 	
 ### Planned Additions, Fixes and Updates:
 
