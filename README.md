@@ -74,6 +74,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Code Editor: Added reduced line space as a flag.
 	Code Editor: Removed keyboard shortcuts for the above flags.
 	Code Editor: Removed memory reset as not needed.
+	Compiler: Added remove single instance memory blocks at end of compile.
 	Compiler: Fixed bug in .ORG instruction logic.
 	Font Editor: Fixed a number of bugs and logic with the font editor.
 	Font Editor: Now save edited font database path with program if changed from default.
@@ -86,8 +87,9 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Adjusted performance engine tweak setting to better match CPU usage of Debug engine.
 	Runtime: Corrected logic for soft IRQ so it can’t be fired if an IRQ is already active.
 	Runtime: Debug engine now remembers the last debug pane displayed on subsequent executions.
-	Runtime: Decoupled the system error handler from the engines.
+	Runtime: Decoupled all sub systems from the main runtime engine.
 	Runtime: Disabled PC and Address checking since implementation of memory bit-mask.
+	Runtime: Removed memory import / export requirements.
 	Runtime: Separated the debug and performance engine.
 	System: Changed ‘Sounds’ singleton to ‘Audio’
 	System: Now check work path and sub path exist on load.
