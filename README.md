@@ -74,7 +74,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Code Editor: Added reduced line space as a flag in Main Terminal.
 	Code Editor: Removed keyboard shortcuts for the above flags.
 	Code Editor: Removed memory reset as not needed.
-	Compiler: Added additional messaging for hidden/protect ported addresses.  
+	Compiler: Added additional messaging for hidden/protected ported addresses.  
 	Compiler: Added hidden port address to the protected list.
 	Compiler: Added remove single instance memory blocks at end of compile.
 	Compiler: Fixed bug in .ORG instruction logic.
