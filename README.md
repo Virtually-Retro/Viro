@@ -68,31 +68,39 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	3D calulations in maths subsystem.
  	
 #### Completed for next release (1.0 RC3):
-	Code Editor: Added display line numbers toggle as flag.
-	Code Editor: Added line number padding toggle as flag.
-	Code Editor: Added code line wrapping toggle as flag.
-	Code Editor: Added reduced line space as a flag.
+	Code Editor: Added display line numbers toggle as flag in Main Terminal.
+	Code Editor: Added line number padding toggle as flag in Main Terminal.
+	Code Editor: Added code line wrapping toggle as flag in Main Terminal.
+	Code Editor: Added reduced line space as a flag in Main Terminal.
 	Code Editor: Removed keyboard shortcuts for the above flags.
 	Code Editor: Removed memory reset as not needed.
+	Compiler: Added additional messaging for hidden/protect ported addresses.  
+	Compiler: Added hidden port address to the protected list.
 	Compiler: Added remove single instance memory blocks at end of compile.
 	Compiler: Fixed bug in .ORG instruction logic.
 	Font Editor: Fixed a number of bugs and logic with the font editor.
 	Font Editor: Now save edited font database path with program if changed from default.
+	Graphics: Added optional True / False parameter to ClearScreen, to clear all buffers if required.
 	Main Terminal: Corrected logic issue with LS command.
+	Main Terminal: Reorganised the command processor for ease of management.
 	Metrics Viewer: Added total engine calls.
+	Runtime: Added NULL and Zero byte checking to the FileIO system.
+	Runtime: Added prior value checking to the trigger register system.
 	Runtime: Added RTI trap when used when an IRQ is not active.
+	Runtime: Adjusted IRQ logic to use a register for active status.
 	Runtime: Adjusted scheduler for increased performance.
 	Runtime: Adjusted memory bit-mask to default to code not variables.
 	Runtime: Adjusted performance calculation and debug pane display.
 	Runtime: Adjusted performance engine tweak setting to better match CPU usage of Debug engine.
+	Runtime: Adjusted screen refresh logic to use a register.
 	Runtime: Corrected logic for soft IRQ so it can’t be fired if an IRQ is already active.
 	Runtime: Debug engine now remembers the last debug pane displayed on subsequent executions.
 	Runtime: Decoupled all sub systems from the main runtime engine.
 	Runtime: Disabled PC and Address checking since implementation of memory bit-mask.
 	Runtime: Removed memory import / export requirements.
-	Runtime: Separated the debug and performance engine.
+	Runtime: Separated the debug and performance engines.
 	System: Changed ‘Sounds’ singleton to ‘Audio’
-	System: Now check work path and sub path exist on load.
+
 
 ### Example Screenshots - Version 1.0 RC2:
 
