@@ -64,17 +64,21 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
   	Get Mouse in region.
 	GUI type subsystem.
  	Hardware Sprites.
+  	Vector Sprites.
+   	Ascii / Keyboard constants picker.
   	Text Regions.
 	3D calulations in maths subsystem.
  	
 #### Completed for next release (1.0 RC3):
+	Code Editor: Added a colour picker to allow easy selection and insertion of colour indexes.
 	Code Editor: Added display line numbers toggle as flag in Main Terminal.
 	Code Editor: Added line number padding toggle as flag in Main Terminal.
 	Code Editor: Added code line wrapping toggle as flag in Main Terminal.
 	Code Editor: Added reduced line space as a flag in Main Terminal.
+	Code Editor: Altered keyboard shortcut for Metrics Viewer.
 	Code Editor: Removed keyboard shortcuts for the above flags.
 	Code Editor: Removed memory reset as not needed.
-	Compiler: Added additional messaging for hidden/protected ported addresses.  
+	Compiler: Added additional messaging for hidden/protect ported addresses.  
 	Compiler: Added hidden port address to the protected list.
 	Compiler: Added remove single instance memory blocks at end of compile.
 	Compiler: Fixed bug in .ORG instruction logic.
@@ -93,6 +97,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Adjusted performance calculation and debug pane display.
 	Runtime: Adjusted performance engine tweak setting to better match CPU usage of Debug engine.
 	Runtime: Adjusted screen refresh logic to use a register.
+	Runtime: Altered keyboard shortcuts for Trace Mode and the Debug Pane.
 	Runtime: Corrected logic for soft IRQ so it can’t be fired if an IRQ is already active.
 	Runtime: Debug engine now remembers the last debug pane displayed on subsequent executions.
 	Runtime: Decoupled all sub systems from the main runtime engine.
@@ -100,7 +105,7 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Runtime: Removed memory import / export requirements.
 	Runtime: Separated the debug and performance engines.
 	System: Changed ‘Sounds’ singleton to ‘Audio’
-
+	System: Now check home path and sub path exist on load.
 
 ### Example Screenshots - Version 1.0 RC2:
 
