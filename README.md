@@ -2,7 +2,7 @@
 
 Viro, the virtual, retro inspired, home-brew, fully programmable computer system for all of us who love retro computers but lack the space, resources or those essential skills required to build something physical.
 
-The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more or visit the [RetroRyn Youtube Channel](https://www.youtube.com/playlist?list=PL4MKxiLRawdR4J-8cA9YkLqZWrhpQO6o0).
+The releases listed to the right contain compiled binaries for Linux, Windows and Mac.  Download or view the [System Manual](https://github.com/Virtually-Retro/Viro/blob/main/Viro%20System%20Manual.pdf) to learn more or visit the [RetroRyn Youtube Channel](https://www.youtube.com/@RetroRyn).
 
 ### Feature List:
 	Terminal
