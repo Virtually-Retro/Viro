@@ -25,7 +25,7 @@ exit:
 
 ;---------------------------
 sort:
-	pcd #sortData
+	pds #sortData
 	call const_memoryBlocks, const_mbSort
 	rts
 
@@ -36,7 +36,7 @@ printData:
 	lda #100
 	stc
 printLoop:
-	pcd #sortData
+	pds #sortData
 	call const_memoryBlocks, const_mbRead
 	out text.print
 	lda #32
@@ -59,10 +59,10 @@ fillBuffer:
 fillloop:
 	lda #100
 	rnd
-	pcd #sortData
+	pds #sortData
 	call const_memoryBlocks, const_mbWrite
 	lp fillLoop
-
+	
 	pop a
 	rts
 
@@ -71,9 +71,10 @@ fillloop:
 sortdata:
 	.alloc 100</source>
 <mem>1024</mem>
-<row>2</row>
-<col>11</col>
+<row>26</row>
+<col>5</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>2</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

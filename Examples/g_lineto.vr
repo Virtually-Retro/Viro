@@ -44,10 +44,10 @@ drawLine:
 
 	lda #320
 	rnd
-	pcd a
+	pds a
 	lda #240
 	rnd
-	pcd a
+	pds a
 		
 	call const_graphics, const_gLineTo
 	
@@ -71,9 +71,10 @@ randomColor:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>29</row>
-<col>1</col>
+<row>48</row>
+<col>5</col>
 <hash></hash>
-<scroll>12</scroll>
+<scroll>34</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

@@ -19,21 +19,21 @@ loop:
 
 	lda #640
 	rnd
-	pcd a
+	pds a
 	
 	lda #480
 	rnd
-	pcd a
+	pds a
 
-	pcd #ngondata
+	pds #ngondata
 	
 	lda #360
 	rnd
-	pcd a
+	pds a
 
 	lda #4
 	rnd
-	pcd a
+	pds a
 
 	call const_graphics,  const_gsgon
 	
@@ -44,9 +44,10 @@ loop:
 ngondata:
 	.data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>4</row>
-<col>16</col>
+<row>35</row>
+<col>0</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>11</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

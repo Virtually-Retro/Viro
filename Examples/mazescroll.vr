@@ -17,9 +17,10 @@ mainLoop:
 exit:
 	brk</source>
 <mem>1024</mem>
-<row>1</row>
-<col>10</col>
+<row>2</row>
+<col>20</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath>/Users/trigcharters/Documents/Coding/Viro/Examples/</fontpath>

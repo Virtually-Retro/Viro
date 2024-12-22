@@ -6,7 +6,7 @@
 	lda #127
 	stc
 writeloopStart:
-	pcd #data
+	pds #data
 	lda c
 	call const_memoryBlocks, const_mbWrite
 	lp writeloopStart
@@ -17,13 +17,13 @@ writeloopStart:
 outerLoop:	
 	push c
 	
-	pcd #data
+	pds #data
 	call const_memoryBlocks, const_mbResetPointer
 
 	lda	#127
 	stc
 readloopStart:
-	pcd #data
+	pds #data
 	call const_memoryBlocks, const_mbRead
 	out
 	lp readloopStart
@@ -39,9 +39,10 @@ readloopStart:
 data:
 	.alloc 127</source>
 <mem>1024</mem>
-<row>34</row>
-<col>0</col>
+<row>7</row>
+<col>5</col>
 <hash></hash>
-<scroll>7</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

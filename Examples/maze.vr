@@ -97,10 +97,10 @@ rts
 ;modifies the A register
 clear:
 	push a
-	pcd x
-	pcd y
-	pcd #8
-	pcd #8
+	pds x
+	pds y
+	pds #8
+	pds #8
 	call const_graphics, const_gClearRect
 	pop a
 rts
@@ -170,12 +170,12 @@ drawright:
 	push a
 	lda x
 	add #7
-	pcd a
-	pcd y
-	pcd x
+	pds a
+	pds y
+	pds x
 	lda y
 	add #7
-	pcd a
+	pds a
 	call const_graphics, const_gline
 	pop a
 rts
@@ -183,14 +183,14 @@ rts
 ;Modifies the A register
 drawleft:
 	push a
-	pcd x
-	pcd y
+	pds x
+	pds y
 	lda x
 	add #7
-	pcd a
+	pds a
 	lda y
 	add #7
-	pcd a
+	pds a
 	call const_graphics, const_gline
 	pop a
 rts
@@ -200,6 +200,9 @@ setup:
 	push a
 		
 	.title "Maze Demo"
+	
+	lda #10
+	out sys.performance
 	
 	lda const_lowres_mode
 	out screen.mode
@@ -226,10 +229,10 @@ y:
 maze_data:
 	.alloc 1200</source>
 <mem>2048</mem>
-<row>210</row>
-<col>3</col>
+<row>101</row>
+<col>5</col>
 <hash></hash>
-<scroll>179</scroll>
+<scroll>87</scroll>
 <autorun>false</autorun>
-<exmode>true</exmode>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

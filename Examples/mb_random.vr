@@ -7,22 +7,22 @@
 	stc
 fillLoop:
 	lda c
-	pcd #rndData
+	pds #rndData
 	call const_memoryBlocks, const_mbWrite
 	lp fillLoop	
 	
-	pcd #rndData
+	pds #rndData
 	call const_memoryBlocks, const_mbGetMin
 	sta r0
 	
-	pcd #rndData
+	pds #rndData
 	call const_memoryBlocks, const_mbGetMax
 	sta r1
 		
 	lda #100
 	stc
 rndLoop:
-	pcd #rndData
+	pds #rndData
 	call const_memoryBlocks, const_mbGetRandom
 	out text.print
 	lda #32
@@ -34,9 +34,10 @@ rndLoop:
 rndData:
 	.alloc 100</source>
 <mem>1024</mem>
-<row>29</row>
-<col>1</col>
+<row>26</row>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

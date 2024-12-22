@@ -13,13 +13,13 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
-	pcd #15
-	pcd #160.0
-	pcd #120.0
-	pcd #50
+	pds a
+	pds #15
+	pds #160.0
+	pds #120.0
+	pds #50
 	call const_maths, const_maths_spherecollider
 	
 	jnz draw
@@ -47,29 +47,26 @@ drawCircle:
 	_cls
 	
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
-	pcd #15
+	pds a
+	pds #15
 	call const_graphics, const_gCircle
 			
-	pcd #160
-	pcd #120
-	pcd #50
+	pds #160
+	pds #120
+	pds #50
 	call const_graphics, const_gCircle
 	
 	lda const_cWhite
 	out color.foreground
 
-	rts
-
-
-
-</source>
+	rts</source>
 <mem>1024</mem>
-<row>8</row>
-<col>8</col>
+<row>14</row>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

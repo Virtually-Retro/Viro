@@ -30,7 +30,7 @@ loop:
 	out
 
 	lp loop
-
+	
 	brk
 
 ;Variables
@@ -41,9 +41,10 @@ bv:
 cu:
 	.data 60</source>
 <mem>1024</mem>
-<row>3</row>
-<col>11</col>
+<row>31</row>
+<col>0</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>9</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

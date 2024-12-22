@@ -67,7 +67,7 @@ change_color:
 mouseup:
 	push a
 	;finalise the lineto
-	call const_graphics,  const_glinetoReset
+	call const_graphics, const_glinetoReset
 	
 	;Clear the mouse click
 	lda #0
@@ -78,9 +78,9 @@ mouseup:
 mousedown:
 	push a
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
+	pds a
 	call const_graphics,  const_glineto
 	pop a
 	rts
@@ -100,10 +100,10 @@ setup:
 
 </source>
 <mem>1024</mem>
-<row>68</row>
-<col>22</col>
+<row>83</row>
+<col>5</col>
 <hash></hash>
-<scroll>37</scroll>
+<scroll>62</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

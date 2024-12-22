@@ -12,22 +12,22 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
-	pcd #160.0
-	pcd #120.0
+	pds a
+	pds #160.0
+	pds #120.0
 	call const_maths, const_maths_distanceto
 	round	
 	sta r0
 			
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
-	pcd #160.0
-	pcd #120.0
-	pcd #10 ;Death Zone
+	pds a
+	pds #160.0
+	pds #120.0
+	pds #10 ;Death Zone
 	call const_maths, const_maths_distancecollider
 		
 	jnz skipdc
@@ -71,34 +71,34 @@ drawScreen:
 	lda const_clightgray
 	out color.foreground
 	
-	pcd #160
-	pcd #120
+	pds #160
+	pds #120
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
+	pds a
 	call const_graphics,  const_gLine
 		
 	lda const_cWhite
 	out color.foreground
 		
-	pcd #160
-	pcd #110
-	pcd #160
-	pcd #130
+	pds #160
+	pds #110
+	pds #160
+	pds #130
 	call const_graphics,  const_gLine
 	
-	pcd #150
-	pcd #120
-	pcd #170
-	pcd #120
+	pds #150
+	pds #120
+	pds #170
+	pds #120
 	call const_graphics,  const_gLine
 	
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
-	pcd #5
+	pds a
+	pds #5
 	call const_graphics,  const_gCircle
 	
 	lda r0
@@ -114,9 +114,10 @@ message:
 	
 </source>
 <mem>1024</mem>
-<row>7</row>
-<col>14</col>
+<row>13</row>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

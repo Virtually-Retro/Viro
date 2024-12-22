@@ -2,11 +2,13 @@
 <source>_start:
 	lda const_highres_mode
 	out screen.mode
+	
+	lda #50
+	out sys.performance
+	
 
 loopstart:
 
-	
-	
 	lda #0
 	sta av
 	
@@ -35,8 +37,8 @@ loop:
 	add #240
 	sta y
 	
-	pcd c
-	pcd y
+	pds c
+	pds y
 	call const_graphics, const_gLineTo
 	
 	lp loop
@@ -74,8 +76,9 @@ bv:
 	.data 0</source>
 <mem>1024</mem>
 <row>47</row>
-<col>1</col>
+<col>5</col>
 <hash></hash>
-<scroll>34</scroll>
+<scroll>30</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

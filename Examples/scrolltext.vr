@@ -1,12 +1,13 @@
 <VirtuallyRetro-File>
 <source>_start:
-	.ignorelocal
 	
+	.ignorelocal
+		
 	.title "Scroll Text Test"
 				
 	lda #0.5
 	out sys.performance
-			
+ 			
 	lda const_cBlack
 	out color.background
 	_cls
@@ -64,6 +65,7 @@ space:
 	rts
 	
 chars:
+	push a
 	
 	lda #63
 	rnd
@@ -73,12 +75,12 @@ chars:
 	add #32
 	out
 	
+	pop a
 	rts</source>
 <mem>1024</mem>
-<row>8</row>
-<col>0</col>
+<row>76</row>
+<col>6</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>45</scroll>
 <autorun>false</autorun>
-<exmode>true</exmode>
 <fullscreen>false</fullscreen>

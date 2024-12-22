@@ -19,16 +19,16 @@ mainLoop:
 	jz skip
 
 	in mouse.x
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
+	pds a
 	call const_graphics,  const_gGetPixel
 	sta var_c
 		
-	pcd #0
-	pcd #0
-	pcd #20
-	pcd #20
+	pds #0
+	pds #0
+	pds #20
+	pds #20
 	call const_graphics,  const_gClearRect
 		
 	lda #0
@@ -75,13 +75,13 @@ drawcolors:
 			out color.foreground
 			
 			lda var_x
-			pcd a
+			pds a
 			add #39 
 			sta var_x
 						
-			pcd var_y
-			pcd #38
-			pcd #28
+			pds var_y
+			pds #38
+			pds #28
 			call const_graphics,  const_gfillrect
 						
 			lda var_c
@@ -109,9 +109,10 @@ var_y:
 var_c:
 	.data 0</source>
 <mem>1024</mem>
-<row>50</row>
-<col>4</col>
+<row>82</row>
+<col>7</col>
 <hash></hash>
-<scroll>24</scroll>
+<scroll>65</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

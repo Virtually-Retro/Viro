@@ -99,8 +99,8 @@ y_loop:
 		sta r1
 		
 		plotPixel:
-		pcd col
-		pcd row
+		pds col
+		pds row
 		call const_graphics, const_gPixel
 			
 		skipPlot:
@@ -173,9 +173,10 @@ row:
 col:
 	.data 0</source>
 <mem>1024</mem>
-<row>136</row>
-<col>8</col>
+<row>4</row>
+<col>9</col>
 <hash></hash>
-<scroll>124</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

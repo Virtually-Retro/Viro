@@ -83,10 +83,9 @@ exit:
 	.link "test.mp3"
 	.link "click.mp3"</source>
 <mem>1024</mem>
-<row>17</row>
-<col>4</col>
+<row>20</row>
+<col>0</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>

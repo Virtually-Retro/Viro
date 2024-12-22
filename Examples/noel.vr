@@ -4,7 +4,7 @@ _start:
 	.debugMode
 	.ignorelocal
 	
-	;lda #0.035 ;Commodore 64 Speed
+	;lda #0.025 ;Commodore 64 Speed
 	;out sys.performance
 			
 	lda #10
@@ -38,9 +38,10 @@ outerLoop:
 	
 	div #1000</source>
 <mem>1024</mem>
-<row>2</row>
-<col>11</col>
+<row>18</row>
+<col>0</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

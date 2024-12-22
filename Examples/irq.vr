@@ -1,8 +1,7 @@
 <VirtuallyRetro-File>
 <source>_start:
 	.ignorelocal
-	.debugMode
-		
+				
 mainloop:
 	
 	;Main program calls go here
@@ -43,9 +42,7 @@ checkKeys:
 	cmp #32
 	jsrz softirq
 	
-	in key.code
-	cmp const_KeyHome
-	jsrz startirq
+	
 	
 	in
 	cmp const_KeyEnd
@@ -54,14 +51,7 @@ checkKeys:
 	pop a
 	rts
 
-startirq:
-	push a
-	
-	lda #500
-	out irq.trigger_value
-	
-	pop a
-	rts
+
 
 softirq:
 	irq
@@ -97,8 +87,9 @@ _irq_subroutine:
 	rti</source>
 <mem>1024</mem>
 <row>2</row>
-<col>11</col>
+<col>1</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

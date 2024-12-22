@@ -5,11 +5,11 @@ _start:
 	.debugMode
 	
 	lda #50
-	pcd #mb2
+	pds #mb2
 	call const_memoryBlocks, const_mbFill
 	
 	lda #mb2
-	pcd #mb1
+	pds #mb1
 	call const_memoryBlocks, const_mbCopy
 
 	brk
@@ -19,9 +19,10 @@ mb1:
 mb2:
 	.alloc 100</source>
 <mem>1024</mem>
-<row>2</row>
-<col>7</col>
+<row>10</row>
+<col>5</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

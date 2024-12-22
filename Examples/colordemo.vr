@@ -11,6 +11,9 @@ _start:
 	lda #titleMsg
 	out text.print
 
+	lda #62
+	out color.foreground
+
 	jsr red
 	jsr green
 	jsr blue
@@ -23,19 +26,20 @@ red:
 	stc
 	
 loopred:
-	pcd c
-	pcd #0
-	pcd #0
+	pds #62
+	pds c
+	pds #0
+	pds #0
 	call const_graphics, const_gColor
 		
 	lda c
 	add #32
-	pcd a
-	pcd #50
+	pds a
+	pds #50
 	lda c
 	add #32
-	pcd a
-	pcd #100
+	pds a
+	pds #100
 	call const_graphics, const_gLine
 
 	lp loopred
@@ -47,19 +51,20 @@ green:
 	stc
 	
 loopgreen:
-	pcd #0
-	pcd c
-	pcd #0
+	pds #62
+	pds #0
+	pds c
+	pds #0
 	call const_graphics,  const_gColor
 		
 	lda c
 	add #32
-	pcd a
-	pcd #110
+	pds a
+	pds #110
 	lda c
 	add #32
-	pcd a
-	pcd #160
+	pds a
+	pds #160
 	call const_graphics,  const_gLine
 	
 	lp loopgreen
@@ -71,19 +76,20 @@ blue:
 	stc
 	
 loopblue:
-	pcd #0
-	pcd #0
-	pcd c
+	pds #62
+	pds #0
+	pds #0
+	pds c
 	call const_graphics,  const_gColor
 	
 	lda c
 	add #32
-	pcd a
-	pcd #170
+	pds a
+	pds #170
 	lda c
 	add #32
-	pcd a
-	pcd #220
+	pds a
+	pds #220
 	call const_graphics,  const_gLine
 	
 	lp loopblue
@@ -95,9 +101,10 @@ loopblue:
 titleMsg:
 	.data 82,71,66,32,67,111,108,111,114,115,32,68,101,109,111,33,0</source>
 <mem>1024</mem>
-<row>16</row>
-<col>4</col>
+<row>80</row>
+<col>5</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>64</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

@@ -10,36 +10,30 @@
 	stc
 
 loop:
+	lda #63
+	rnd
+	out color.foreground
+	
 	lda #320
 	rnd
-	pcd a
+	pds a
 
 	lda #240
 	rnd
-	pcd a
+	pds a
 
-	call const_graphics,  const_gPixel
+	call const_graphics, const_gPixel
 	
 	lp loop
 	
 	gt const_timer0
 	div #1000	
-	brk
-
-_irq_subroutine:
-	push a
-	
-	lda #63
-	rnd
-	out color.foreground
-		
-	pop a
-	rti
-</source>
+	brk</source>
 <mem>1024</mem>
-<row>1</row>
-<col>11</col>
+<row>7</row>
+<col>9</col>
 <hash></hash>
 <scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

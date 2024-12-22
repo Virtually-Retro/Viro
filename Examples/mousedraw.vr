@@ -25,9 +25,9 @@ drawpoint:
 	push a
 
 	in mouse.X
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
+	pds a
 	call const_graphics, const_glineto
 	
 	lda #0
@@ -40,9 +40,9 @@ drawpointwithreset:
 	push a
 
 	in mouse.X
-	pcd a
+	pds a
 	in mouse.y
-	pcd a
+	pds a
 	call const_graphics, const_gLineTo
 	call const_graphics, const_gLineToReset
 	
@@ -52,10 +52,10 @@ drawpointwithreset:
 	pop a
 	rts</source>
 <mem>1024</mem>
-<row>2</row>
-<col>16</col>
+<row>43</row>
+<col>5</col>
 <hash></hash>
-<scroll>0</scroll>
+<scroll>20</scroll>
 <autorun>false</autorun>
-<exmode>false</exmode>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

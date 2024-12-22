@@ -14,7 +14,7 @@ mainLoop:
 	jl skipExcludes
 	
 	lda maxNumber
-	pcd #excludes
+	pds #excludes
 	call const_memoryBlocks, const_mbGetHas
 	jz prime
 	
@@ -86,9 +86,10 @@ excludes:
 	.data 2,3,5,7,11,13
 	</source>
 <mem>1024</mem>
-<row>71</row>
-<col>7</col>
+<row>15</row>
+<col>5</col>
 <hash></hash>
-<scroll>54</scroll>
+<scroll>0</scroll>
 <autorun>false</autorun>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>

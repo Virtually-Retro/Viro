@@ -12,26 +12,26 @@ mainloop:
 	
 	in mouse.button_clicked
 	cmp #1
-	jsrz softirq
+	jsrz centerupdate
+	
+	in
+	cmp const_KeyEnd
+	jz exit	
 	
 jp mainloop
 
 exit:
 	brk
 
-softirq:
-	irq
-	rts
-
 
 drawPoly:
 	_cls
 	
-	pcd x
-	pcd y
-	pcd #ngondata
-	pcd r
-	pcd s
+	pds x
+	pds y
+	pds #ngondata
+	pds r
+	pds s
 	call const_graphics, const_gsgon
 		
 	lda r
@@ -42,17 +42,14 @@ drawPoly:
 	jg skip
 	lda #0
 	sta r
+
 skip:
 
 	rts
 
 
-_irq_subroutine:
+centerupdate:
 	push a
-
-	in mouse.button_clicked
-	cmp #1
-	jnz skipcenterupdate
 
 	in mouse.x
 	sta x
@@ -65,18 +62,13 @@ _irq_subroutine:
 	rnd
 	out color.foreground
 
-	lda #10
+	lda #15
 	rnd
 	sta s
 
-skipcenterupdate:
-
-	in
-	cmp const_KeyEnd
-	jz exit	
-
 	pop a
-	rti
+	rts
+
 
 setup:
 	lda const_highres_mode
@@ -108,10 +100,10 @@ s:
 ngondata:
 	.data -10,-10,10,-10,10,10,-10,10</source>
 <mem>1024</mem>
-<row>33</row>
-<col>21</col>
+<row>34</row>
+<col>2</col>
 <hash></hash>
-<scroll>2</scroll>
+<scroll>16</scroll>
 <autorun>false</autorun>
-<exmode>true</exmode>
 <fullscreen>false</fullscreen>
+<fontpath></fontpath>
