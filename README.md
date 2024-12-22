@@ -91,11 +91,11 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 ![Screenshot 2024-12-22 at 8 40 56 PM](https://github.com/user-attachments/assets/9552d849-34f3-414c-9841-82b4c34a31f4)
 <br>
 ![Screenshot 2024-12-22 at 8 38 53 PM](https://github.com/user-attachments/assets/6abeb91f-c4f3-4e37-9069-543987c926de)
-	
 <br>
-<img width="640" alt="Screenshot 2024-10-02 at 3 56 20 PM" src="https://github.com/user-attachments/assets/13924f5c-be3a-4e58-b359-5b452eb7bddc">
+![Screenshot 2024-12-22 at 9 04 23 PM](https://github.com/user-attachments/assets/ad0e2d91-e49f-4478-8a01-2bc132705827)
 <br>
-<img width="640" src="https://github.com/user-attachments/assets/27be8bf5-b224-434f-9662-23312c8c8ea6">
+![Screenshot 2024-12-22 at 9 02 56 PM](https://github.com/user-attachments/assets/fcad2713-88c3-40f1-8c3d-1424233a7826)
 <br>
-<img width="640" alt="Screenshot 2024-10-16 at 10 27 32 AM" src="https://github.com/user-attachments/assets/2c3e6e99-b5f5-4ada-81cd-5cc44fe4cd79">
+![Screenshot 2024-12-22 at 9 02 20 PM](https://github.com/user-attachments/assets/2034d78c-eb34-45ab-9360-02ecde8f8f5e)
+
 </p>
