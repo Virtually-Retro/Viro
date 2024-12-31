@@ -90,6 +90,8 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 <br>
 ![Screenshot 2024-12-22 at 8 40 56 PM](https://github.com/user-attachments/assets/9552d849-34f3-414c-9841-82b4c34a31f4)
 <br>
+<img src="https://github.com/user-attachments/assets/330e9e9c-fa84-4222-920c-ab5b0a6ed69c" />
+<br>
 ![Screenshot 2024-12-22 at 8 38 53 PM](https://github.com/user-attachments/assets/6abeb91f-c4f3-4e37-9069-543987c926de)
 <br>
 ![Screenshot 2024-12-22 at 9 04 23 PM](https://github.com/user-attachments/assets/ad0e2d91-e49f-4478-8a01-2bc132705827)
