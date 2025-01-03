@@ -79,20 +79,19 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e70e48b7-5282-4541-8a46-9ad906473bec" />
 <br>
-![Screenshot 2024-12-22 at 8 41 10 PM](https://github.com/user-attachments/assets/55f01159-c339-4a8a-bf7d-cc2cce692bba)
+<img src="https://github.com/user-attachments/assets/55f01159-c339-4a8a-bf7d-cc2cce692bba" />
 <br>
-![Screenshot 2024-12-22 at 8 41 03 PM](https://github.com/user-attachments/assets/d67cedba-fe0d-4bd2-ba24-b7e8768b224c)
+<img src="https://github.com/user-attachments/assets/d67cedba-fe0d-4bd2-ba24-b7e8768b224c" />
 <br>
-![Screenshot 2024-12-22 at 8 40 56 PM](https://github.com/user-attachments/assets/9552d849-34f3-414c-9841-82b4c34a31f4)
+<img src="https://github.com/user-attachments/assets/9552d849-34f3-414c-9841-82b4c34a31f4" />
 <br>
 <img src="https://github.com/user-attachments/assets/330e9e9c-fa84-4222-920c-ab5b0a6ed69c" />
 <br>
-![Screenshot 2024-12-22 at 8 38 53 PM](https://github.com/user-attachments/assets/6abeb91f-c4f3-4e37-9069-543987c926de)
+<img src="https://github.com/user-attachments/assets/6abeb91f-c4f3-4e37-9069-543987c926de" />
 <br>
-![Screenshot 2024-12-22 at 9 04 23 PM](https://github.com/user-attachments/assets/ad0e2d91-e49f-4478-8a01-2bc132705827)
+<img src="https://github.com/user-attachments/assets/ad0e2d91-e49f-4478-8a01-2bc132705827" />
 <br>
-![Screenshot 2024-12-22 at 9 02 56 PM](https://github.com/user-attachments/assets/fcad2713-88c3-40f1-8c3d-1424233a7826)
+<img src="https://github.com/user-attachments/assets/fcad2713-88c3-40f1-8c3d-1424233a7826" />
 <br>
-![Screenshot 2024-12-22 at 9 02 20 PM](https://github.com/user-attachments/assets/2034d78c-eb34-45ab-9360-02ecde8f8f5e)
-
+<img src="https://github.com/user-attachments/assets/2034d78c-eb34-45ab-9360-02ecde8f8f5e" />
 </p>
