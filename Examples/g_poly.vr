@@ -1,0 +1,20 @@
+<VirtuallyRetro-File>
+<source>	.debugMode
+
+_start:
+	
+	pds #polydata
+	call const_graphics, const_gPolyGon
+	
+	brk
+
+polydata:
+	.data 100,100,200,200,250,50,50,25
+</source>
+<mem>1024</mem>
+<row>5</row>
+<col>36</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

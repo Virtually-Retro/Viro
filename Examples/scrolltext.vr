@@ -1,0 +1,215 @@
+<VirtuallyRetro-File>
+<source>_start:
+
+	.ignorelocal
+	.title "Scroll Text Test"
+	
+	jsr setup
+
+			
+mainloop:
+	in key.code
+	jsrnz keyTest
+			
+	lda #4
+	rnd
+	jsrnz space
+	jsrz chars
+	
+	jp mainloop
+
+
+keyTest:
+	
+	in key.code
+	cmp #114 ;r
+	jsrz rkey
+	jz endkeyTest
+	
+	in key.code
+	cmp #108 ;l
+	jsrz printCustomString
+	jz endkeyTest
+	
+	in key.code
+	cmp #109 ;m
+	jsrz printCustomStringInRegion
+	jz endkeyTest
+			
+	in key.code
+	cmp #116 ;t
+	jsrz createTextRegion
+	jz endkeyTest
+		
+	in key.code
+	cmp #115 ;s
+	jsrz skey
+	jz endkeyTest
+	
+	in key.code
+	cmp const_keyHome
+	jsrz homeKey
+	jz endkeyTest
+	
+	in key.code
+	cmp #32 ;space 
+	jsrz spacekey
+	jz endKeyTest
+	
+	in key.code 	;In keyTest Exit handler
+	cmp const_keyEnd
+	jnz endKeyTest
+	brk
+	
+endkeyTest:
+	in ;Clear old key code
+	
+	rts
+
+
+printCustomStringInRegion:
+	push a
+	
+	lda #63
+	out color.foreground
+	
+	lda #message
+	out text.print
+	
+	pop a
+	rts
+
+
+printCustomString:
+	push a
+	
+	lda #63
+	out color.foreground
+	
+	pds #message
+	pds #0
+	pds #0
+	call const_text, const_tLinePrint
+	
+	pop a
+	rts
+
+createTextRegion:
+	push a
+
+	lda #16
+	out color.background
+	_cls
+	
+	pds #20
+	pds #20
+	pds #280
+	pds #200
+	call const_text, const_tSetTextRegion
+						
+	lda const_cBlack
+	out color.background
+	
+	_clearTextRegion
+	
+	lda #63
+	out color.foreground
+	pds #19
+	pds #19
+	pds #281
+	pds #201
+	call const_graphics, const_gRect
+	
+	call const_text, const_tGetTextRegionWidth
+	sta r0
+		
+	call const_text, const_tGetTextRegionHeight
+	sta r1
+
+	pop a
+	rts
+
+
+rkey:
+	push a
+	
+	_cls
+	call const_text, const_tResetTextRegion
+		
+	call const_text, const_tGetTextRegionWidth
+	sta r0
+		
+	call const_text, const_tGetTextRegionHeight
+	sta r1
+	
+	
+	pop a
+	rts
+
+
+skey:
+	_scrollTextRegion
+	rts
+
+
+spacekey:
+	_clearTextRegion
+	rts
+
+
+homekey:
+	_resetTextCursor
+	rts
+
+
+space:
+	push a
+	
+	lda #32
+	out
+	
+	pop a
+	rts
+
+
+chars:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+	lda #94
+	rnd
+	add #32
+	out
+	
+	pop a
+	rts
+
+	
+setup:
+	push a
+	
+	lda #0.5
+	out sys.performance
+ 	
+	;lda const_highres_mode
+	;out screen.mode
+	
+	jsr createTextRegion
+	
+	pop a
+	rts
+	
+	brk
+
+message:
+	.data 72,101,108,108,111,32,87,111,114,108,100,33,33	
+</source>
+<mem>1024</mem>
+<row>53</row>
+<col>15</col>
+<hash></hash>
+<scroll>33</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

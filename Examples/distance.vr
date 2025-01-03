@@ -1,0 +1,122 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	.ignorelocal
+	
+mainLoop:
+	
+	in key.code
+	jsrnz keytest
+	
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	pds #160.0
+	pds #120.0
+	call const_maths, const_mdistanceto
+	round	
+	sta r0
+			
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	pds #160.0
+	pds #120.0
+	pds #10 ;Death Zone
+	call const_maths, const_mdistancecollider
+		
+	jnz skipdc
+	
+	lda #message
+	out text.print
+		
+	
+skipdc:
+			
+	lda #0
+	out mouse.button_clicked
+	
+	jsr drawScreen
+					
+skip:
+		
+	hlt
+	
+	_cls
+	
+	jp mainLoop
+
+exit:
+	brk
+	
+	
+keyTest:
+	push a
+	
+	in
+	cmp const_KeyEnd
+	jz exit
+	
+	pop a
+	rts
+	
+	
+drawScreen:
+	
+	lda const_clightgray
+	out color.foreground
+	
+	pds #160
+	pds #120
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	call const_graphics,  const_gLine
+		
+	lda const_cWhite
+	out color.foreground
+		
+	pds #160
+	pds #110
+	pds #160
+	pds #130
+	call const_graphics,  const_gLine
+	
+	pds #150
+	pds #120
+	pds #170
+	pds #120
+	call const_graphics,  const_gLine
+	
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	pds #5
+	call const_graphics,  const_gCircle
+	
+	lda r0
+	out text.print
+		
+	rts
+	
+	brk
+	
+message:
+	.data 68,101,97,100,32,0
+	
+	
+</source>
+<mem>1024</mem>
+<row>24</row>
+<col>11</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

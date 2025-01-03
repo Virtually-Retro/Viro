@@ -1,0 +1,71 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	.ignorelocal
+	
+mainLoop:
+
+	in
+	cmp const_KeyEnd
+	jz exit
+
+	in mouse.button_clicked
+	jz skip
+
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	pds #15
+	pds #160.0
+	pds #120.0
+	pds #50
+	call const_maths, const_mSpherecollider
+	
+	jnz draw
+
+	lda const_cRed
+	out color.foreground
+			
+draw:
+	jsr drawCircle
+		
+	lda #0
+	out mouse.button_clicked
+						
+skip:
+	hlt
+	
+	jp mainLoop
+
+exit:
+	brk
+	
+
+drawCircle:
+	
+	_cls
+	
+	in mouse.x
+	pds a
+	in mouse.y
+	pds a
+	pds #15
+	call const_graphics, const_gCircle
+			
+	pds #160
+	pds #120
+	pds #50
+	call const_graphics, const_gCircle
+	
+	lda const_cWhite
+	out color.foreground
+
+	rts</source>
+<mem>1024</mem>
+<row>21</row>
+<col>27</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

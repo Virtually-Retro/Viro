@@ -1,0 +1,32 @@
+<VirtuallyRetro-File>
+<source>_start:
+	.ignorelocal
+			
+	lda #1199
+	stc
+
+loop:
+	lda num
+	out text.print
+	inc
+	sta num
+	cmp #9
+	jgz skip
+	lda #0
+	sta num
+
+skip:
+	lp loop
+
+	hlt
+	brk
+
+num:
+	.data 0</source>
+<mem>1024</mem>
+<row>3</row>
+<col>10</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

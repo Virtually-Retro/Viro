@@ -1,0 +1,47 @@
+<VirtuallyRetro-File>
+<source>;Noels Retro Lab Speed Test, in Viro Assembly
+_start:
+	.debugMode
+	.ignorelocal
+	
+	;lda #0.025 ;Commodore 64 Speed
+	;out sys.performance
+			
+	lda #10
+	stc
+
+	rt const_timer0
+
+outerLoop:
+	push c
+
+	lda #0
+	sta r1
+
+	lda #1000
+	stc
+	lda r1
+	innerLoop:
+		add c
+	lp innerLoop
+	sta r1
+
+	lda #46
+	out
+
+	pop c
+	lp outerLoop
+
+	lda r1
+	out text.print
+	gt const_timer0
+	
+	div #1000</source>
+<mem>1024</mem>
+<row>18</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>
+<fontpath></fontpath>

@@ -1,0 +1,129 @@
+<VirtuallyRetro-File>
+<source>_start:
+	jsr setup
+	
+	lda true
+	out mouse.enableTranslation
+
+
+mainloop:
+
+	in key.code
+	jsrnz keyTest
+	
+	hlt
+
+	in mouse.inGraphicsRegion
+	jz mainLoop
+ 
+	in mouse.buttonDown
+	jz mainLoop
+
+	in mouse.buttonClicked
+	cmp #1
+	jsrz drawpoint
+	jsrnz drawpointwithreset
+
+	jp mainloop
+
+
+keyTest:
+	push a
+
+	in key.Code
+	cmp #99 ;c key
+	jsrz clearScreen
+	jz endKeyTest
+	
+	in key.Code
+	cmp #114 ;r key
+	jsrz reset
+	jz endKeyTest
+	
+	in key.Code
+	cmp #115 ;s key
+	jsrz setup
+	jz endKeyTest
+	
+	in key.Code
+	cmp const_KeyEnd
+	jnz endKeyTest
+	brk
+
+endKeyTest:
+	in
+
+	pop a
+	rts
+
+reset:
+	_resetGraphicsRegion
+	_cls
+	rts
+
+clearScreen:
+	_clearGraphicsRegion
+	rts
+
+drawpoint:
+	push a
+
+	in mouse.X
+	pds a
+	in mouse.y
+	pds a
+	call const_graphics, const_glineto
+	
+	lda #0
+	out mouse.buttonClicked
+
+	pop a
+	rts
+
+drawpointwithreset:
+	push a
+
+	in mouse.X
+	pds a
+	in mouse.y
+	pds a
+	call const_graphics, const_gLineTo
+	call const_graphics, const_gLineToReset
+	
+	lda #0
+	out mouse.buttonClicked
+
+	pop a
+	rts
+	
+setup:
+	push a
+	
+	lda const_lowres_mode
+	out screen.mode
+
+	pds #9
+	pds #9
+	pds #301
+	pds #221
+	call const_graphics, const_gRect
+
+	pds #10
+	pds #10
+	pds #300
+	pds #220
+	call const_graphics, const_gSetGraphicsRegion
+
+	lda #0
+	out color.background
+	_clearGraphicsRegion
+
+	pop a
+	rts	</source>
+<mem>1024</mem>
+<row>5</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

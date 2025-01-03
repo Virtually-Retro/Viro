@@ -1,0 +1,105 @@
+<VirtuallyRetro-File>
+<source>_start:
+	jsr setup
+	
+mainloop:
+	
+	gt const_timer0
+	cmp #15
+	jg mainloop
+	jsr drawpoly
+	rt const_timer0
+	
+	in mouse.buttonClicked
+	cmp #1
+	jsrz centerupdate
+	
+	in
+	cmp const_KeyEnd
+	jz exit	
+	
+jp mainloop
+
+exit:
+	brk
+
+
+drawPoly:
+	_cls
+	
+	pds x
+	pds y
+	pds #ngondata
+	pds r
+	pds s
+	call const_graphics, const_gsgon
+		
+	lda r
+	inc
+	sta r
+
+	cmp #360
+	jg skip
+	lda #0
+	sta r
+
+skip:
+
+	rts
+
+
+centerupdate:
+	push a
+
+	in mouse.x
+	sta x
+	in mouse.y
+	sta y
+	lda #0
+	out mouse.buttonClicked
+
+	lda #63
+	rnd
+	out color.foreground
+
+	lda #15
+	rnd
+	sta s
+
+	pop a
+	rts
+
+
+setup:
+	lda const_highres_mode
+	out screen.mode
+
+	lda const_cgreen
+	out color.foreground
+	lda false
+
+	lda const_cBlack
+	out color.background
+	
+rts
+
+	brk
+
+x:
+	.data 320
+y:
+	.data 240
+r:
+	.data 0
+s:
+	.data 10
+
+ngondata:
+	.data -10,-10,10,-10,10,10,-10,10</source>
+<mem>1024</mem>
+<row>81</row>
+<col>0</col>
+<hash></hash>
+<scroll>59</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>

@@ -1,0 +1,81 @@
+<VirtuallyRetro-File>
+<source>_start:
+	
+	lda #0
+	out color.background
+	_cls
+
+
+mainLoop:
+
+	in key.Code
+	jsrnz keyTest
+		
+	jsr randomColor
+	jsr drawLine
+
+	jp mainLoop
+
+;----------------------------------		
+exit:
+	brk
+
+;----------------------------------	
+keyTest:
+	push a
+	
+	in key.Code
+	cmp #32
+	jsrz clearScreen
+	
+	in ;No paramters clears the last keycode
+	cmp const_keyEnd
+	jz exit
+	
+	pop a
+	rts
+
+	nop
+
+;----------------------------------
+drawLine:
+	push a
+
+	lda #2 ;Generate two random points
+	stc
+loopStart:
+	lda #320
+	rnd
+	pds a
+	lda #240
+	rnd
+	pds a
+	lp loopStart
+	
+	call const_graphics, const_gLine
+	
+	pop a
+	rts
+
+;----------------------------------		
+clearScreen:
+	_cls
+	rts
+	
+;----------------------------------		
+randomColor:
+	push a
+	
+	lda #63
+	rnd
+	out color.foreground
+	
+	pop a
+	rts</source>
+<mem>1024</mem>
+<row>5</row>
+<col>0</col>
+<hash></hash>
+<scroll>0</scroll>
+<autorun>false</autorun>
+<fullscreen>false</fullscreen>
