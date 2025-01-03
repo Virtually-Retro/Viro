@@ -1,4 +1,4 @@
-# Viro Version 1.0 Release Candidate 3
+# Viro Version 1.0 Release Candidate 4
 
 Viro, the virtual, retro inspired, home-brew, fully programmable computer system for all of us who love retro computers but lack the space, resources or those essential skills required to build something physical.
 
@@ -19,54 +19,51 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	Windows Manager with custom dialogs
 	Metrics System / Memory Viewer / Ports Viewer / Strings Editor / Font Editor
 	Detailed systems manual
-	
-### Planned Additions, Fixes and Updates:
 
-### Changes in Version 1.0 RC3:
-	Code Editor: Added a colour picker to allow easy selection and insertion of colour indexes.
-	Code Editor: Added a keyboard listener tool for easy insertion of key values.
-	Code Editor: Added a font editor to allow quick and easy modification of the font set.
-	Code Editor: Added a new dialog based string tool.
-	Code Editor: Altered keyboard shortcut for Metrics Viewer.
-	Code Editor: Removed keyboard shortcut for full font editor.
-	Code Editor: Removed memory reset as not needed.
-	Compiler: Added additional messaging for hidden/protect ported addresses.  
-	Compiler: Added hidden port addresses to the protected list.
-	Compiler: Added remove single instance memory blocks at end of compile.
-	Compiler: Fixed bug in .ORG instruction logic.
-	Font Editor: Improved .ignoreLocal detection accounting for it being commented out.
-	Graphics: Added optional True / False parameter to ClearScreen, to clear all buffers if required.
-	Main Terminal: Added an about dialog.
-	Main Terminal: Added a password confirmation dialog for locking and unlocking the project.
-	Main Terminal: Corrected a logic issue with the password system.
-	Main Terminal: Corrected a logic issue with LS command.
-	Main Terminal: Removed flags system and added an options dialog.
-	Main Terminal: Reorganised the command processor for ease of management.
-	Metrics Viewer: Added total engine calls.
-	Language: Change pcd to pds (Push Data Stack)
-	Runtime: Added NULL and Zero byte checking to the FileIO system.
-	Runtime: Added prior value checking to the trigger register system, to stop excessive signal processing
-	Runtime: Added RTI trap when used when an IRQ is not active.
-	Runtime: Adjusted IRQ logic to use a register for active status.
-	Runtime: Adjusted scheduler for increased performance.
-	Runtime: Adjusted memory bit-mask to default to code not variables.
-	Runtime: Adjusted performance calculation and debug pane display.
-	Runtime: Adjusted performance engine tweak setting to better match CPU usage of Debug engine.
-	Runtime: Adjusted screen refresh logic to use a register.
-	Runtime: Altered keyboard shortcuts for Trace Mode and the Debug Pane.
-	Runtime: Corrected logic for soft IRQ so it can’t be fired if an IRQ is already active.
-	Runtime: Debug engine now remembers the last debug pane displayed on subsequent executions.
-	Runtime: Decoupled all sub systems from the runtime engines.
-	Runtime: Disabled PC and Address checking since implementation of memory bit-mask.
-	Runtime: Fixed a bug where the debug engine was being run twice almost instantly which could lead to a crash.
-	Runtime: Removed memory import / export requirements.
-	Runtime: Separated the debug and performance engines.
-	System: Added a check that the home and sub paths exist on load.
-	System: Added unsaved project prompt, on all systems that may result in code/settings loss.
-	System: Changed Min / Max screen resolutions from hardcoded to system variables.
-	System: Changed ‘Sounds’ singleton to ‘Audio’.
-	System: Fixed bug where program would remain paused when clicking exit on the main window.
-	System: Remapped all keyboard shortcuts with generic names so that using them in other systems is more understandable.
+### Changes in Version 1.0 RC4:
+	Audio: Added an audio.reset port, to clear all loaded sounds and return the system to default.
+	Audio: Added an audio subsystem to better handle communication with the sound manager.
+	Audio: Audio files are now only loaded when first played, not when the program is compiled.
+	Audio: Moved audio resource checking to the audio subsystem.
+	Code Editor: Added a Compiler Directives selection Dialog.
+	Code Editor: Added a Constants Section dialog.
+	Code Editor: Added a Ports selection dialog.
+	Code Editor: Adjusted the Directive Dialog to use a dynamic list for easy modification.
+	Code Editor: Adjusted the String Editor dialog to allow reediting of existing inserted .data strings statements.
+	Compiler: No longer shows compile line errors when the project is locked.
+	FileIO: Adjusted FileIO to use an ASCII PackedByteArray for file data.
+	FileIO: Moved file resource checking internal to fileIO system.
+	Graphics: Added setGraphicsRegion
+	Graphics: Added clearGraphicsRegion
+	Graphics: Added get graphics region dimensions
+	Graphics: Moved graphics resource checking internal to graphics engine.
+	Graphics: Recoded entire graphics system to be region based.
+	Keyboard Event Listener: Added comment with UNICODE values
+	Keyboard Event Listener: Adjusted code to trap and not respond to invalid constants.
+	Keyboard Event Listener: Trapped key enter event to stop it propagating to code editor.
+	Main Terminal: Adjusted initial startup and free command memory message.
+	Main Terminal: Improved the look of the password dialog.
+	Mouse: Added mouse.inGraphicsRegion
+	Mouse: Added mouse.enableTranslation
+	Runtime: Added keyboard constants for special media keys.
+	Runtime: Adjusted constants for text subsystem.
+	Runtime: Adjusted performance settings and tweak value.
+	System: Encrypted all compiler and runtime database files.
+	System: Moved lots of functions out of Globals scripts into the runtime tools.
+	System: Moved setting register defaults from runtime to runtime tools script.
+	Text System: Added _clearTextRegion.
+	Text System: Added _resetTextCursor.
+	Text System: Added _scrollTextRegion.
+	Text System: Added Get Line Print Length Call.
+	Text System: Added const_tGetTextRegionHeight.
+	Text System: Added const_tGetTextRegionWidth.
+	Text System: Added Line Print Call.
+	Text System: Added Reset Text Region call.
+	Text System: Added Set Text Region call.
+	Text System: Moved reset cursor from graphics to text subsystem.
+	Text System: Redesigned text system to be entirely region based.
+	Text System: Simplified text system. 
+	Text System: Text Region entirety must be within the bounds of the screen.
 	System: Removed screen resizing and additional improvements to the system script.
 
 #### Planned Additions:
@@ -75,14 +72,12 @@ The releases listed to the right contain compiled binaries for Linux, Windows an
 	GUI type subsystem.
 	Hardware Sprites.
 	Vector Sprites.
-	Text Regions.
 	3D calulations in maths subsystem.
 
-### Example Screenshots - Version 1.0 RC3:
+### Example Screenshots - Version 1.0 RC4:
 
 <p align="center">
-
-![Screenshot 2024-12-22 at 8 41 38 PM](https://github.com/user-attachments/assets/c488e432-f696-42b1-b343-46c090aa7436)
+<img src="https://github.com/user-attachments/assets/e70e48b7-5282-4541-8a46-9ad906473bec" />
 <br>
 ![Screenshot 2024-12-22 at 8 41 10 PM](https://github.com/user-attachments/assets/55f01159-c339-4a8a-bf7d-cc2cce692bba)
 <br>
